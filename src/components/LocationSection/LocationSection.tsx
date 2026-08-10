@@ -1,0 +1,63 @@
+"use client";
+
+import Image from "next/image";
+import { motion } from "framer-motion";
+import LocationStats from "./LocationStats";
+
+export default function LocationSection() {
+  return (
+    <section
+      id="location"
+      className="relative overflow-hidden py-32"
+    >
+      {/* Background */}
+      <Image
+        src="/location-bg.jpg"
+        alt="Location"
+        fill
+        priority
+        className="object-cover w-full h-full"
+      />
+
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-[#183121]/60" />
+
+      <div className="relative z-10 mx-auto max-w-6xl px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: .8 }}
+          className="mx-auto max-w-5xl text-center text-white"
+        >
+          <p className="text-md uppercase tracking-[0.35em]">
+            Location
+          </p>
+
+          <h2
+            className="mt-5 text-3xl font-bold uppercase lg:text-4xl"
+            style={{
+              fontFamily: "Cormorant Garamond, serif",
+            }}
+          >
+            CONNECTED TO WHAT MATTERS
+          </h2>
+
+          <p className="mx-auto mt-10 max-w-4xl text-md leading-7 text-white/90">
+            Highway Greens is envisioned for people who want to remain connected
+            to work, education, healthcare, family and everyday conveniences
+            while enjoying a calmer and more spacious living environment.
+          </p>
+
+          <p className="mx-auto mt-6 max-w-4xl text-md leading-7 text-white/90">
+            It offers the balance of being close enough to participate in the
+            city and far enough to step away from its constant noise and
+            congestion.
+          </p>
+        </motion.div>
+
+        <LocationStats />
+      </div>
+    </section>
+  );
+}

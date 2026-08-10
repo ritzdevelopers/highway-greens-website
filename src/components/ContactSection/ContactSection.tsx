@@ -1,0 +1,48 @@
+"use client";
+
+import Image from "next/image";
+import { motion } from "framer-motion";
+import ContactForm from "./ContactForm";
+
+export default function ContactSection() {
+  return (
+    <section
+      id="contact"
+      className="relative overflow-hidden py-28"
+    >
+      {/* Background */}
+      <Image
+        src="/contact-bg.jpg"
+        alt="Background"
+        fill
+        priority
+        className="object-cover"
+      />
+
+      {/* Light Overlay */}
+      <div className="absolute inset-0 bg-white/10" />
+
+      <div className="relative z-10 mx-auto max-w-7xl px-6">
+        {/* Heading */}
+        <motion.div
+          initial={{ opacity: 0, y: 35 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+        >
+          <h2 className="max-w-5xl text-3xl font-semibold uppercase leading-tight text-black lg:text-4xl">
+            Begin Your Highway Greens Journey
+          </h2>
+
+          <p className="mt-6 max-w-6xl text-xl uppercase leading-relaxed text-black lg:text-2xl">
+            Speak with our property advisor to learn more about plot
+            availability, pricing and the project vision.
+          </p>
+        </motion.div>
+
+        {/* Form */}
+        <ContactForm />
+      </div>
+    </section>
+  );
+}
