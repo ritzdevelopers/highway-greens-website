@@ -8,15 +8,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #ffffff;
-    --foreground: #000000;
-  }
+  --font-sans: var(--font-outfit);
+  --font-outfit: var(--font-outfit);
 }
 
 * {
@@ -32,13 +25,5 @@ body {
   margin: 0;
   background: #ffffff;
   color: #000000;
-  font-family: var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-outfit), sans-serif;
 }
-
-/* button,
-input,
-textarea,
-select {
-  font: inherit;
-  color: #000000;
-} */

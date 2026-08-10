@@ -14,6 +14,7 @@ import ExperienceSection from "@/components/project/ExperienceSection";
 import Journey from "@/components/project/Journey";
 import PlotOptions from "@/components/project/PlotOptions";
 import Highlights from "@/components/project/Highlights";
+import Location from "@/components/project/Location";
 
 export default function ProjectPage() {
   return (
@@ -21,7 +22,8 @@ export default function ProjectPage() {
       <Navbar links={projectNavLinks} />
       <HeroSection content={heroContent} />
       <OverviewSection content={overviewContent} />
-      <AmenitiesSection amenities={amenities} />
+      <AmenitiesSection />
+      <Location />
       <Highlights />
       <PlotOptions />
       <Journey />

@@ -4,7 +4,7 @@ import { plotOptions } from "@/data/projectData";
 
 export default function PlotOptions() {
     return (
-        <section className="bg-[#22382d] py-24 overflow-hidden">
+        <section className="bg-[#22382d] py-18 overflow-hidden">
             <div className="max-w-7xl mx-auto px-6">
 
                 {/* Heading */}
@@ -104,14 +104,21 @@ export default function PlotOptions() {
                                 )}
 
                                 <div className="mt-10">
-                                    <button
-                                        className={`w-full rounded-xl border-2 py-3 text-md font-semibold transition-all duration-300 ${item.variant === "dark"
-                                            ? "border-[#c79157] bg-[#c79157] text-white hover:bg-transparent hover:text-white"
-                                            : "border-[#22382d] text-[#22382d] hover:bg-[#22382d] hover:text-white"
-                                            }`}
-                                    >
-                                        {item.button}
-                                    </button>
+<button
+    className={`group relative w-full overflow-hidden rounded-xl border-2 py-3 text-md font-semibold transition-all duration-300 hover:-translate-y-1 hover:shadow-lg active:translate-y-0 ${
+        item.variant === "dark"
+            ? "border-[#c79157] bg-[#c79157] text-white hover:bg-transparent hover:text-white"
+            : "border-[#22382d] text-[#22382d] hover:bg-[#22382d] hover:text-white"
+    }`}
+>
+    {/* Shine animation */}
+    <span className="absolute inset-0 -translate-x-full skew-x-[-20deg] bg-white/20 transition-transform duration-700 group-hover:translate-x-[150%]" />
+
+    {/* Button content */}
+    <span className="relative z-10 flex items-center justify-center gap-2">
+        {item.button}
+    </span>
+</button>
                                 </div>
                             </div>
                         );

@@ -10,7 +10,7 @@ export default function Footer() {
         <footer className="bg-[#23382d] text-white overflow-hidden">
             {/* Top Section */}
             <div className="border-b border-[#3a4d42]">
-                <div className="max-w-7xl mx-auto px-6 py-10ExperienceSection.tsx flex flex-col items-center">
+                <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col items-center">
 
                     {/* Logo */}
                     <div className="relative w-[220px] h-[90px]">
@@ -46,7 +46,7 @@ export default function Footer() {
 
                     {/* Address */}
                     <div>
-                        <h3 className="text-[25px] text-[#f4dcc6] font-light mb-10">
+                        <h3 className="text-[25px] text-[#f4dcc6] font-light mb-5">
                             Address
                         </h3>
 
@@ -71,7 +71,7 @@ export default function Footer() {
 
                     {/* Links */}
                     <div className="lg:pl-10">
-                        <h3 className="text-[25px] text-[#f4dcc6] font-light mb-10">
+                        <h3 className="text-[25px] text-[#f4dcc6] font-light mb-5">
                             Links
                         </h3>
 

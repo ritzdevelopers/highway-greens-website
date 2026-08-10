@@ -29,7 +29,7 @@ export default function Journey() {
     const rightCard = journeyData[getIndex(1)];
 
     return (
-        <section className="bg-white py-24 overflow-hidden">
+        <section className="bg-white py-14 overflow-hidden">
             <div className="max-w-7xl mx-auto px-6">
 
                 {/* Heading */}
@@ -38,7 +38,7 @@ export default function Journey() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: .7 }}
                     viewport={{ once: true }}
-                    className="text-center text-3xl md:text-4xl font-light mb-15 font-semibold"
+                    className="text-center text-4xl md:text-5xl font-light mb-10 font-medium"
                 >
                     The Journey
                 </motion.h2>
@@ -52,7 +52,7 @@ export default function Journey() {
                         initial={{ opacity: 0, x: -70 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: .45 }}
-                        className="relative h-[380px] rounded-xl overflow-hidden shadow-xl cursor-pointer group"
+                        className="relative h-[400px] rounded-xl overflow-hidden shadow-xl cursor-pointer group"
                         onClick={prev}
                     >
                         <Image
@@ -73,7 +73,7 @@ export default function Journey() {
                             animate={{ opacity: 1, scale: 1 }}
                             exit={{ opacity: 0 }}
                             transition={{ duration: .45 }}
-                            className="relative h-[520px] rounded-xl overflow-hidden shadow-2xl"
+                            className="relative h-[500px] rounded-xl overflow-hidden shadow-2xl"
                         >
                             <Image
                                 src={centerCard.image}
@@ -87,11 +87,11 @@ export default function Journey() {
 
                             <div className="absolute bottom-10 left-8 right-8 text-center text-white">
 
-                                <h3 className="text-2xl font-semibold leading-tight">
+                                <h3 className="text-xl font-semibold leading-tight">
                                     {centerCard.title}
                                 </h3>
 
-                                <p className="mt-4 text-md text-white/90 leading-6">
+                                <p className="mt-4 text-sm text-white/90 leading-5">
                                     {centerCard.subtitle}
                                 </p>
 
@@ -105,7 +105,7 @@ export default function Journey() {
                         initial={{ opacity: 0, x: 70 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: .45 }}
-                        className="relative h-[380px] rounded-xl overflow-hidden shadow-xl cursor-pointer group"
+                        className="relative h-[400px] rounded-xl overflow-hidden shadow-xl cursor-pointer group"
                         onClick={next}
                     >
                         <Image

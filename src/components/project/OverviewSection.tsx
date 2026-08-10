@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import type { OverviewContent } from "@/data/projectData";
-import SectionWrapper from "@/components/SectionWrapper";
+import AnimatedButton from "../ui/AnimatedButton";
 
 type OverviewSectionProps = {
   content: OverviewContent;
@@ -11,55 +11,152 @@ type OverviewSectionProps = {
 
 export default function OverviewSection({ content }: OverviewSectionProps) {
   return (
-    <SectionWrapper id="overview" className="relative overflow-hidden bg-white py-24">
-      <div
-        className="absolute right-0 top-0 h-full w-[55%] opacity-30"
-        style={{
-          backgroundImage: "radial-gradient(#d8d8d8 1.5px, transparent 1.5px)",
-          backgroundSize: "28px 28px",
-        }}
-      />
+    <section
+      id="overview"
+      className="relative bg-white"
+    >
+      <div className="mx-auto max-w-[1380px] px-6 pb-24 pt-24 lg:px-10 lg:pt-20">
+        <div className="relative grid grid-cols-1 lg:grid-cols-[340px_minmax(0,1fr)_300px] lg:gap-x-10">
 
-      <div className="relative mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-10">
-        <motion.div
-          initial={{ opacity: 0, x: -40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-        >
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-amber-700">Overview</p>
-          <h2 className="text-4xl font-black uppercase leading-tight text-slate-950 sm:text-5xl" style={{ fontFamily: "Cormorant Garamond, serif" }}>
-            {content.title}
-          </h2>
-          <p className="mt-3 text-xl font-semibold text-slate-700">{content.subtitle}</p>
+          {/* ================= LEFT IMAGE ================= */}
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8 }}
+            className="flex justify-center lg:justify-start"
+          >
+            <div
+              className="
+                relative
+                h-[560px]
+                w-[365px]
+                border
+                border-slate-300
+                bg-white
+                p-[20px]
+                shadow-sm
+              "
+            >
+              <div className="relative h-full w-full overflow-hidden">
+                <Image
+                  src="/overview-main.jpg"
+                  alt="Highway Greens wellness"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+            </div>
+          </motion.div>
 
-          <div className="mt-10 space-y-6 text-base leading-8 text-slate-600">
-            {content.details.map((detail) => (
-              <p key={detail}>{detail}</p>
-            ))}
-          </div>
+          {/* ================= CENTER CONTENT ================= */}
+          <motion.div
+            initial={{ opacity: 0, y: 35 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="
+              flex
+              flex-col
+              items-center
+              px-2
+              pt-10
+              text-center
+              lg:px-0
+              lg:pt-[145px]
+            "
+          >
+            {/* Heading */}
+            <h2
+              className="
+                text-[38px]
+                font-normal
+                leading-none
+                tracking-[-0.02em]
+                text-[#101827]
+                sm:text-[44px]
+                lg:whitespace-nowrap
+                lg:text-[48px]
+              "
+            >
+              THE{" "}
+              <span className="font-normal text-[#b77b42]">
+                HIGHWAY
+              </span>{" "}
+              GREENS
+            </h2>
 
-          <button className="mt-10 rounded-full bg-amber-700 px-8 py-4 text-sm font-semibold uppercase tracking-[0.28em] text-white transition hover:bg-amber-800">
-            Download Brochure
-          </button>
-        </motion.div>
+            {/* Subtitle */}
+            <p
+              className="
+                mt-6
+                text-[14px]
+                font-semibold
+                tracking-[0.08em]
+                text-[#111827]
+              "
+            >
+              {content.subtitle}
+            </p>
 
-        <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="group overflow-hidden rounded-[30px] bg-slate-100 shadow-xl"
-        >
-          <Image
-            src={content.image}
-            alt={content.title}
-            width={760}
-            height={700}
-            className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-          />
-        </motion.div>
+            {/* Description */}
+            <div
+              className="
+                mt-10
+                max-w-[720px]
+                space-y-7
+                text-[16px]
+                leading-[1.8]
+                text-[#666666]
+                lg:mt-11
+              "
+            >
+              {content.details.map((detail, idx) => (
+                <p key={idx}>
+                  {detail}
+                </p>
+              ))}
+            </div>
+
+            {/* Download button */}
+            <AnimatedButton className="mt-10 px-12 py-4 md:px-14">
+              Download Brochure
+            </AnimatedButton>
+          </motion.div>
+
+          {/* ================= RIGHT IMAGE ================= */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="
+              flex
+              justify-center
+              lg:justify-end
+              lg:pt-[515px]
+            "
+          >
+            <div
+              className="
+                relative
+                h-[235px]
+                w-[310px]
+                overflow-hidden
+                rounded-[3px]
+              "
+            >
+              <Image
+                src="/highlight.jpg"
+                alt="Highway Greens community"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </motion.div>
+        </div>
       </div>
-    </SectionWrapper>
+    </section>
   );
 }

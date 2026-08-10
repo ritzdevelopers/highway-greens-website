@@ -1,63 +1,143 @@
 "use client";
 
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { highlightsData } from "@/data/projectData";
+import AnimatedButton from "../ui/AnimatedButton";
 
 export default function Highlights() {
   return (
-    <section className="relative overflow-hidden bg-[#faf9f7] py-24">
+    <section className="relative overflow-hidden bg-white py-10 lg:py-14 max-w-7xl mx-auto">
+
       {/* Dotted Background */}
       <div
-        className="absolute inset-0 opacity-40"
+        className="pointer-events-none absolute inset-0 opacity-45"
         style={{
-          backgroundImage: "radial-gradient(#d9d9d9 1px, transparent 1px)",
+          backgroundImage:
+            "radial-gradient(#dedede 1.5px, transparent 1.5px)",
           backgroundSize: "28px 28px",
         }}
       />
 
-      <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-16 px-6 lg:grid-cols-2 lg:items-start">
-        {/* Left Image */}
-        <div className="relative overflow-hidden rounded-md">
-          <Image
-            src="/highlights.jpg"
-            alt="Highlights"
-            width={650}
-            height={900}
-            className="h-full w-full object-cover transition duration-700 hover:scale-105"
-          />
-        </div>
+      <div className="relative mx-auto max-w-[1465px] px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[40%_60%] lg:gap-0">
 
-        {/* Right Content */}
-        <div>
-          <h2 className="inline-block border-b border-[#23382d] pb-3 text-5xl font-light uppercase tracking-wide text-[#23382d]">
-            Highlights
-          </h2>
+          {/* ================= LEFT IMAGE ================= */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{
+              duration: 0.6,
+              ease: "easeOut",
+            }}
+            className="relative h-[550px] w-full overflow-hidden lg:h-[660px] lg:pr-10"
+          >
+            <Image
+              src="/highlights.jpg"
+              alt="Highlights"
+              fill
+              priority
+              className="object-cover"
+              sizes="40vw"
+            />
+          </motion.div>
 
-          <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {highlightsData.map((item) => {
-              const Icon = item.icon;
+          {/* ================= RIGHT CONTENT ================= */}
+          <div className="relative lg:pl-12">
 
-              return (
-                <div
+            {/* Heading */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{
+                duration: 0.5,
+                ease: "easeOut",
+              }}
+              className="mb-24"
+            >
+              <h2 className="inline-block border-b border-black pb-3 font-sans text-[40px] font-light uppercase leading-none tracking-[-1px] text-black">
+                Highlights
+              </h2>
+            </motion.div>
+
+            {/* Cards */}
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {highlightsData.map((item, index) => (
+                <motion.div
                   key={item.id}
-                  className="group flex h-[180px] flex-col items-center justify-center border border-[#d8d8d8] bg-white p-6 text-center transition-all duration-300 hover:-translate-y-2 hover:border-[#23382d] hover:shadow-xl"
+                  initial={{
+                    opacity: 0,
+                    y: 20,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    y: 0,
+                  }}
+                  viewport={{
+                    once: true,
+                    amount: 0.2,
+                  }}
+                  transition={{
+                    duration: 0.45,
+                    delay: index * 0.08,
+                    ease: "easeOut",
+                  }}
+                  className="
+                    flex
+                    h-[173px]
+                    flex-col
+                    items-center
+                    justify-center
+                    border
+                    border-[#d5d5d5]
+                    bg-white/90
+                    px-5
+                    py-6
+                    text-center
+                    transition-all
+                    duration-300
+                    hover:-translate-y-1
+                    hover:shadow-md
+                  "
                 >
-                  <Icon
-                    size={44}
-                    className="mb-5 text-[#23382d] transition-transform duration-300 group-hover:scale-110"
-                  />
+                  {/* Image Icon */}
+                  <div className="mb-5 flex h-[58px] w-[58px] items-center justify-center">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      width={58}
+                      height={58}
+                      className="h-[52px] w-[52px] object-contain"
+                    />
+                  </div>
 
-                  <h3 className="whitespace-pre-line text-xl font-medium leading-8 text-[#555]">
+                  {/* Title */}
+                  <h3 className="whitespace-pre-line font-sans text-[18px] font-normal leading-[1.35] tracking-[-0.2px] text-[#666666]">
                     {item.title}
                   </h3>
-                </div>
-              );
-            })}
-          </div>
+                </motion.div>
+              ))}
+            </div>
 
-          <button className="mt-14 bg-[#c79157] px-10 py-4 text-lg font-semibold text-black transition-all duration-300 hover:bg-[#23382d] hover:text-white">
-            Explore More
-          </button>
+            {/* Explore Button */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{
+                duration: 0.5,
+                delay: 0.25,
+                ease: "easeOut",
+              }}
+            >
+              <AnimatedButton className="mt-10 px-12 py-4 md:px-14">
+                Explore More
+              </AnimatedButton>
+            </motion.div>
+
+          </div>
         </div>
       </div>
     </section>

@@ -1,75 +1,142 @@
 "use client";
 
-import Image from "next/image";
-import { motion } from "framer-motion";
-import type { Amenity } from "@/data/projectData";
-import SectionWrapper from "@/components/SectionWrapper";
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { amenities } from "@/data/amenities";
+import AmenityTabs from "./AmenityTabs";
 
-type AmenitiesSectionProps = {
-  amenities: Amenity[];
-};
+export default function AmenitiesSection() {
+  const [activeId, setActiveId] = useState("leisure");
 
-export default function AmenitiesSection({ amenities }: AmenitiesSectionProps) {
+  const activeAmenity =
+    amenities.find((item) => item.id === activeId) ?? amenities[0];
+
+  const Icon = activeAmenity.icon;
+
   return (
-    <SectionWrapper id="amenities" className="bg-[#F9F6F1] py-24">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
-        <div className="text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.28em] text-amber-700">Project Amenities</p>
-          <h2 className="mt-4 text-4xl font-black uppercase leading-tight text-slate-950 sm:text-5xl" style={{ fontFamily: "Cormorant Garamond, serif" }}>
-            3+ Acres of Elevated Living
+    <section className="relative overflow-hidden bg-white py-10 lg:py-14">
+      <div className="mx-auto max-w-7xl px-6">
+        {/* Heading */}
+        <div className="mx-auto mb-16 max-w-[1100px] text-center">
+          <p className="mb-5 text-[15px] font-medium tracking-[0.22em] text-neutral-500">
+            Project Amenities
+          </p>
+
+          <h2 className="text-4xl font-semibold tracking-[-0.03em] text-black md:text-5xl lg:text-[54px]">
+            3+ ACRES OF ELEVATED LIVING
           </h2>
-          <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-slate-600">
-            Every space at Highway Greens has been planned to support the natural rhythm of daily life, from quiet morning walks and moments of reflection to recreation, fitness and meaningful community interactions.
+
+          <p className="mx-auto mt-3 max-w-[1050px] text-sm leading-7 text-neutral-500 md:text-[16px]">
+            Every Space At Highway Greens Has Been Planned To Support The
+            Natural Rhythm Of Daily Life, From Quiet Morning Walks And
+            Moments Of Reflection To Recreation, Fitness And Meaningful
+            Community Interactions.
           </p>
         </div>
 
-        <div className="mt-16 grid gap-8 lg:grid-cols-[0.3fr_0.4fr_0.3fr] lg:items-start">
-          <div className="space-y-4">
-            {amenities.slice(0, 6).map((item) => (
-              <button
-                key={item.title}
-                className="flex w-full items-center gap-4 rounded-full border border-slate-200 bg-white px-5 py-4 text-left text-slate-900 transition hover:border-amber-700 hover:bg-amber-50"
+        {/* Main Content */}
+        <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.5fr_1fr] lg:gap-12">
+          {/* Tabs */}
+          <AmenityTabs
+            activeId={activeId}
+            onChange={setActiveId}
+          />
+
+          {/* Image */}
+          <div className="relative aspect-[1.35/1] overflow-hidden">
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={activeAmenity.id}
+                src={activeAmenity.image}
+                alt={activeAmenity.title}
+                initial={{
+                  opacity: 0,
+                  scale: 1.05,
+                }}
+                animate={{
+                  opacity: 1,
+                  scale: 1,
+                }}
+                exit={{
+                  opacity: 0,
+                  scale: 0.98,
+                }}
+                transition={{
+                  duration: 0.55,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+            </AnimatePresence>
+          </div>
+
+          {/* Content */}
+          <div className="lg:pl-3">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeAmenity.id}
+                initial={{
+                  opacity: 0,
+                  x: 25,
+                }}
+                animate={{
+                  opacity: 1,
+                  x: 0,
+                }}
+                exit={{
+                  opacity: 0,
+                  x: -20,
+                }}
+                transition={{
+                  duration: 0.4,
+                  ease: "easeOut",
+                }}
               >
-                <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-amber-100 text-amber-700">
-                  {item.title.charAt(0)}
-                </span>
-                <span className="font-semibold uppercase tracking-[0.18em]">{item.title}</span>
-              </button>
-            ))}
-          </div>
+                <div className="flex items-center gap-4">
+                  <Icon
+                    size={32}
+                    strokeWidth={1.3}
+                  />
 
-          <div className="relative overflow-hidden rounded-[30px] bg-slate-950 shadow-2xl">
-            <Image
-              src="/highlight-main.jpg"
-              alt="Project Amenity"
-              width={760}
-              height={900}
-              className="h-full w-full object-cover"
-            />
-            <div className="absolute inset-x-0 bottom-0 rounded-b-[30px] bg-slate-950/65 px-6 py-8 text-white backdrop-blur-sm">
-              <p className="text-sm uppercase tracking-[0.28em] text-amber-200">Leisure</p>
-              <h3 className="mt-3 text-3xl font-bold leading-tight">Time and Space to Slow Down</h3>
-              <ul className="mt-6 space-y-3 text-sm leading-6 text-slate-100/90">
-                {amenities[0].features.slice(0, 5).map((feature) => (
-                  <li key={feature} className="flex items-start gap-3">
-                    <span className="mt-1 inline-block h-2 w-2 rounded-full bg-amber-200" />
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+                  <h3 className="text-2xl font-semibold">
+                    {activeAmenity.title}
+                  </h3>
+                </div>
 
-          <div className="space-y-4 rounded-[30px] bg-white p-6 shadow-xl">
-            {amenities.slice(1, 5).map((item) => (
-              <div key={item.title} className="rounded-3xl border border-slate-200 p-5 text-slate-900 hover:border-amber-700">
-                <h3 className="text-lg font-semibold uppercase tracking-[0.18em]">{item.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-slate-600">{item.subtitle}</p>
-              </div>
-            ))}
+                <div className="my-5 border-y border-neutral-400 py-3">
+                  <p className="text-[16px] font-medium">
+                    {activeAmenity.subtitle}
+                  </p>
+                </div>
+
+                <ul className="space-y-4">
+                  {activeAmenity.points.map((point, index) => (
+                    <motion.li
+                      key={point}
+                      initial={{
+                        opacity: 0,
+                        y: 8,
+                      }}
+                      animate={{
+                        opacity: 1,
+                        y: 0,
+                      }}
+                      transition={{
+                        delay: index * 0.06,
+                        duration: 0.3,
+                      }}
+                      className="flex gap-4 text-[15px] leading-6 text-neutral-700"
+                    >
+                      <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-black" />
+                      <span>{point}</span>
+                    </motion.li>
+                  ))}
+                </ul>
+              </motion.div>
+            </AnimatePresence>
           </div>
         </div>
       </div>
-    </SectionWrapper>
+    </section>
   );
 }
