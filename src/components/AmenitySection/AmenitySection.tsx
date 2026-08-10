@@ -2,11 +2,11 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 import AmenityCard, {
     Amenity,
 } from "./AmenityCard";
-import Image from "next/image";
 
 const amenities: Amenity[] = [
     {
@@ -92,100 +92,162 @@ const amenities: Amenity[] = [
 export default function AmenitySection() {
     const [active, setActive] = useState(0);
 
-    const next = () =>
+    const next = () => {
         setActive((prev) =>
             prev === amenities.length - 1 ? 0 : prev + 1
         );
+    };
 
-    const prev = () =>
+    const prev = () => {
         setActive((prev) =>
             prev === 0 ? amenities.length - 1 : prev - 1
         );
+    };
 
     return (
         <section
             id="amenities"
-            className="bg-white pb-24 pt-15 px-0 sm:px-4 lg:px-6"
+            className="
+        relative
+        overflow-hidden
+        bg-gradient-to-b
+        from-[#FAFAFA]
+        via-[#FDFDFD]
+        to-white
+py-10 
+md:py-15
+        px-0
+        sm:px-4
+        lg:px-6
+      "
         >
-            <div className="mx-auto max-w-7xl ">
-                {/* Heading */}
+            <div className="relative z-10 mx-auto max-w-7xl">
 
+                {/* Heading */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-center px-6"
+                    transition={{
+                        duration: 0.7,
+                        ease: [0.22, 1, 0.36, 1],
+                    }}
+                    className="px-6 text-center"
                 >
-                    <p className="text-lg uppercase tracking-[0.25em] text-gray-500">
+                    <p className="text-[18px] tracking-[0.25em] text-gray-500 [font-family:var(--font-roboto)]">
                         Project Amenities
                     </p>
 
                     <h2
-                        className="mt-5 text-3xl font-black uppercase leading-tight text-black lg:text-4xl"
-                        style={{ fontFamily: "Cormorant Garamond, serif" }}
+                        className="
+              mt-5
+              text-3xl
+              font-black
+              uppercase
+              leading-tight
+              text-black
+              lg:text-4xl
+            "
+                        style={{
+                            fontFamily: "Cormorant Garamond, serif",
+                        }}
                     >
                         More Space for What Matters
                     </h2>
-                    <p className="mt-6 text-md text-gray-600 max-w-4xl mx-auto">
-                        Every space at Highway Greens has been planned to support the natural rhythm of daily life, from quiet morning walks and moments of reflection to recreation, fitness and meaningful community interactions.
+
+                    <p className="mx-auto mt-6 max-w-4xl text-[16px] text-gray-600 [font-family:var(--font-roboto)]">
+                        Every space at Highway Greens has been planned to support the
+                        natural rhythm of daily life, from quiet morning walks and
+                        moments of reflection to recreation, fitness and meaningful
+                        community interactions.
                     </p>
                 </motion.div>
 
                 {/* Tabs */}
-
-                <div
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{
+                        duration: 0.6,
+                        delay: 0.15,
+                    }}
                     className="
-mt-12
-flex
-flex-wrap
-justify-center
-gap-3
-md:gap-4
-">
+            mt-12
+            flex
+            flex-wrap
+            justify-center
+            gap-3
+            md:gap-4
+          "
+                >
                     {amenities.map((item, index) => (
-                        <button
+                        <motion.button
                             key={item.title}
+                            type="button"
                             onClick={() => setActive(index)}
+                            whileHover={{
+                                y: -2,
+                            }}
+                            whileTap={{
+                                scale: 0.97,
+                            }}
+                            transition={{
+                                duration: 0.2,
+                            }}
                             className={`
-flex items-center justify-center gap-2
-w-[150px]
-rounded-full
-border
-px-5
-py-3
-text-base
-
-sm:w-auto
-sm:px-7
-sm:text-lg
-
-${active === index
+                flex
+                w-[150px]
+                items-center
+                justify-center
+                gap-2
+                rounded-full
+                border
+                px-5
+                py-3
+                text-base
+                transition-colors
+                duration-300
+                sm:w-auto
+                sm:px-7
+                sm:text-lg
+                [font-family:var(--font-roboto)]
+                font-medium
+                ${active === index
                                     ? "border-[#B98957] bg-[#B98957] text-white"
-                                    : "border-gray-200 bg-white text-gray-700"
+                                    : "border-gray-200 bg-white text-gray-700 hover:border-[#B98957]/50"
                                 }
-`}
+              `}
                         >
                             <Image
                                 src={item.icon}
-                                alt={item.title}
+                                alt=""
                                 width={22}
                                 height={22}
-                                className={`${active === index ? "brightness-0 invert" : ""}`}
+                                className={
+                                    active === index
+                                        ? "brightness-0 invert"
+                                        : ""
+                                }
                             />
 
                             <span>{item.title}</span>
-                        </button>
+                        </motion.button>
                     ))}
-                </div>
+                </motion.div>
 
-                {/* Card */}
-                <div className="mx-auto max-w-4xl px-0 sm:px-4 lg:px-6">
+                {/* Amenity Card */}
+                <motion.div
+                    layout
+                    className="mx-auto mt-12 max-w-5xl px-0 sm:px-4 lg:px-6"
+                >
                     <AmenityCard
+                        key={amenities[active].title}
                         amenity={amenities[active]}
                         onPrev={prev}
                         onNext={next}
                     />
-                </div>
+                </motion.div>
             </div>
         </section>
     );

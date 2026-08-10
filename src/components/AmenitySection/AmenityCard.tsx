@@ -1,173 +1,240 @@
 "use client";
 
-import Image from "next/image";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
+import AnimatedImage from "@/components/ui/AnimatedImage";
+
 export type Amenity = {
-    title: string;
-    image: string;
-    icon: string;
-    subtitle: string;
-    points: string[];
+  title: string;
+  image: string;
+  icon: string;
+  subtitle: string;
+  points: string[];
 };
 
 type Props = {
-    amenity: Amenity;
-    onPrev: () => void;
-    onNext: () => void;
+  amenity: Amenity;
+  onPrev: () => void;
+  onNext: () => void;
 };
 
 export default function AmenityCard({
-    amenity,
-    onPrev,
-    onNext,
+  amenity,
+  onPrev,
+  onNext,
 }: Props) {
-    return (
-        <div className="relative mx-auto mt-14 w-full max-w-6xl overflow-visible">
-            <AnimatePresence mode="wait">
-                <motion.div
-                    key={amenity.title}
-                    initial={{ opacity: 0, scale: 1.05 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.6 }}
-                    className="relative h-[320px] w-full sm:h-[420px] lg:h-[450px]"
-                >
-                    {/* Background Image */}
-                    <Image
-                        src={amenity.image}
-                        alt={amenity.title}
-                        fill
-                        priority
-                        className="object-cover"
-                    />
+  return (
+    <motion.div
+      key={amenity.title}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{
+        duration: 0.5,
+      }}
+      className="
+        relative
+        h-[320px]
+        w-full
+        sm:h-[420px]
+        lg:h-[450px]
+      "
+    >
+      {/* ================= IMAGE ================= */}
 
-                    {/* Overlay */}
-                    <div className="absolute inset-0 bg-black/20" />
+      <AnimatedImage
+        key={amenity.title}
+        src={amenity.image}
+        alt={amenity.title}
+        fill
+        priority
+        delay={0.05}
+        hoverScale={1.03}
+        wrapperClassName="absolute inset-0 h-full w-full"
+      />
 
-                    {/* Content Card */}
-                    <motion.div
-                        initial={{ x: -40, opacity: 0 }}
-                        animate={{ x: 0, opacity: 1 }}
-                        transition={{ delay: 0.25 }}
-                        className="
-    absolute
-    left-4
-    right-4
-    top-4
-    w-auto
-    bg-black/60
-    p-4
-    text-white
+      {/* ================= IMAGE OVERLAY ================= */}
 
-    sm:left-8
-    sm:right-auto
-    sm:top-1/2
-    sm:w-[300px]
-    sm:-translate-y-1/2
-    sm:p-5
+      <div
+        className="
+          pointer-events-none
+          absolute
+          inset-0
+          z-10
+          bg-black/20
+        "
+      />
 
-    lg:left-12
-    lg:w-[330px]
-    lg:p-6
-  "
-                    >
-                        <div className="flex gap-3 items-center">
-                            <Image
-                                src="/icons/Vector.png"
-                                alt={amenity.title}
-                                width={25}
-                                height={25}
-                            />
-                            <h3
-                                className="text-2xl sm:text-3xl"
-                                style={{ fontFamily: "Cormorant Garamond, serif" }}
-                            >
-                                {amenity.title}
-                            </h3>
-                        </div>
+      {/* ================= CONTENT CARD ================= */}
 
-                        <div className="my-3 h-px bg-white/40" />
+      <motion.div
+        key={`content-${amenity.title}`}
+        initial={{
+          x: -40,
+          opacity: 0,
+        }}
+        animate={{
+          x: 0,
+          opacity: 1,
+        }}
+        transition={{
+          delay: 0.3,
+          duration: 0.5,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+        className="
+          absolute
+          left-4
+          right-4
+          top-4
+          z-20
+          w-auto
+          bg-black/60
+          p-4
+          text-white
 
-                        <p className="text-sm sm:text-base">{amenity.subtitle}</p>
-                        <div className="my-3 h-px bg-white/40" />
+          sm:left-8
+          sm:right-auto
+          sm:top-1/2
+          sm:w-[300px]
+          sm:-translate-y-1/2
+          sm:p-5
 
-                        <ul className="mt-3 space-y-2">
-                            {amenity.points.map((point) => (
-                                <li
-                                    key={point}
-                                    className="flex gap-2 text-xs leading-5 sm:text-sm"
-                                >
-                                    <span>•</span>
-                                    <span>{point}</span>
-                                </li>
-                            ))}
-                        </ul>
-                    </motion.div>
+          lg:left-12
+          lg:w-[330px]
+          lg:p-6
+        "
+      >
+        {/* Title */}
+        <h3
+          className="text-2xl sm:text-3xl"
+          style={{
+            fontFamily: "Cormorant Garamond, serif",
+          }}
+        >
+          {amenity.title}
+        </h3>
 
-                    {/* Left Arrow */}
-                    <button
-                        onClick={onPrev}
-                        className="
-absolute
-left-3
-top-1/2
-z-50
-flex
-h-12
-w-12
--translate-y-1/2
-items-center
-justify-center
-rounded-full
-bg-white
-shadow-lg
+        <div className="my-3 h-px bg-white/40" />
 
-sm:-left-8
-sm:h-14
-sm:w-14
+        {/* Subtitle */}
+        <p className="text-sm sm:text-base">
+          {amenity.subtitle}
+        </p>
 
-lg:-left-20
-lg:h-16
-lg:w-16
-text-black
-"
-                    >
-                        <ChevronLeft size={30} />
-                    </button>
+        <div className="my-3 h-px bg-white/40" />
 
-                    {/* Right Arrow */}
-                    <button
-                        onClick={onNext}
-                        className="
-absolute
-right-3
-top-1/2
-z-50
-flex
-h-12
-w-12
--translate-y-1/2
-items-center
-justify-center
-rounded-full
-bg-white
-shadow-lg
+        {/* Points */}
+        <ul className="mt-3 space-y-2">
+          {amenity.points.map((point) => (
+            <li
+              key={point}
+              className="
+                flex
+                gap-2
+                text-xs
+                leading-5
+                sm:text-sm
+              "
+            >
+              <span>•</span>
+              <span>{point}</span>
+            </li>
+          ))}
+        </ul>
+      </motion.div>
 
-sm:-right-8
-sm:h-14
-sm:w-14
+      {/* ================= LEFT ARROW ================= */}
 
-lg:-right-20
-lg:h-16
-lg:w-16
-text-black
-"                    >
-                        <ChevronRight size={30} />
-                    </button>
-                </motion.div>
-            </AnimatePresence>
-        </div>
-    );
+      <motion.button
+        type="button"
+        onClick={onPrev}
+        whileHover={{
+          scale: 1.08,
+        }}
+        whileTap={{
+          scale: 0.92,
+        }}
+        transition={{
+          duration: 0.2,
+        }}
+        className="
+          absolute
+          left-3
+          top-1/2
+          z-50
+          flex
+          h-12
+          w-12
+          -translate-y-1/2
+          items-center
+          justify-center
+          rounded-full
+          bg-white
+          text-black
+          shadow-lg
+
+          sm:-left-8
+          sm:h-14
+          sm:w-14
+
+          lg:-left-20
+          lg:h-16
+          lg:w-16
+        "
+        aria-label="Previous amenity"
+      >
+        <ChevronLeft
+          size={28}
+          strokeWidth={1.5}
+        />
+      </motion.button>
+
+      {/* ================= RIGHT ARROW ================= */}
+
+      <motion.button
+        type="button"
+        onClick={onNext}
+        whileHover={{
+          scale: 1.08,
+        }}
+        whileTap={{
+          scale: 0.92,
+        }}
+        transition={{
+          duration: 0.2,
+        }}
+        className="
+          absolute
+          right-3
+          top-1/2
+          z-50
+          flex
+          h-12
+          w-12
+          -translate-y-1/2
+          items-center
+          justify-center
+          rounded-full
+          bg-white
+          text-black
+          shadow-lg
+
+          sm:-right-8
+          sm:h-14
+          sm:w-14
+
+          lg:-right-20
+          lg:h-16
+          lg:w-16
+        "
+        aria-label="Next amenity"
+      >
+        <ChevronRight
+          size={28}
+          strokeWidth={1.5}
+        />
+      </motion.button>
+    </motion.div>
+  );
 }

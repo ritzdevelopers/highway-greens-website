@@ -11,20 +11,58 @@ type Props = {
   item: Highlight;
 };
 
-export default function HighlightItem({ item }: Props) {
+export default function HighlightItem({
+  item,
+}: Props) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 25 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
-      className="border-b-2 border-[#E9DCCB] py-4 sm:py-5"
+      initial={{
+        opacity: 0,
+        y: 25,
+      }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+      }}
+      viewport={{
+        once: true,
+      }}
+      transition={{
+        duration: 0.5,
+      }}
+      className="
+        border-b-2
+        border-[#E9DCCB]
+        py-5
+        sm:py-6
+      "
     >
-      <h3 className="text-2xl font-semibold leading-tight text-[#123122] sm:text-3xl">
+      <h3
+        className="
+          text-xl
+          font-semibold
+          text-[#10261D]
+          sm:text-2xl
+        "
+        style={{
+          fontFamily:
+            "Cormorant Garamond, serif",
+        }}
+      >
         {item.title}
       </h3>
 
-      <p className="mt-3 text-[15px] leading-7 text-[#666666] sm:mt-4 sm:text-[16px]">
+      <p
+        className="
+          mt-3
+          text-[15px]
+          leading-7
+          text-gray-600
+          sm:mt-4
+          sm:text-[16px]
+          [font-family:var(--font-roboto)]
+        "
+      >
         {item.description}
       </p>
     </motion.div>

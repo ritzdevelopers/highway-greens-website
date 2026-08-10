@@ -8,13 +8,25 @@ export default function LocationMapSection() {
     <section className="relative overflow-hidden bg-white">
       {/* Map Image */}
       <div className="relative h-[350px] w-full">
-        <Image
-          src="/location-map.png"
-          alt="Location Map"
-          fill
-          priority
-          className="object-cover"
-        />
+        <motion.div
+          className="absolute inset-0 z-0"
+          animate={{
+            scale: [1, 1.06, 1],
+          }}
+          transition={{
+            duration: 14,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        >
+          <Image
+            src="/location-map.png"
+            alt="Location Map"
+            fill
+            priority
+            className="object-cover"
+          />
+        </motion.div>
 
         {/* Dark Overlay */}
         <div className="absolute inset-0 bg-[#193320]/20" />

@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import HighlightItem, {
     Highlight,
 } from "./HighlightItem";
+import AnimatedImage from "../ui/AnimatedImage";
 
 const highlights: Highlight[] = [
     {
@@ -44,7 +45,7 @@ const highlights: Highlight[] = [
 export default function HighlightsSection() {
 
     return (
-        <section className="bg-white py-24">
+        <section className="bg-white py-15">
             <div className="mx-auto max-w-7xl px-2">
 
                 <div className="grid gap-10 lg:grid-cols-[30%_70%]">
@@ -57,17 +58,24 @@ export default function HighlightsSection() {
                         transition={{ duration: 0.6 }}
                         className="flex flex-col items-center lg:items-start"
                     >
-                        <Image
+                        <AnimatedImage
                             src="/highlight-small.jpg"
                             alt="Highlights"
                             width={420}
                             height={520}
-                            className="w-full max-w-[320px] object-cover lg:max-w-none"
+                            priority
+                            delay={0.1}
+                            hoverScale={1.04}
+                            wrapperClassName="
+                w-full
+                max-w-[320px]
+                lg:max-w-none
+              "
                         />
 
                         <div className="mt-10 text-center lg:mt-22 lg:text-left">
                             <h2
-                                className="text-3xl font-bold uppercase text-black sm:text-4xl"
+                                className="text-3xl font-bold uppercase text-black sm:text-[38px]"
                                 style={{
                                     fontFamily: "Cormorant Garamond, serif",
                                 }}
@@ -88,12 +96,20 @@ export default function HighlightsSection() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
                         >
-                            <Image
+                            <AnimatedImage
                                 src="/highlight-main.jpg"
                                 alt="Highlights"
                                 width={700}
                                 height={900}
-                                className="mx-auto h-auto w-full max-w-[420px] object-cover lg:max-w-none lg:h-full"
+                                priority
+                                delay={0.2}
+                                hoverScale={1.03}
+                                wrapperClassName="
+                  mx-auto
+                  w-full
+                  max-w-[420px]
+                  lg:max-w-none
+                "
                             />
                         </motion.div>
 

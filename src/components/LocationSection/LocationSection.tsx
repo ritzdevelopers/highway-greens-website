@@ -11,13 +11,26 @@ export default function LocationSection() {
       className="relative overflow-hidden py-32"
     >
       {/* Background */}
-      <Image
-        src="/location-bg.jpg"
-        alt="Location"
-        fill
-        priority
-        className="object-cover w-full h-full"
-      />
+
+      <motion.div
+        className="absolute inset-0 z-0"
+        animate={{
+          scale: [1, 1.06, 1],
+        }}
+        transition={{
+          duration: 14,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      >
+        <Image
+          src="/location-bg.jpg"
+          alt="Location"
+          fill
+          priority
+          className="object-cover"
+        />
+      </motion.div>
 
       {/* Overlay */}
       <div className="absolute inset-0 bg-[#183121]/60" />

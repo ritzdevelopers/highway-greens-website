@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import type { NavLink } from "@/data/siteData";
+import AnimatedButton from "./ui/AnimatedBtn";
 
 type NavbarProps = {
   links: NavLink[];
@@ -88,7 +89,17 @@ export default function Navbar({ links }: NavbarProps) {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-[16px] font-medium text-white transition-colors duration-300 hover:text-[#d8c18a] xl:text-[18px]"
+                className="
+        text-[18px]
+        font-normal
+        leading-none
+        tracking-normal
+        text-white
+        [font-family:var(--font-roboto)]
+        transition-colors
+        duration-300
+        hover:text-[#d8c18a]
+      "
               >
                 {link.label}
               </Link>
@@ -96,12 +107,15 @@ export default function Navbar({ links }: NavbarProps) {
           </nav>
 
           {/* Desktop CTA */}
-          <Link
-            href="#contact"
-            className="hidden bg-white px-7 py-3 text-base font-semibold text-black transition-all duration-300 hover:bg-[#d8c18a] lg:flex xl:px-10 xl:text-lg"
-          >
-            Enquire Now
-          </Link>
+          <div className="hidden lg:block">
+            <AnimatedButton
+              text="Enquire Now"
+              bgColor="#ffffff"
+              textColor="#000"
+              accentColor="#b9965a"
+              hoverColor="#caa56b"
+            />
+          </div>
 
           {/* Mobile Menu Button */}
           <button
@@ -116,13 +130,13 @@ export default function Navbar({ links }: NavbarProps) {
                 animate={
                   mobileMenuOpen
                     ? {
-                        rotate: 45,
-                        y: 8,
-                      }
+                      rotate: 45,
+                      y: 8,
+                    }
                     : {
-                        rotate: 0,
-                        y: 0,
-                      }
+                      rotate: 0,
+                      y: 0,
+                    }
                 }
                 transition={{ duration: 0.25 }}
                 className="block h-[2px] w-full bg-white"
@@ -140,13 +154,13 @@ export default function Navbar({ links }: NavbarProps) {
                 animate={
                   mobileMenuOpen
                     ? {
-                        rotate: -45,
-                        y: -8,
-                      }
+                      rotate: -45,
+                      y: -8,
+                    }
                     : {
-                        rotate: 0,
-                        y: 0,
-                      }
+                      rotate: 0,
+                      y: 0,
+                    }
                 }
                 transition={{ duration: 0.25 }}
                 className="block h-[2px] w-full bg-white"
@@ -192,7 +206,22 @@ export default function Navbar({ links }: NavbarProps) {
                     <Link
                       href={link.href}
                       onClick={handleLinkClick}
-                      className="flex w-full items-center justify-center py-5 text-xl font-medium text-white transition-colors duration-300 hover:text-[#d8c18a]"
+                      className="
+    flex
+    w-full
+    items-center
+    justify-center
+    py-5
+    text-[18px]
+    font-normal
+    leading-none
+    tracking-normal
+    text-white
+    [font-family:var(--font-roboto)]
+    transition-colors
+    duration-300
+    hover:text-[#d8c18a]
+  "
                     >
                       {link.label}
                     </Link>
@@ -201,23 +230,13 @@ export default function Navbar({ links }: NavbarProps) {
               </nav>
 
               {/* Mobile CTA */}
-              <motion.div
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{
-                  delay: 0.35,
-                  duration: 0.3,
-                }}
-                className="mt-8"
-              >
-                <Link
-                  href="#contact"
-                  onClick={handleLinkClick}
-                  className="inline-flex bg-white px-10 py-3.5 text-lg font-semibold text-black transition-all duration-300 hover:bg-[#d8c18a]"
-                >
-                  Enquire Now
-                </Link>
-              </motion.div>
+              <AnimatedButton
+                text="Enquire Now"
+                bgColor="#ffffff"
+                textColor="#000"
+                accentColor="#b9965a"
+                hoverColor="#caa56b"
+              />
             </motion.div>
           </motion.div>
         )}

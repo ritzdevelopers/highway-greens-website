@@ -3,32 +3,65 @@
 import { motion } from "framer-motion";
 import type { PlanCard } from "@/data/siteData";
 import SectionWrapper from "@/components/SectionWrapper";
+import AnimatedButton from "@/components/ui/AnimatedBtn";
 
 type PricingSectionProps = {
   plans: PlanCard[];
 };
 
-export default function PricingSection({ plans }: PricingSectionProps) {
+export default function PricingSection({
+  plans,
+}: PricingSectionProps) {
   return (
     <SectionWrapper
       id="pricing"
-      className="bg-white py-14"
+      className="
+        relative
+        overflow-hidden
+        bg-gradient-to-b
+        from-[#FAFAFA]
+        via-[#FDFDFD]
+        to-white
+        py-10
+        lg:py-15
+      "
     >
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="max-w-7xl mx-auto">
         {/* Heading */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-15 text-center"
+          initial={{
+            opacity: 0,
+            y: 30,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+            amount: 0.2,
+          }}
+          transition={{
+            duration: 0.7,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          className="mb-10 text-center"
         >
-          <p className="text-md font-semibold uppercase tracking-[0.25em] text-[#666]">
+          <p className="text-[18px] font-medium tracking-[0.25em] text-gray-500 [font-family:var(--font-roboto)]">
             Plot Options
           </p>
 
           <h2
-            className="mt-5 text-3xl font-bold text-[#10261D] lg:text-5xl"
-            style={{ fontFamily: "Cormorant Garamond, serif" }}
+            className="
+            mt-5
+            text-[32px]
+            font-bold
+            text-[#10261D]
+            lg:text-[38px]
+          "
+            style={{
+              fontFamily: "Cormorant Garamond, serif",
+            }}
           >
             Find the Right Space for Your Future
           </h2>
@@ -42,42 +75,127 @@ export default function PricingSection({ plans }: PricingSectionProps) {
             return (
               <motion.div
                 key={plan.title}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.15 }}
-                className={`rounded-2xl border-2 p-10 transition-all duration-300 hover:-translate-y-2
-                  ${
-                    featured
-                      ? "border-[#213A2D] bg-[#213A2D] text-white shadow-xl"
-                      : "border-[#ececec] bg-white text-[#10261D] shadow-sm"
-                  }`}
-              >
-                <h3
-                  className="text-3xl leading-tight"
-                  style={{ fontFamily: "Cormorant Garamond, serif" }}
-                >
-                  {plan.title}
-                </h3>
+                initial={{
+                  opacity: 0,
+                  y: 40,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                viewport={{
+                  once: true,
+                  amount: 0.2,
+                }}
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.15,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                whileHover={{
+                  y: -8,
+                }}
+                className={`
+                group
+                relative
+                flex
+                min-h-[400px]
+                flex-col
+                overflow-hidden
+                rounded-xl
+                border
+                p-8
+                transition-shadow
+                duration-500
+                lg:p-10
 
-                <div className="mt-8 space-y-3 text-md">
-                  {plan.features.map((feature) => (
-                    <p
-                      key={feature}
-                      className={
-                        featured ? "text-white/75" : "text-[#666]"
-                      }
-                    >
-                      {feature}
-                    </p>
-                  ))}
+                ${featured
+                    ? `
+                      border-[#213A2D]
+                      bg-[#22362B]
+                      text-white
+                      shadow-[0_20px_45px_rgba(33,58,45,0.18)]
+                    `
+                    : `
+                      border-[#ececec]
+                      bg-white
+                      text-[#10261D]
+                      shadow-[0_10px_30px_rgba(0,0,0,0.04)]
+                      hover:shadow-[0_20px_45px_rgba(0,0,0,0.08)]
+                    `
+                  }
+              `}
+              >
+                {/* Featured Card Glow */}
+                {featured && (
+                  <motion.div
+                    initial={{
+                      opacity: 0.2,
+                    }}
+                    whileHover={{
+                      opacity: 0.4,
+                    }}
+                    transition={{
+                      duration: 0.4,
+                    }}
+                    className="
+                    pointer-events-none
+                    absolute
+                    -right-20
+                    -top-20
+                    h-48
+                    w-48
+                    rounded-full
+                    bg-[#BF8D58]/20
+                    blur-3xl
+                  "
+                  />
+                )}
+
+                {/* Card Content */}
+                <div className="relative z-10">
+                  <h3
+                    className="
+                    text-[28px]
+                    leading-tight
+                    lg:text-[28px]
+                  "
+                    style={{
+                      fontFamily:
+                        "Cormorant Garamond, serif",
+                    }}
+                  >
+                    {plan.title}
+                  </h3>
+
+                  {/* Features */}
+                  <div className="mt-8 space-y-3 text-[16px]">
+                    {plan.features.map((feature) => (
+                      <p
+                        key={feature}
+                        className={
+                          featured
+                            ? "text-white/75"
+                            : "text-[#666]"
+                        }
+                      >
+                        {feature}
+                      </p>
+                    ))}
+                  </div>
                 </div>
 
-                <button
-                  className="mt-10 bg-[#BF8D58] px-8 py-3 text-md font-semibold text-white transition hover:bg-[#a87848]"
-                >
-                  {plan.button}
-                </button>
+                {/* Button */}
+                <div className="relative z-10 mt-auto pt-10">
+                  <AnimatedButton
+                    text={plan.button}
+                    bgColor="#BF8D58"
+                    textColor="#FFFFFF"
+                    accentColor="#BF8D58"
+                    hoverColor="#FFFFFF"
+                    hoverTextColor="#10261D"
+                  />
+                </div>
               </motion.div>
             );
           })}

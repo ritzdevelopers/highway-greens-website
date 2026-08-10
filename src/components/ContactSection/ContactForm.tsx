@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import AnimatedButton from "../ui/AnimatedBtn";
 
 export default function ContactForm() {
   return (
@@ -90,11 +91,15 @@ export default function ContactForm() {
 
       {/* Button */}
 
-      <button
-        className="mt-14 bg-[#C18A52] px-14 py-3 text-md font-semibold text-black transition hover:bg-[#ab7440]"
-      >
-        Submit Enquiry
-      </button>
+                  <AnimatedButton
+                    text="Submit Enquiry"
+                    bgColor="#BF8D58"
+                    textColor="#000"
+                    accentColor="#BF8D58"
+                    hoverColor="#FFFFFF"
+                    hoverTextColor="#000"
+                    className="mt-14"
+                  />
     </motion.form>
   );
 }

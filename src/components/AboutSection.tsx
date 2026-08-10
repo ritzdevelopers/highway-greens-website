@@ -4,6 +4,8 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import type { AboutContent } from "@/data/siteData";
 import SectionWrapper from "@/components/SectionWrapper";
+import AnimatedButton from "./ui/AnimatedBtn";
+import AnimatedImage from "./ui/AnimatedImage";
 
 type AboutSectionProps = {
   content: AboutContent;
@@ -11,21 +13,37 @@ type AboutSectionProps = {
 
 export default function AboutSection({ content }: AboutSectionProps) {
   return (
-    <SectionWrapper
-      id="overview"
-      className="relative overflow-hidden bg-white py-20"
-    >
+    <SectionWrapper id="overview" className="relative overflow-hidden bg-white py-10 md:py-15">
       {/* Dots Background */}
       <div
-        className="absolute right-0 top-0 h-full w-[60%] opacity-40"
-        style={{
-          backgroundImage:
-            "radial-gradient(#d8d8d8 1.5px, transparent 1.5px)",
-          backgroundSize: "28px 28px",
-        }}
-      />
+        aria-hidden="true"
+        className="
+    pointer-events-none
+    absolute
+    right-0
+    top-0
+    z-0
+    w-[58%]
+    max-w-[869px]
+    overflow-hidden
+    opacity-40
+  "
+      >
+        <Image
+          src="/dots-pattern.png"
+          alt=""
+          width={869}
+          height={548}
+          className="
+      h-auto
+      w-full
+      brightness-75
+    "
+        />
+      </div>
 
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
+      {/* Content */}
+      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-10">
         <div className="grid items-center gap-20 lg:grid-cols-[1.05fr_0.95fr]">
           {/* Left Content */}
           <motion.div
@@ -39,8 +57,17 @@ export default function AboutSection({ content }: AboutSectionProps) {
             </p>
 
             <h2
-              className="text-3xl font-black uppercase leading-tight text-black lg:text-4xl"
-              style={{ fontFamily: "Cormorant Garamond, serif" }}
+              className="
+                text-3xl
+                font-black
+                uppercase
+                leading-tight
+                text-black
+                lg:text-4xl
+              "
+              style={{
+                fontFamily: "Cormorant Garamond, serif",
+              }}
             >
               {content.title}
             </h2>
@@ -54,10 +81,15 @@ export default function AboutSection({ content }: AboutSectionProps) {
                 <p key={paragraph}>{paragraph}</p>
               ))}
             </div>
-
-            <button className="mt-8 bg-[#C18A52] px-8 py-4 text-lg font-semibold text-white transition hover:bg-[#a87341]">
-              Download Brochure
-            </button>
+            <AnimatedButton
+              text="Download Brochure"
+              bgColor="#caa56b"
+              textColor="#fff"
+              accentColor="#b9965a"
+              hoverTextColor="#000"
+              hoverColor="#ffffff"
+              className="mt-8"
+            />
           </motion.div>
 
           {/* Right Image */}
@@ -66,14 +98,17 @@ export default function AboutSection({ content }: AboutSectionProps) {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
             viewport={{ once: true }}
+            className="relative"
           >
-            <Image
+            <AnimatedImage
               src={content.image}
               alt={content.title}
               width={700}
               height={550}
-              className="h-auto w-full object-cover shadow-xl"
               priority
+              delay={0.2}
+              hoverScale={1.04}
+              wrapperClassName="shadow-xl"
             />
           </motion.div>
         </div>
