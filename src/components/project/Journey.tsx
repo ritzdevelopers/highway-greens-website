@@ -52,7 +52,7 @@ export default function Journey() {
                         initial={{ opacity: 0, x: -70 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: .45 }}
-                        className="relative h-[400px] rounded-xl overflow-hidden shadow-xl cursor-pointer group"
+                        className="relative hidden lg:block h-[400px] rounded-xl overflow-hidden shadow-xl cursor-pointer group"
                         onClick={prev}
                     >
                         <Image
@@ -73,7 +73,7 @@ export default function Journey() {
                             animate={{ opacity: 1, scale: 1 }}
                             exit={{ opacity: 0 }}
                             transition={{ duration: .45 }}
-                            className="relative h-[500px] rounded-xl overflow-hidden shadow-2xl"
+                            className="relative h-[350px] sm:h-[450px] md:h-[500px] rounded-xl overflow-hidden shadow-2xl"
                         >
                             <Image
                                 src={centerCard.image}
@@ -105,7 +105,7 @@ export default function Journey() {
                         initial={{ opacity: 0, x: 70 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: .45 }}
-                        className="relative h-[400px] rounded-xl overflow-hidden shadow-xl cursor-pointer group"
+                        className="relative hidden lg:block h-[400px] rounded-xl overflow-hidden shadow-xl cursor-pointer group"
                         onClick={next}
                     >
                         <Image
