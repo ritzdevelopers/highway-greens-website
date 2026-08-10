@@ -10,11 +10,12 @@ type HeroSectionProps = {
 
 export default function HeroSection({ content }: HeroSectionProps) {
   return (
-    <section className="relative overflow-visible bg-white">
-      {/* ================= HERO IMAGE ================= */}
-      <div className="relative h-[635px] w-full lg:h-[635px]">
-        {/* Image only covers left hero area */}
-        <div className="absolute inset-y-0 left-0 right-[350px]">
+    <section className="relative overflow-visible bg-white pb-24 lg:pb-0">
+      {/* ================= HERO CONTAINER ================= */}
+      <div className="relative flex flex-col lg:h-[635px] lg:block">
+        
+        {/* ================= HERO IMAGE ================= */}
+        <div className="relative h-[400px] sm:h-[500px] lg:h-full w-full lg:absolute lg:inset-y-0 lg:left-0 lg:right-[350px] lg:w-auto">
           <Image
             src="/hero-main.jpg"
             alt="Highway Greens"
@@ -25,22 +26,23 @@ export default function HeroSection({ content }: HeroSectionProps) {
 
           {/* Dark overlay */}
           <div className="absolute inset-0 bg-black/40" />
+
+          {/* Headline & Subline */}
+          <motion.div
+            initial={{ opacity: 0, y: 35 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="absolute bottom-18 left-6 right-6 md:bottom-[105px] md:left-[9%] z-20 text-white"
+          >
+            <h1 className="text-[28px] sm:text-[36px] lg:text-[43px] font-normal leading-[1.15]">
+              {content.headline}
+            </h1>
+
+            <p className="mt-3 text-[16px] sm:text-[20px] font-normal">
+              {content.subline}
+            </p>
+          </motion.div>
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 35 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="absolute bottom-[105px] left-[9%] z-20 text-white"
-        >
-          <h1 className="text-[42px] font-normal leading-[1.15] lg:text-[43px]">
-            {content.headline}
-          </h1>
-
-          <p className="mt-3 text-[20px] font-normal">
-            {content.subline}
-          </p>
-        </motion.div>
 
         {/* ================= CONTACT FORM ================= */}
         <motion.div
@@ -48,43 +50,51 @@ export default function HeroSection({ content }: HeroSectionProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.15 }}
           className="
-            absolute
-            right-[55px]
-            top-[150px]
-            z-50
-            w-[500px]
+            relative
+            mx-auto
+            -mt-10
+            lg:mt-0
+            lg:absolute
+            right-auto
+            lg:right-[55px]
+            top-auto
+            lg:top-[120px]
+            z-30
+            w-[90%]
+            sm:w-[500px]
             rounded-[18px]
             bg-[#ffebe0]
-            p-[30px]
+            p-6
+            sm:p-[30px]
             shadow-[0_10px_35px_rgba(0,0,0,0.12)]
           "
         >
-          <form className="flex flex-col gap-5">
+          <form className="flex flex-col gap-4 sm:gap-5">
             <input
               type="text"
               placeholder="Full Name*"
               required
-              className="h-[52px] w-full bg-white px-5 text-[16px] outline-none placeholder:text-slate-700"
+              className="h-[48px] sm:h-[52px] w-full bg-white px-5 text-[15px] sm:text-[16px] outline-none placeholder:text-slate-700"
             />
 
             <input
               type="email"
               placeholder="Email Address*"
               required
-              className="h-[52px] w-full bg-white px-5 text-[16px] outline-none placeholder:text-slate-700"
+              className="h-[48px] sm:h-[52px] w-full bg-white px-5 text-[15px] sm:text-[16px] outline-none placeholder:text-slate-700"
             />
 
             <input
               type="tel"
               placeholder="Mobile Number*"
               required
-              className="h-[52px] w-full bg-white px-5 text-[16px] outline-none placeholder:text-slate-700"
+              className="h-[48px] sm:h-[52px] w-full bg-white px-5 text-[15px] sm:text-[16px] outline-none placeholder:text-slate-700"
             />
 
             <select
               required
               defaultValue=""
-              className="h-[52px] w-full appearance-none bg-white px-5 text-[16px] text-slate-700 outline-none"
+              className="h-[48px] sm:h-[52px] w-full appearance-none bg-white px-5 text-[15px] sm:text-[16px] text-slate-700 outline-none"
             >
               <option value="" disabled>
                 I'm Interested In*
@@ -97,7 +107,7 @@ export default function HeroSection({ content }: HeroSectionProps) {
             <textarea
               placeholder="Message / Query"
               rows={4}
-              className="min-h-[135px] w-full resize-none bg-white px-5 py-4 text-[16px] outline-none placeholder:text-slate-700"
+              className="min-h-[100px] sm:min-h-[135px] w-full resize-none bg-white px-5 py-4 text-[15px] sm:text-[16px] outline-none placeholder:text-slate-700"
             />
 
             <div className="flex items-start gap-3">
@@ -111,7 +121,7 @@ export default function HeroSection({ content }: HeroSectionProps) {
 
               <label
                 htmlFor="agreement"
-                className="text-[12px] leading-[1.45] text-slate-700"
+                className="text-[11px] sm:text-[12px] leading-[1.45] text-slate-700"
               >
                 By submitting this form, I consent to being contacted by
                 Kinza Estate and its authorised representatives through call,
@@ -123,7 +133,7 @@ export default function HeroSection({ content }: HeroSectionProps) {
 
             <button
               type="submit"
-              className="mt-2 h-[55px] w-full bg-[#c29665] text-[16px] font-bold uppercase tracking-wider text-slate-900 transition hover:bg-[#b08556]"
+              className="mt-1 sm:mt-2 h-[50px] sm:h-[55px] w-full bg-[#c29665] text-[15px] sm:text-[16px] font-bold uppercase tracking-wider text-slate-900 transition hover:bg-[#b08556]"
             >
               Submit
             </button>
@@ -136,12 +146,20 @@ export default function HeroSection({ content }: HeroSectionProps) {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.25 }}
           className="
-            absolute
-            bottom-[-58px]
-            z-[60]
+            relative
+            mx-auto
+            mt-6
+            lg:mt-0
+            lg:absolute
+            left-auto
+            bottom-auto
+            lg:bottom-[-43px]
+            z-[35]
             flex
-            h-[86px]
-            w-[335px]
+            h-[80px]
+            sm:h-[86px]
+            w-[90%]
+            sm:w-[335px]
             items-center
             gap-4
             bg-[#c29665]
@@ -150,14 +168,14 @@ export default function HeroSection({ content }: HeroSectionProps) {
             shadow-md
           "
         >
-          <div className="flex h-[50px] w-[50px] shrink-0 items-center justify-center rounded-full border border-white/40">
+          <div className="flex h-[46px] w-[46px] sm:h-[50px] sm:w-[50px] shrink-0 items-center justify-center rounded-full border border-white/40">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="h-7 w-7"
+              className="h-6 w-6 sm:h-7 sm:w-7"
             >
               <path
                 strokeLinecap="round"
@@ -168,11 +186,11 @@ export default function HeroSection({ content }: HeroSectionProps) {
           </div>
 
           <div>
-            <p className="text-[16px] font-semibold">
+            <p className="text-[14px] sm:text-[16px] font-semibold">
               Speak With Our Team
             </p>
 
-            <p className="mt-1 text-[17px] font-bold">
+            <p className="mt-0.5 text-[15px] sm:text-[17px] font-bold">
               Call: +91 9355455592
             </p>
           </div>
