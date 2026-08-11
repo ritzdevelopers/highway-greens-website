@@ -43,12 +43,12 @@ export default function LocationSection() {
           transition={{ duration: .8 }}
           className="mx-auto max-w-5xl text-center text-white"
         >
-          <p className="text-md uppercase tracking-[0.35em]">
+          <p className="text-md tracking-[0.15em] font-roboto">
             Location
           </p>
 
           <h2
-            className="mt-5 text-3xl font-bold uppercase lg:text-4xl"
+            className="mt-5 text-3xl font-bold uppercase lg:text-[38px]"
             style={{
               fontFamily: "Cormorant Garamond, serif",
             }}
@@ -56,13 +56,13 @@ export default function LocationSection() {
             CONNECTED TO WHAT MATTERS
           </h2>
 
-          <p className="mx-auto mt-10 max-w-4xl text-md leading-7 text-white/90">
+          <p className="mx-auto mt-10 max-w-4xl text-md leading-7 text-white/90 font-roboto">
             Highway Greens is envisioned for people who want to remain connected
             to work, education, healthcare, family and everyday conveniences
             while enjoying a calmer and more spacious living environment.
           </p>
 
-          <p className="mx-auto mt-6 max-w-4xl text-md leading-7 text-white/90">
+          <p className="mx-auto mt-6 max-w-4xl text-md leading-7 text-white/90 font-roboto">
             It offers the balance of being close enough to participate in the
             city and far enough to step away from its constant noise and
             congestion.

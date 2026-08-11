@@ -95,7 +95,7 @@ export default function Navbar({ links }: NavbarProps) {
         leading-none
         tracking-normal
         text-white
-        [font-family:var(--font-roboto)]
+        font-roboto
         transition-colors
         duration-300
         hover:text-[#d8c18a]
@@ -217,7 +217,7 @@ export default function Navbar({ links }: NavbarProps) {
     leading-none
     tracking-normal
     text-white
-    [font-family:var(--font-roboto)]
+    font-roboto
     transition-colors
     duration-300
     hover:text-[#d8c18a]

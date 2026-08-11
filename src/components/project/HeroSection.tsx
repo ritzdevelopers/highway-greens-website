@@ -1,8 +1,9 @@
 "use client";
 
-import Image from "next/image";
+import PremiumImage from "../ui/ProjectAnimateImage";
 import { motion } from "framer-motion";
 import type { HeroContent } from "@/data/projectData";
+import MagneticButton from "../ui/ProjectAnumatedBtn";
 
 type HeroSectionProps = {
   content: HeroContent;
@@ -13,19 +14,24 @@ export default function HeroSection({ content }: HeroSectionProps) {
     <section className="relative overflow-visible bg-white pb-24 lg:pb-0">
       {/* ================= HERO CONTAINER ================= */}
       <div className="relative flex flex-col lg:h-[635px] lg:block">
-        
+
         {/* ================= HERO IMAGE ================= */}
         <div className="relative h-[400px] sm:h-[500px] lg:h-full w-full lg:absolute lg:inset-y-0 lg:left-0 lg:right-[350px] lg:w-auto">
-          <Image
+          <PremiumImage
             src="/hero-main.jpg"
             alt="Highway Greens"
             fill
             priority
+            wrapperClassName="h-full w-full"
             className="object-cover object-center"
+            hoverScale={1.04}
+            parallax={8}
+            tilt={2}
+            delay={0.1}
           />
 
           {/* Dark overlay */}
-          <div className="absolute inset-0 bg-black/40" />
+          <div className="absolute inset-0 z-20 bg-black/40" />
 
           {/* Headline & Subline */}
           <motion.div
@@ -34,11 +40,11 @@ export default function HeroSection({ content }: HeroSectionProps) {
             transition={{ duration: 0.8 }}
             className="absolute bottom-18 left-6 right-6 md:bottom-[105px] md:left-[9%] z-20 text-white"
           >
-            <h1 className="text-[28px] sm:text-[36px] lg:text-[43px] font-normal leading-[1.15]">
+            <h1 className="text-[28px] sm:text-[32px] lg:text-[38px] font-normal leading-[1.15]">
               {content.headline}
             </h1>
 
-            <p className="mt-3 text-[16px] sm:text-[20px] font-normal">
+            <p className="mt-3 text-[16px] sm:text-[24px]">
               {content.subline}
             </p>
           </motion.div>
@@ -131,69 +137,15 @@ export default function HeroSection({ content }: HeroSectionProps) {
               </label>
             </div>
 
-            <button
-              type="submit"
-              className="mt-1 sm:mt-2 h-[50px] sm:h-[55px] w-full bg-[#c29665] text-[15px] sm:text-[16px] font-bold uppercase tracking-wider text-slate-900 transition hover:bg-[#b08556]"
-            >
-              Submit
-            </button>
+            <MagneticButton
+              text="Submit"
+              bgColor="#BD8B59"
+              textColor="#000"
+              hoverTextColor="#000"
+              accentColor="#caa56b"
+              hoverColor="#fff"
+            />
           </form>
-        </motion.div>
-
-        {/* ================= SPEAK WITH OUR TEAM ================= */}
-        <motion.div
-          initial={{ opacity: 0, x: -40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.25 }}
-          className="
-            relative
-            mx-auto
-            mt-6
-            lg:mt-0
-            lg:absolute
-            left-auto
-            bottom-auto
-            lg:bottom-[-43px]
-            z-[35]
-            flex
-            h-[80px]
-            sm:h-[86px]
-            w-[90%]
-            sm:w-[335px]
-            items-center
-            gap-4
-            bg-[#c29665]
-            px-5
-            text-white
-            shadow-md
-          "
-        >
-          <div className="flex h-[46px] w-[46px] sm:h-[50px] sm:w-[50px] shrink-0 items-center justify-center rounded-full border border-white/40">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="h-6 w-6 sm:h-7 sm:w-7"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-2.824-1.802-5.14-4.117-6.942-6.942l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"
-              />
-            </svg>
-          </div>
-
-          <div>
-            <p className="text-[14px] sm:text-[16px] font-semibold">
-              Speak With Our Team
-            </p>
-
-            <p className="mt-0.5 text-[15px] sm:text-[17px] font-bold">
-              Call: +91 9355455592
-            </p>
-          </div>
         </motion.div>
       </div>
     </section>

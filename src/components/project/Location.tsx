@@ -59,7 +59,7 @@ export default function Location() {
 
           {/* Heading */}
           <h2
-            className={`mt-3 text-3xl font-normal tracking-[-1.5px] text-[#111] transition-all delay-100 duration-700 sm:text-5xl lg:text-[56px] ${
+            className={`mt-3 text-[38px] font-normal tracking-[-1.5px] text-[#111] transition-all delay-100 duration-700 sm:text-[44px] lg:text-[48px] ${
               visible
                 ? "translate-y-0 opacity-100"
                 : "translate-y-8 opacity-0"
@@ -70,7 +70,7 @@ export default function Location() {
 
           {/* Description */}
           <p
-            className={`mx-auto mt-5 max-w-[1100px] text-sm sm:text-base leading-7 text-[#666] transition-all delay-200 duration-700 lg:text-[18px] ${
+            className={`mx-auto mt-5 max-w-[1000px] text-sm sm:text-base leading-7 text-[#666] transition-all delay-200 duration-700 lg:text-[16px] ${
               visible
                 ? "translate-y-0 opacity-100"
                 : "translate-y-6 opacity-0"
@@ -138,13 +138,13 @@ export default function Location() {
 
             {/* ================= CONNECTIVITY CARD ================= */}
             <div
-              className={`relative lg:absolute lg:left-7 lg:top-10 w-full lg:w-[410px] bg-[#103b29]/95 p-5 text-white shadow-xl transition-all delay-500 duration-700 ${
+              className={`relative lg:absolute lg:left-7 lg:top-10 w-full lg:w-[410px] bg-[#173223] p-5 text-white shadow-xl transition-all delay-500 duration-700 ${
                 visible
                   ? "translate-x-0 opacity-100"
                   : "-translate-x-10 opacity-0"
               }`}
             >
-              <h3 className="text-xl sm:text-2xl font-normal">
+              <h3 className="text-xl sm:text-[22px] font-normal">
                 Connectivity
               </h3>
 
@@ -169,7 +169,7 @@ export default function Location() {
 
             {/* ================= STRATEGIC CARD ================= */}
             <div
-              className={`relative lg:absolute lg:bottom-5 lg:right-6 w-full lg:max-w-[485px] bg-black/75 px-5 py-6 text-white backdrop-blur-sm transition-all delay-700 duration-700 ${
+              className={`relative lg:absolute lg:bottom-5 lg:right-6 w-full lg:max-w-[485px] bg-black/65 bg-backup-blur px-5 py-6 text-white backdrop-blur-sm transition-all delay-700 duration-700 ${
                 visible
                   ? "translate-x-0 opacity-100"
                   : "translate-x-10 opacity-0"
@@ -182,9 +182,8 @@ export default function Location() {
 
                 <span className="text-sm sm:text-base leading-6">
                   Access. Peaceful
-                  <br />
-                  Surroundings. A More Balanced Everyday Life.
                 </span>
+                <p>Surroundings. A More Balanced Everyday Life.</p>
               </div>
             </div>
 

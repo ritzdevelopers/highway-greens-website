@@ -47,13 +47,13 @@ export default function PricingSection({
           }}
           className="mb-10 text-center"
         >
-          <p className="text-[18px] font-medium tracking-[0.25em] text-gray-500 [font-family:var(--font-roboto)]">
+          <p className="text-[18px] font-medium tracking-[0.15em] text-gray-500 font-roboto">
             Plot Options
           </p>
 
           <h2
             className="
-            mt-5
+            mt-3
             text-[32px]
             font-bold
             text-[#10261D]
@@ -169,19 +169,29 @@ export default function PricingSection({
                   </h3>
 
                   {/* Features */}
-                  <div className="mt-8 space-y-3 text-[16px]">
-                    {plan.features.map((feature) => (
-                      <p
-                        key={feature}
-                        className={
-                          featured
-                            ? "text-white/75"
-                            : "text-[#666]"
-                        }
-                      >
-                        {feature}
-                      </p>
-                    ))}
+                  <div className="mt-8 space-y-3 font-roboto text-[16px]">
+                    {plan.features.map((feature) => {
+                      const [label, ...valueParts] = feature.split(":");
+                      const value = valueParts.join(":").trim();
+
+                      return (
+                        <p
+                          key={feature}
+                          className={
+                            featured
+                              ? "text-white/75"
+                              : "text-[#666]"
+                          }
+                        >
+                          <span className="font-semibold">
+                            {label}:
+                          </span>{" "}
+                          <span className="font-normal">
+                            {value}
+                          </span>
+                        </p>
+                      );
+                    })}
                   </div>
                 </div>
 

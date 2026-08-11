@@ -4,6 +4,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { amenities } from "@/data/amenities";
 import AmenityTabs from "./AmenityTabs";
+import PremiumImage from "../ui/ProjectAnimateImage";
 
 export default function AmenitiesSection() {
   const [activeId, setActiveId] = useState("leisure");
@@ -18,15 +19,15 @@ export default function AmenitiesSection() {
       <div className="mx-auto max-w-7xl px-6">
         {/* Heading */}
         <div className="mx-auto mb-16 max-w-[1100px] text-center">
-          <p className="mb-5 text-[15px] font-medium tracking-[0.22em] text-neutral-500">
+          <p className="mb-3 text-[18px] font-medium tracking-[0.22em] text-neutral-500 font-roboto">
             Project Amenities
           </p>
 
-          <h2 className="text-4xl font-semibold tracking-[-0.03em] text-black md:text-5xl lg:text-[54px]">
+          <h2 className="text-[38px] font-medium tracking-[-0.03em] text-black md:text-[44px] lg:text-[48px]">
             3+ ACRES OF ELEVATED LIVING
           </h2>
 
-          <p className="mx-auto mt-3 max-w-[1050px] text-sm leading-7 text-neutral-500 md:text-[16px]">
+          <p className="mx-auto mt-3 max-w-[1050px] text-sm leading-7 text-neutral-500 md:text-[16px] font-roboto">
             Every Space At Highway Greens Has Been Planned To Support The
             Natural Rhythm Of Daily Life, From Quiet Morning Walks And
             Moments Of Reflection To Recreation, Fitness And Meaningful
@@ -44,30 +45,19 @@ export default function AmenitiesSection() {
 
           {/* Image */}
           <div className="relative aspect-[1.35/1] overflow-hidden">
-            <AnimatePresence mode="wait">
-              <motion.img
-                key={activeAmenity.id}
-                src={activeAmenity.image}
-                alt={activeAmenity.title}
-                initial={{
-                  opacity: 0,
-                  scale: 1.05,
-                }}
-                animate={{
-                  opacity: 1,
-                  scale: 1,
-                }}
-                exit={{
-                  opacity: 0,
-                  scale: 0.98,
-                }}
-                transition={{
-                  duration: 0.55,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-                className="absolute inset-0 h-full w-full object-cover"
-              />
-            </AnimatePresence>
+<AnimatePresence mode="wait">
+  <PremiumImage
+    key={activeAmenity.id}
+    src={activeAmenity.image}
+    alt={activeAmenity.title}
+    fill
+    wrapperClassName="absolute inset-0 h-full w-full"
+    className="object-cover"
+    hoverScale={1.06}
+    parallax={8}
+    tilt={2}
+  />
+</AnimatePresence>
           </div>
 
           {/* Content */}

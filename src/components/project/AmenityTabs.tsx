@@ -36,7 +36,7 @@ export default function AmenityTabs({
               className="shrink-0"
             />
 
-            <span className="text-[17px] font-medium">
+            <span className="text-[16px] font-medium font-roboto">
               {amenity.title}
             </span>
 

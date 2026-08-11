@@ -49,7 +49,8 @@ export default function HeroSection({ content }: HeroSectionProps) {
     text-white
     font-normal
     italic
-    text-[56px]
+    text-[38px]
+    md:text-[56px]
     leading-none
     tracking-normal
     [font-family:Georgia,serif]

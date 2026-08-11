@@ -5,6 +5,7 @@ import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { journeyData } from "@/data/projectData";
+import PremiumImage from "../ui/ProjectAnimateImage";
 
 export default function Journey() {
     const [active, setActive] = useState(1);
@@ -38,7 +39,7 @@ export default function Journey() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: .7 }}
                     viewport={{ once: true }}
-                    className="text-center text-4xl md:text-5xl font-light mb-10 font-medium"
+                    className="text-center text-4xl md:text-[48px] font-light mb-10 font-medium"
                 >
                     The Journey
                 </motion.h2>
@@ -55,11 +56,15 @@ export default function Journey() {
                         className="relative hidden lg:block h-[400px] rounded-xl overflow-hidden shadow-xl cursor-pointer group"
                         onClick={prev}
                     >
-                        <Image
+                        <PremiumImage
                             src={leftCard.image}
                             alt={leftCard.title}
                             fill
-                            className="object-cover transition duration-700 group-hover:scale-110"
+                            wrapperClassName="h-full w-full"
+                            className="object-cover"
+                            hoverScale={1.08}
+                            parallax={6}
+                            tilt={2}
                         />
 
                         <div className="absolute inset-0 bg-black/10" />
@@ -75,12 +80,16 @@ export default function Journey() {
                             transition={{ duration: .45 }}
                             className="relative h-[350px] sm:h-[450px] md:h-[500px] rounded-xl overflow-hidden shadow-2xl"
                         >
-                            <Image
+                            <PremiumImage
                                 src={centerCard.image}
                                 alt={centerCard.title}
                                 fill
                                 priority
+                                wrapperClassName="h-full w-full"
                                 className="object-cover"
+                                hoverScale={1.05}
+                                parallax={8}
+                                tilt={2}
                             />
 
                             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
@@ -108,13 +117,16 @@ export default function Journey() {
                         className="relative hidden lg:block h-[400px] rounded-xl overflow-hidden shadow-xl cursor-pointer group"
                         onClick={next}
                     >
-                        <Image
+                        <PremiumImage
                             src={rightCard.image}
                             alt={rightCard.title}
                             fill
-                            className="object-cover transition duration-700 group-hover:scale-110"
+                            wrapperClassName="h-full w-full"
+                            className="object-cover"
+                            hoverScale={1.08}
+                            parallax={6}
+                            tilt={2}
                         />
-
                         <div className="absolute inset-0 bg-black/10" />
                     </motion.div>
 

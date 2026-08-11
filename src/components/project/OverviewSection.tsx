@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import type { OverviewContent } from "@/data/projectData";
-import AnimatedButton from "../ui/AnimatedButton";
+import PremiumImage from "../ui/ProjectAnimateImage";
+import MagneticButton from "../ui/ProjectAnumatedBtn";
 
 type OverviewSectionProps = {
   content: OverviewContent;
@@ -42,12 +42,16 @@ export default function OverviewSection({ content }: OverviewSectionProps) {
               "
             >
               <div className="relative h-full w-full overflow-hidden">
-                <Image
+                <PremiumImage
                   src="/overview-main.jpg"
                   alt="Highway Greens wellness"
                   fill
-                  className="object-cover"
                   priority
+                  wrapperClassName="h-full w-full"
+                  className="object-cover"
+                  hoverScale={1.06}
+                  parallax={8}
+                  tilt={3}
                 />
               </div>
             </div>
@@ -67,7 +71,7 @@ export default function OverviewSection({ content }: OverviewSectionProps) {
               pt-2
               text-center
               lg:px-0
-              lg:pt-[145px]
+              lg:pt-[100px]
             "
           >
             {/* Heading */}
@@ -95,8 +99,8 @@ export default function OverviewSection({ content }: OverviewSectionProps) {
               className="
                 mt-4
                 sm:mt-6
-                text-[13px]
-                sm:text-[14px]
+                text-[14px]
+                sm:text-[18px]
                 font-semibold
                 tracking-[0.08em]
                 text-[#111827]
@@ -108,15 +112,16 @@ export default function OverviewSection({ content }: OverviewSectionProps) {
             {/* Description */}
             <div
               className="
-                mt-8
-                lg:mt-11
+                mt-5
+                lg:mt-8
                 max-w-[720px]
-                space-y-5
-                sm:space-y-7
+                space-y-3
+                sm:space-y-5
                 text-[15px]
                 sm:text-[16px]
-                leading-[1.8]
+                leading-[1.7]
                 text-[#666666]
+                font-roboto
               "
             >
               {content.details.map((detail, idx) => (
@@ -127,9 +132,15 @@ export default function OverviewSection({ content }: OverviewSectionProps) {
             </div>
 
             {/* Download button */}
-            <AnimatedButton className="mt-8 sm:mt-10 px-10 py-3.5 sm:px-14 sm:py-4">
-              Download Brochure
-            </AnimatedButton>
+            <MagneticButton
+              text="Download Brochure"
+              bgColor="#BD8B59"
+              textColor="#000"
+              hoverTextColor="#000"
+              accentColor="#caa56b"
+              hoverColor="#fff"
+              className="mt-6 md:mt-10"
+            />
           </motion.div>
 
           {/* ================= RIGHT IMAGE ================= */}
@@ -142,7 +153,7 @@ export default function OverviewSection({ content }: OverviewSectionProps) {
               flex
               justify-center
               lg:justify-end
-              lg:pt-[515px]
+              lg:pt-[415px]
             "
           >
             <div
@@ -156,11 +167,15 @@ export default function OverviewSection({ content }: OverviewSectionProps) {
                 rounded-[3px]
               "
             >
-              <Image
+              <PremiumImage
                 src="/highlight.jpg"
                 alt="Highway Greens community"
                 fill
+                wrapperClassName="h-full w-full"
                 className="object-cover"
+                hoverScale={1.08}
+                parallax={6}
+                tilt={2}
               />
             </div>
           </motion.div>

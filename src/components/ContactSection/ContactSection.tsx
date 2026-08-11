@@ -50,11 +50,11 @@ export default function ContactSection() {
             duration: 0.7,
           }}
         >
-          <h2 className="max-w-5xl text-3xl font-semibold uppercase leading-tight text-black lg:text-4xl">
+          <h2 className="max-w-5xl text-3xl font-medium uppercase leading-tight text-black lg:text-[38px] font-roboto">
             Begin Your Highway Greens Journey
           </h2>
 
-          <p className="mt-6 max-w-6xl text-xl uppercase leading-relaxed text-black lg:text-2xl">
+          <p className="mt-6 max-w-6xl text-xl uppercase leading-relaxed text-black lg:text-[28px] font-roboto">
             Speak with our property advisor to learn more about plot
             availability, pricing and the project vision.
           </p>

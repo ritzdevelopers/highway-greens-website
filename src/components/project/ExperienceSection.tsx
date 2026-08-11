@@ -1,32 +1,43 @@
 "use client";
 
 import Image from "next/image";
-import AnimatedButton from "../ui/AnimatedButton";
+import PremiumImage from "../ui/ProjectAnimateImage";
+import AnimatedButton from "../ui/ProjectAnumatedBtn";
 
 export default function ExperienceSection() {
   return (
     <section className="relative h-[50vh] min-h-[450px] w-full overflow-hidden">
       {/* Background */}
-      <Image
-        src="/project/experience-bg.webp"
-        alt="Highway Greens"
-        fill
-        priority
-        className="object-cover"
-      />
+<PremiumImage
+  src="/project/experience-bg.webp"
+  alt="Highway Greens"
+  fill
+  priority
+  wrapperClassName="absolute inset-0 h-full w-full"
+  className="object-cover"
+  hoverScale={1.03}
+  parallax={6}
+  tilt={1.5}
+/>
 
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-black/40" />
 
       {/* Content */}
       <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
-        <h2 className="max-w-4xl text-3xl font-semibold tracking-tight text-white md:text-4xl">
+        <h2 className="max-w-[4xl] text-3xl font-semibold tracking-tight text-white md:text-[38px]">
           Experience Highway Greens First Hand
         </h2>
 
-        <AnimatedButton className="mt-10 px-12 py-4 md:px-14">
-          Schedule a Site Visit
-        </AnimatedButton>
+<AnimatedButton
+  text="Schedule a Site Visit"
+  bgColor="#F3D0BE"
+  textColor="#1f1f1f"
+  hoverTextColor="#ffffff"
+  accentColor="#caa56b"
+  hoverColor="#caa56b"
+  className="mt-10 px-12 md:px-14"
+/>
       </div>
     </section>
   );

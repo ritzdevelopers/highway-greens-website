@@ -107,7 +107,7 @@ export default function AmenityCard({
       >
         {/* Title */}
         <h3
-          className="text-2xl sm:text-3xl"
+          className="text-2xl sm:text-[24px] font-roboto"
           style={{
             fontFamily: "Cormorant Garamond, serif",
           }}
@@ -115,10 +115,10 @@ export default function AmenityCard({
           {amenity.title}
         </h3>
 
-        <div className="my-3 h-px bg-white/40" />
+        <div className="my-3 h-px bg-white/40 " />
 
         {/* Subtitle */}
-        <p className="text-sm sm:text-base">
+        <p className="text-sm sm:text-base font-roboto">
           {amenity.subtitle}
         </p>
 
@@ -138,7 +138,7 @@ export default function AmenityCard({
               "
             >
               <span>•</span>
-              <span>{point}</span>
+              <span className="font-roboto text-gray-200">{point}</span>
             </li>
           ))}
         </ul>

@@ -42,7 +42,8 @@ export default function HighlightItem({
           text-xl
           font-semibold
           text-[#10261D]
-          sm:text-2xl
+          sm:text-[20px]
+          font-roboto
         "
         style={{
           fontFamily:
@@ -60,7 +61,7 @@ export default function HighlightItem({
           text-gray-600
           sm:mt-4
           sm:text-[16px]
-          [font-family:var(--font-roboto)]
+          font-roboto
         "
       >
         {item.description}

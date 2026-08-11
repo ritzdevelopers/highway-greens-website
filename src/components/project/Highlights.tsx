@@ -3,7 +3,8 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { highlightsData } from "@/data/projectData";
-import AnimatedButton from "../ui/AnimatedButton";
+import PremiumImage from "../ui/ProjectAnimateImage";
+import AnimatedButton from "../ui/ProjectAnumatedBtn";
 
 export default function Highlights() {
   return (
@@ -33,13 +34,17 @@ export default function Highlights() {
             }}
             className="relative h-[550px] w-full overflow-hidden lg:h-[660px] lg:pr-10"
           >
-            <Image
+            <PremiumImage
               src="/highlights.jpg"
               alt="Highlights"
               fill
               priority
+              wrapperClassName="h-full w-full"
               className="object-cover"
               sizes="40vw"
+              hoverScale={1.06}
+              parallax={8}
+              tilt={2}
             />
           </motion.div>
 
@@ -57,7 +62,7 @@ export default function Highlights() {
               }}
               className="mb-24"
             >
-              <h2 className="inline-block border-b border-black pb-3 font-sans text-[40px] font-light uppercase leading-none tracking-[-1px] text-black">
+              <h2 className="inline-block border-b border-black pb-3 font-sans text-[36px] font-light uppercase leading-none tracking-[-1px] text-black">
                 Highlights
               </h2>
             </motion.div>
@@ -132,9 +137,15 @@ export default function Highlights() {
                 ease: "easeOut",
               }}
             >
-              <AnimatedButton className="mt-10 px-12 py-4 md:px-14">
-                Explore More
-              </AnimatedButton>
+              <AnimatedButton
+                text="Explore More"
+                bgColor="#BD8B59"
+                textColor="#1f1f1f"
+                hoverTextColor="#000"
+                accentColor="#caa56b"
+                hoverColor="#fff"
+                className="mt-10 px-12 md:px-14"
+              />
             </motion.div>
 
           </div>

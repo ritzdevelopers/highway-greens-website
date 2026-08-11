@@ -1,19 +1,20 @@
 "use client";
 
 import { plotOptions } from "@/data/projectData";
+import AnimatedButton from "../ui/ProjectAnumatedBtn";
 
 export default function PlotOptions() {
     return (
-        <section className="bg-[#22382d] py-18 overflow-hidden">
+        <section className="bg-[#22362B] py-18 overflow-hidden">
             <div className="max-w-7xl mx-auto px-6">
 
                 {/* Heading */}
                 <div className="text-center mb-16">
-                    <p className="text-[#f5f5f5] text-2xl mb-4">
+                    <p className="text-[#f5f5f5] text-[25px] mb-4">
                         Plot Options
                     </p>
 
-                    <h2 className="text-white text-4xl lg:text-5xl font-semibold font-light leading-tight">
+                    <h2 className="text-white text-4xl lg:text-[48px] font-light leading-tight">
                         Find the Right Space for Your Future
                     </h2>
                 </div>
@@ -40,13 +41,13 @@ export default function PlotOptions() {
                                 )}
 
                                 {/* Category */}
-                                <p className="text-sm font-semibold uppercase tracking-wide text-[#c79157]">
+                                <p className="text-sm font-semibold uppercase tracking-wide text-[#BD8B59]">
                                     {item.category}
                                 </p>
 
                                 {/* Title */}
                                 <h3
-                                    className={`mt-4 text-[30px] font-semibold leading-tight font-light ${item.variant === "dark"
+                                    className={`mt-4 text-[28px] font-semibold leading-tight font-light ${item.variant === "dark"
                                         ? "text-white"
                                         : "text-[#22382d]"
                                         }`}
@@ -104,21 +105,15 @@ export default function PlotOptions() {
                                 )}
 
                                 <div className="mt-10">
-<button
-    className={`group relative w-full overflow-hidden rounded-xl border-2 py-3 text-md font-semibold transition-all duration-300 hover:-translate-y-1 hover:shadow-lg active:translate-y-0 ${
-        item.variant === "dark"
-            ? "border-[#c79157] bg-[#c79157] text-white hover:bg-transparent hover:text-white"
-            : "border-[#22382d] text-[#22382d] hover:bg-[#22382d] hover:text-white"
-    }`}
->
-    {/* Shine animation */}
-    <span className="absolute inset-0 -translate-x-full skew-x-[-20deg] bg-white/20 transition-transform duration-700 group-hover:translate-x-[150%]" />
-
-    {/* Button content */}
-    <span className="relative z-10 flex items-center justify-center gap-2">
-        {item.button}
-    </span>
-</button>
+                                    <AnimatedButton
+                                        text={item.button}
+                                        bgColor={item.variant === "dark" ? "#c79157" : "#ffffff"}
+                                        textColor={item.variant === "dark" ? "#ffffff" : "#22382d"}
+                                        hoverTextColor="#ffffff"
+                                        accentColor="#c79157"
+                                        hoverColor="#22382d"
+                                        className="w-full rounded-xl"
+                                    />
                                 </div>
                             </div>
                         );

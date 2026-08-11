@@ -15,7 +15,7 @@ export default function ContactForm() {
       {/* Row 1 */}
       <div className="grid gap-10 lg:grid-cols-4">
         <div>
-          <label className="block text-lg font-medium text-black">
+          <label className="block text-[16px] font-medium text-black font-roboto">
             Full Name*
           </label>
 
@@ -26,7 +26,7 @@ export default function ContactForm() {
         </div>
 
         <div>
-          <label className="block text-lg font-medium text-black">
+          <label className="block text-[16px] font-medium text-black font-roboto">
             Email Address*
           </label>
 
@@ -37,7 +37,7 @@ export default function ContactForm() {
         </div>
 
         <div>
-          <label className="block text-lg font-medium text-black">
+          <label className="block text-[16px] font-medium text-black font-roboto">
             Mobile Number*
           </label>
 
@@ -48,7 +48,7 @@ export default function ContactForm() {
         </div>
 
         <div>
-          <label className="block text-lg font-medium text-black">
+          <label className="block text-[16px] font-medium text-black font-roboto">
             I'm Interested In*
           </label>
 
@@ -62,7 +62,7 @@ export default function ContactForm() {
       {/* Message */}
 
       <div className="mt-12">
-        <label className="block text-lg font-medium text-black">
+        <label className="block text-[16px] font-medium text-black font-roboto">
           Message / Query
         </label>
 
@@ -80,7 +80,7 @@ export default function ContactForm() {
           className="mt-1 h-5 w-5 accent-[#BE8A56]"
         />
 
-        <span className="text-[14px] leading-5 text-[#555]">
+        <span className="text-[14px] leading-5 text-[#555] font-roboto">
           By submitting this form, I consent to being contacted by
           Kinza Estate and its authorised representatives through
           call, SMS, email or WhatsApp regarding Highway Greens,

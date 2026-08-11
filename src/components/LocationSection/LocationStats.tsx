@@ -61,7 +61,7 @@ export default function LocationStats() {
           </p>
 
           {/* Label */}
-          <p className="mt-2 text-xl font-semibold text-white">
+          <p className="mt-2 text-xl font-semibold text-white font-roboto">
             {item.subtitle}
           </p>
         </motion.div>

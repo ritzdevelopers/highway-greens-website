@@ -52,7 +52,7 @@ export default function AboutSection({ content }: AboutSectionProps) {
             transition={{ duration: 0.7 }}
             viewport={{ once: true }}
           >
-            <p className="mb-4 text-lg font-semibold tracking-[0.25em] text-[#666]">
+            <p className="mb-4 text-lg font-semibold tracking-[0.15em] text-[#666] font-roboto">
               Overview
             </p>
 
@@ -63,7 +63,7 @@ export default function AboutSection({ content }: AboutSectionProps) {
                 uppercase
                 leading-tight
                 text-black
-                lg:text-4xl
+                lg:text-[38px]
               "
               style={{
                 fontFamily: "Cormorant Garamond, serif",
@@ -72,11 +72,11 @@ export default function AboutSection({ content }: AboutSectionProps) {
               {content.title}
             </h2>
 
-            <h3 className="mt-3 text-xl font-semibold text-gray-800">
+            <h3 className="mt-3 text-[18px] font-medium text-black">
               {content.subtitle}
             </h3>
 
-            <div className="mt-12 space-y-5 text-[16px] leading-[1.8] text-[#666]">
+            <div className="mt-10 space-y-5 text-[16px] leading-[1.8] text-[#666]">
               {content.details.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}

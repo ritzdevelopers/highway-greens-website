@@ -10,15 +10,15 @@ export default function Footer() {
           <Image
             src="/logo-white.png"
             alt="Highway Greens"
-            width={250}
-            height={90}
+            width={222}
+            height={70}
             className="h-auto w-65 object-contain"
           />
         </div>
 
         {/* Disclaimer */}
         <div className="mx-auto mt-8 max-w-7xl text-center">
-          <p className="text-[16px] leading-6 text-white/95">
+          <p className="text-[16px] leading-6 text-white/95 font-roboto">
             <span className="font-bold">Disclaimer :</span> The information,
             plans, specifications, amenities, dimensions, pricing and
             availability presented on this website are indicative and may be
@@ -56,7 +56,7 @@ export default function Footer() {
 
       {/* Copyright */}
       <div className="py-6">
-        <p className="text-center text-md italic text-white/50">
+        <p className="text-center text-[16px] italic text-white/50 font-roboto">
           © 2026 Highway Greens. All rights reserved. A Project by Kinza Estate.
           Digital Media Planned By Ritz Media World
         </p>

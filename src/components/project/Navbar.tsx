@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import type { NavLink } from "@/data/projectData";
+import MagneticButton from "../ui/ProjectAnumatedBtn";
 
 type NavbarProps = {
   links: NavLink[];
@@ -33,12 +34,22 @@ export default function Navbar({ links }: NavbarProps) {
         </Link>
 
         {/* Desktop Links */}
-        <nav className="hidden items-center gap-8 lg:flex">
-          {links.filter(link => link.label !== "Contact").map((link) => (
+        <nav className="hidden items-center gap-8 lg:flex xl:gap-14">
+          {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-md font-medium text-white transition hover:text-amber-200"
+              className="
+        text-[18px]
+        font-normal
+        leading-none
+        tracking-normal
+        text-white
+        font-roboto
+        transition-colors
+        duration-300
+        hover:text-[#d8c18a]
+      "
             >
               {link.label}
             </Link>
@@ -46,62 +57,16 @@ export default function Navbar({ links }: NavbarProps) {
         </nav>
 
         {/* Desktop Action Button */}
-        <motion.div
-          whileHover={{ y: -3 }}
-          whileTap={{ scale: 0.97, y: 0 }}
-          transition={{
-            duration: 0.25,
-            ease: "easeOut",
-          }}
-          className="hidden lg:block"
-        >
-          <Link
-            href="#contact"
-            className="
-              group
-              relative
-              inline-flex
-              overflow-hidden
-              bg-[#c29665]
-              px-8
-              py-3
-              text-md
-              font-bold
-              text-slate-950
-              transition-shadow
-              duration-300
-              hover:shadow-[0_10px_30px_rgba(194,150,101,0.35)]
-            "
-          >
-            <span
-              className="
-                absolute
-                inset-0
-                -translate-x-full
-                bg-[#b08556]
-                transition-transform
-                duration-500
-                ease-out
-                group-hover:translate-x-0
-              "
-            />
-            <span
-              className="
-                absolute
-                -left-[70%]
-                top-0
-                h-full
-                w-[45%]
-                skew-x-[-20deg]
-                bg-white/30
-                transition-all
-                duration-700
-                group-hover:left-[130%]
-              "
-            />
-            <span className="relative z-10">Enquire Now</span>
-          </Link>
-        </motion.div>
+        <div className="hidden lg:block">
+          <MagneticButton
+            text="Enquire Now"
+            bgColor="#BD8B59"
+            textColor="#000"
+            hoverTextColor="#000"
+            accentColor="#caa56b"
+            hoverColor="#fff"
+          />
+        </div>
 
         {/* Mobile Hamburger Toggle Button */}
         <button
@@ -110,19 +75,16 @@ export default function Navbar({ links }: NavbarProps) {
           aria-label="Toggle menu"
         >
           <span
-            className={`h-0.5 w-6 bg-white transition-transform duration-300 ${
-              isOpen ? "translate-y-2 rotate-45" : ""
-            }`}
+            className={`h-0.5 w-6 bg-white transition-transform duration-300 ${isOpen ? "translate-y-2 rotate-45" : ""
+              }`}
           />
           <span
-            className={`h-0.5 w-6 bg-white transition-opacity duration-300 ${
-              isOpen ? "opacity-0" : ""
-            }`}
+            className={`h-0.5 w-6 bg-white transition-opacity duration-300 ${isOpen ? "opacity-0" : ""
+              }`}
           />
           <span
-            className={`h-0.5 w-6 bg-white transition-transform duration-300 ${
-              isOpen ? "-translate-y-2 -rotate-45" : ""
-            }`}
+            className={`h-0.5 w-6 bg-white transition-transform duration-300 ${isOpen ? "-translate-y-2 -rotate-45" : ""
+              }`}
           />
         </button>
       </div>
@@ -148,13 +110,14 @@ export default function Navbar({ links }: NavbarProps) {
                   {link.label}
                 </Link>
               ))}
-              <Link
-                href="#contact"
-                onClick={() => setIsOpen(false)}
-                className="mt-2 block w-full bg-[#c29665] py-3 text-center text-md font-bold text-slate-950 hover:bg-[#b08556] transition"
-              >
-                Enquire Now
-              </Link>
+          <MagneticButton
+            text="Enquire Now"
+            bgColor="#BD8B59"
+            textColor="#000"
+            hoverTextColor="#000"
+            accentColor="#caa56b"
+            hoverColor="#fff"
+          />
             </div>
           </motion.div>
         )}

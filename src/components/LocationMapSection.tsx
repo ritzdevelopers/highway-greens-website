@@ -40,7 +40,7 @@ export default function LocationMapSection() {
           className="absolute right-24 top-1/2 z-20 max-w-xl -translate-y-1/2"
         >
           <h2
-            className="text-right text-3xl font-bold uppercase leading-tight text-white lg:text-4xl"
+            className="text-right text-3xl font-bold uppercase leading-tight text-white lg:text-[34px]"
             style={{
               fontFamily: "Cormorant Garamond, serif",
             }}

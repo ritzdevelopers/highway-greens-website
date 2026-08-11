@@ -134,19 +134,19 @@ md:py-15
                     }}
                     className="px-6 text-center"
                 >
-                    <p className="text-[18px] tracking-[0.25em] text-gray-500 [font-family:var(--font-roboto)]">
+                    <p className="text-[18px] tracking-[0.15em] text-gray-500 font-roboto">
                         Project Amenities
                     </p>
 
                     <h2
                         className="
-              mt-5
+              mt-3
               text-3xl
               font-black
               uppercase
               leading-tight
               text-black
-              lg:text-4xl
+              lg:text-[38px]
             "
                         style={{
                             fontFamily: "Cormorant Garamond, serif",
@@ -155,7 +155,7 @@ md:py-15
                         More Space for What Matters
                     </h2>
 
-                    <p className="mx-auto mt-6 max-w-4xl text-[16px] text-gray-600 [font-family:var(--font-roboto)]">
+                    <p className="mx-auto mt-6 max-w-4xl text-[16px] text-gray-600 font-roboto">
                         Every space at Highway Greens has been planned to support the
                         natural rhythm of daily life, from quiet morning walks and
                         moments of reflection to recreation, fitness and meaningful
@@ -211,7 +211,7 @@ md:py-15
                 sm:w-auto
                 sm:px-7
                 sm:text-lg
-                [font-family:var(--font-roboto)]
+                font-roboto
                 font-medium
                 ${active === index
                                     ? "border-[#B98957] bg-[#B98957] text-white"
