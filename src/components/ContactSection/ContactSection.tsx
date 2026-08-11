@@ -6,7 +6,7 @@ import ContactForm from "./ContactForm";
 
 export default function ContactSection() {
   return (
-    <section className="relative overflow-hidden py-24">
+    <section className="relative overflow-hidden py-12 md:py-24">
       {/* Animated Background Image */}
       <motion.div
         className="absolute inset-0 z-0"

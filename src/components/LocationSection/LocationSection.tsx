@@ -8,7 +8,7 @@ export default function LocationSection() {
   return (
     <section
       id="location"
-      className="relative overflow-hidden py-32"
+      className="relative overflow-hidden py-16 md:py-32"
     >
       {/* Background */}
 
@@ -48,7 +48,7 @@ export default function LocationSection() {
           </p>
 
           <h2
-            className="mt-5 text-3xl font-bold uppercase lg:text-[38px]"
+            className="md:mt-5 mt-2 text-2xl font-bold uppercase lg:text-[38px]"
             style={{
               fontFamily: "Cormorant Garamond, serif",
             }}
@@ -56,13 +56,13 @@ export default function LocationSection() {
             CONNECTED TO WHAT MATTERS
           </h2>
 
-          <p className="mx-auto mt-10 max-w-4xl text-md leading-7 text-white/90 font-roboto">
+          <p className="mx-auto md:mt-10 mt-5 max-w-4xl text-md leading-7 text-white/90 font-roboto">
             Highway Greens is envisioned for people who want to remain connected
             to work, education, healthcare, family and everyday conveniences
             while enjoying a calmer and more spacious living environment.
           </p>
 
-          <p className="mx-auto mt-6 max-w-4xl text-md leading-7 text-white/90 font-roboto">
+          <p className="mx-auto md:mt-6 mt-4 max-w-4xl text-md leading-7 text-white/90 font-roboto">
             It offers the balance of being close enough to participate in the
             city and far enough to step away from its constant noise and
             congestion.

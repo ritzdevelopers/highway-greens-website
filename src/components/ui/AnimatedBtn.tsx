@@ -49,7 +49,7 @@ export default function AnimatedButton({
         stiffness: 400,
         damping: 22,
       }}
-      className={`
+className={`
   group
   relative
   inline-flex
@@ -59,17 +59,33 @@ export default function AnimatedButton({
   overflow-hidden
   px-8
   border-2
-  border-[#caa56b]
+  border-transparent
   ${className}
 `}
     >
       {/* Premium border */}
-      <span
-        className="absolute inset-0 border"
-        style={{
-          borderColor: accentColor,
-        }}
-      />
+{/* Hover Premium Border */}
+<motion.span
+  variants={{
+    rest: {
+      opacity: 0,
+    },
+    hover: {
+      opacity: 1,
+    },
+  }}
+  transition={{
+    duration: 0.25,
+  }}
+  className="
+    pointer-events-none
+    absolute
+    inset-0
+    z-20
+    border-2
+    border-[#caa56b]
+  "
+/>
 
       {/* Subtle inner border */}
       <span

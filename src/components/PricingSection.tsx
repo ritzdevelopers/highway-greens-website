@@ -22,8 +22,9 @@ export default function PricingSection({
         from-[#FAFAFA]
         via-[#FDFDFD]
         to-white
-        py-10
-        lg:py-15
+        py-8
+        lg:py-10
+        px-2
       "
     >
       <div className="max-w-7xl mx-auto">
@@ -45,7 +46,7 @@ export default function PricingSection({
             duration: 0.7,
             ease: [0.22, 1, 0.36, 1],
           }}
-          className="mb-10 text-center"
+          className="mb-5 md:mb-10 text-center"
         >
           <p className="text-[18px] font-medium tracking-[0.15em] text-gray-500 font-roboto">
             Plot Options
@@ -53,8 +54,9 @@ export default function PricingSection({
 
           <h2
             className="
-            mt-3
-            text-[32px]
+            mt-2
+            md:mt-3
+            text-2xl
             font-bold
             text-[#10261D]
             lg:text-[38px]
@@ -99,7 +101,8 @@ export default function PricingSection({
                 group
                 relative
                 flex
-                min-h-[350px]
+                min-h-[300px]
+                md:min-h-[350px]
                 flex-col
                 overflow-hidden
                 md:rounded-xl

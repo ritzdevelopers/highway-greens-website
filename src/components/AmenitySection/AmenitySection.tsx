@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
@@ -92,6 +92,20 @@ const amenities: Amenity[] = [
 export default function AmenitySection() {
     const [active, setActive] = useState(0);
 
+    const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
+    useEffect(() => {
+        const activeTab = tabRefs.current[active];
+
+        if (activeTab) {
+            activeTab.scrollIntoView({
+                behavior: "smooth",
+                block: "nearest",
+                inline: "center",
+            });
+        }
+    }, [active]);
+
     const next = () => {
         setActive((prev) =>
             prev === amenities.length - 1 ? 0 : prev + 1
@@ -114,8 +128,9 @@ export default function AmenitySection() {
         from-[#FAFAFA]
         via-[#FDFDFD]
         to-white
-py-10 
-md:py-15
+py-2 
+md:py-8
+lg:py-15
         px-0
         sm:px-4
         lg:px-6
@@ -141,7 +156,7 @@ md:py-15
                     <h2
                         className="
               mt-3
-              text-3xl
+              text-2xl
               font-black
               uppercase
               leading-tight
@@ -164,6 +179,92 @@ md:py-15
                 </motion.div>
 
                 {/* Tabs */}
+                {/* =========================================================
+    MOBILE TABS
+    ========================================================= */}
+
+                <div
+                    className="
+    sticky
+    top-0
+    z-[60]
+    mt-7
+    w-full
+    overflow-x-auto
+    bg-white
+    px-4
+    py-2
+    md:hidden
+    [scrollbar-width:none]
+    [&::-webkit-scrollbar]:hidden
+  "
+                >
+                    <div
+                        className="
+      flex
+      min-w-max
+      gap-2
+      rounded-full
+      border
+      border-gray-200
+      bg-white
+      p-1
+    "
+                    >
+                        {amenities.map((item, index) => (
+                            <motion.button
+                                key={item.title}
+                                ref={(el) => {
+    tabRefs.current[index] = el;
+  }}
+                                type="button"
+                                onClick={() => setActive(index)}
+                                whileTap={{ scale: 0.97 }}
+                                className={`
+          flex
+          h-[42px]
+          shrink-0
+          items-center
+          justify-center
+          gap-1.5
+          rounded-full
+          px-5
+          text-[14px]
+          font-medium
+          font-roboto
+          transition-all
+          duration-300
+          cursor-pointer
+
+          ${active === index
+                                        ? "bg-[#B98957] text-white shadow-sm"
+                                        : "bg-transparent text-gray-700"
+                                    }
+        `}
+                            >
+                                <Image
+                                    src={item.icon}
+                                    alt=""
+                                    width={19}
+                                    height={19}
+                                    className={
+                                        active === index
+                                            ? "brightness-0 invert"
+                                            : ""
+                                    }
+                                />
+
+                                <span>{item.title}</span>
+                            </motion.button>
+                        ))}
+                    </div>
+                </div>
+
+
+                {/* =========================================================
+    DESKTOP TABS
+    ========================================================= */}
+
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -173,13 +274,14 @@ md:py-15
                         delay: 0.15,
                     }}
                     className="
-            mt-12
-            flex
-            flex-wrap
-            justify-center
-            gap-3
-            md:gap-4
-          "
+    mt-12
+    hidden
+    flex-wrap
+    justify-center
+    gap-3
+    md:flex
+    md:gap-4
+  "
                 >
                     {amenities.map((item, index) => (
                         <motion.button
@@ -196,29 +298,29 @@ md:py-15
                                 duration: 0.2,
                             }}
                             className={`
-                flex
-                w-[150px]
-                items-center
-                justify-center
-                gap-2
-                rounded-full
-                border
-                px-7
-                py-2
-                text-base
-                transition-colors
-                duration-300
-                sm:w-auto
-                sm:px-10
-                sm:text-lg
-                font-roboto
-                font-medium
-                cursor-pointer
-                ${active === index
+        flex
+        w-auto
+        items-center
+        justify-center
+        gap-2
+        rounded-full
+        border
+        px-7
+        py-2
+        text-base
+        transition-colors
+        duration-300
+        lg:px-10
+        lg:text-lg
+        font-roboto
+        font-medium
+        cursor-pointer
+
+        ${active === index
                                     ? "border-[#B98957] bg-[#B98957] text-white"
                                     : "border-gray-200 bg-white text-gray-700 hover:border-[#B98957]/50"
                                 }
-              `}
+      `}
                         >
                             <Image
                                 src={item.icon}
@@ -240,7 +342,7 @@ md:py-15
                 {/* Amenity Card */}
                 <motion.div
                     layout
-                    className="mx-auto mt-12 max-w-5xl px-0 sm:px-4 lg:px-6"
+                    className="mx-auto mt-7 md:mt-12 max-w-5xl px-0 sm:px-4 lg:px-6"
                 >
                     <AmenityCard
                         key={amenities[active].title}

@@ -44,7 +44,7 @@ export default function AboutSection({ content }: AboutSectionProps) {
 
       {/* Content */}
       <div className="relative z-10 mx-auto flex max-w-8xl sm:px-6 lg:px-20 px-5">
-        <div className="grid items-center gap-20 lg:grid-cols-[1.05fr_0.95fr]">
+        <div className="grid items-center gap-10 md:gap-20 lg:grid-cols-[1.05fr_0.95fr]">
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -58,7 +58,7 @@ export default function AboutSection({ content }: AboutSectionProps) {
 
             <h2
               className="
-                text-3xl
+                text-2xl
                 font-black
                 uppercase
                 leading-tight
@@ -76,7 +76,7 @@ export default function AboutSection({ content }: AboutSectionProps) {
               {content.subtitle}
             </h3>
 
-            <div className="mt-10 space-y-5 text-[16px] leading-[1.8] text-[#666]">
+            <div className="mt-5 md:mt-10 space-y-5 text-[16px] leading-[1.8] text-[#666]">
               {content.details.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
