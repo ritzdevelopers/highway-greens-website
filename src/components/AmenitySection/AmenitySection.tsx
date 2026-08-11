@@ -203,16 +203,17 @@ md:py-15
                 gap-2
                 rounded-full
                 border
-                px-5
-                py-3
+                px-7
+                py-2
                 text-base
                 transition-colors
                 duration-300
                 sm:w-auto
-                sm:px-7
+                sm:px-10
                 sm:text-lg
                 font-roboto
                 font-medium
+                cursor-pointer
                 ${active === index
                                     ? "border-[#B98957] bg-[#B98957] text-white"
                                     : "border-gray-200 bg-white text-gray-700 hover:border-[#B98957]/50"

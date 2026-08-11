@@ -13,17 +13,19 @@ type NavbarProps = {
 
 export default function Navbar({ links }: NavbarProps) {
   const [showNavbar, setShowNavbar] = useState(true);
+  const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
   const lastScrollY = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
+      const currentY = window.scrollY;
 
-      if (currentScrollY <= 20) {
+      setIsScrolled(currentY > 20);
+
+      if (currentY <= 20) {
         setShowNavbar(true);
-      } else if (currentScrollY > lastScrollY.current) {
+      } else if (currentY > lastScrollY.current) {
         // Scrolling down
         setShowNavbar(false);
         setMobileMenuOpen(false);
@@ -32,47 +34,47 @@ export default function Navbar({ links }: NavbarProps) {
         setShowNavbar(true);
       }
 
-      lastScrollY.current = currentScrollY;
+      lastScrollY.current = currentY;
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
     document.body.style.overflow = mobileMenuOpen ? "hidden" : "";
-
     return () => {
       document.body.style.overflow = "";
     };
   }, [mobileMenuOpen]);
 
-  const handleLinkClick = () => {
-    setMobileMenuOpen(false);
-  };
+  const closeMenu = () => setMobileMenuOpen(false);
+
+  const linkClass =
+    "text-[18px] font-normal leading-none tracking-normal text-white " +
+    "[font-family:var(--font-roboto)] transition-colors duration-300 " +
+    "hover:text-[#d8c18a]";
 
   return (
     <>
       <motion.header
         animate={{
           y: showNavbar ? 0 : -120,
+          backgroundColor: isScrolled ? "#213A2D" : "rgba(0,0,0,0)",
         }}
         transition={{
-          duration: 0.35,
-          ease: "easeInOut",
+          y: {
+            duration: 0.35,
+            ease: "easeInOut",
+          },
+          backgroundColor: {
+            duration: 0.3,
+          },
         }}
         className="fixed inset-x-0 top-0 z-50"
       >
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-6 lg:px-8">
-          {/* Logo */}
-          <Link
-            href="/"
-            onClick={() => setMobileMenuOpen(false)}
-            className="relative z-50 shrink-0"
-          >
+        <div className="mx-auto flex max-w-8xl sm:px-6 lg:px-20 px-5 items-center justify-between py-2">
+          <Link href="/" onClick={closeMenu} className="relative z-50 shrink-0">
             <Image
               src="/logo.png"
               alt="Highway Greens"
@@ -83,30 +85,14 @@ export default function Navbar({ links }: NavbarProps) {
             />
           </Link>
 
-          {/* Desktop Navigation */}
           <nav className="hidden items-center gap-8 lg:flex xl:gap-14">
             {links.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="
-        text-[18px]
-        font-normal
-        leading-none
-        tracking-normal
-        text-white
-        font-roboto
-        transition-colors
-        duration-300
-        hover:text-[#d8c18a]
-      "
-              >
+              <Link key={link.href} href={link.href} className={linkClass}>
                 {link.label}
               </Link>
             ))}
           </nav>
 
-          {/* Desktop CTA */}
           <div className="hidden lg:block">
             <AnimatedButton
               text="Enquire Now"
@@ -117,7 +103,6 @@ export default function Navbar({ links }: NavbarProps) {
             />
           </div>
 
-          {/* Mobile Menu Button */}
           <button
             type="button"
             aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
@@ -129,38 +114,22 @@ export default function Navbar({ links }: NavbarProps) {
               <motion.span
                 animate={
                   mobileMenuOpen
-                    ? {
-                      rotate: 45,
-                      y: 8,
-                    }
-                    : {
-                      rotate: 0,
-                      y: 0,
-                    }
+                    ? { rotate: 45, y: 8 }
+                    : { rotate: 0, y: 0 }
                 }
                 transition={{ duration: 0.25 }}
                 className="block h-[2px] w-full bg-white"
               />
-
               <motion.span
-                animate={{
-                  opacity: mobileMenuOpen ? 0 : 1,
-                }}
+                animate={{ opacity: mobileMenuOpen ? 0 : 1 }}
                 transition={{ duration: 0.2 }}
                 className="block h-[2px] w-full bg-white"
               />
-
               <motion.span
                 animate={
                   mobileMenuOpen
-                    ? {
-                      rotate: -45,
-                      y: -8,
-                    }
-                    : {
-                      rotate: 0,
-                      y: 0,
-                    }
+                    ? { rotate: -45, y: -8 }
+                    : { rotate: 0, y: 0 }
                 }
                 transition={{ duration: 0.25 }}
                 className="block h-[2px] w-full bg-white"
@@ -170,7 +139,6 @@ export default function Navbar({ links }: NavbarProps) {
         </div>
       </motion.header>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
@@ -184,13 +152,9 @@ export default function Navbar({ links }: NavbarProps) {
               initial={{ y: -30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -30, opacity: 0 }}
-              transition={{
-                duration: 0.3,
-                ease: "easeOut",
-              }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
               className="flex min-h-full flex-col items-center justify-center px-6"
             >
-              {/* Mobile Navigation */}
               <nav className="flex w-full max-w-sm flex-col items-center">
                 {links.map((link, index) => (
                   <motion.div
@@ -205,23 +169,8 @@ export default function Navbar({ links }: NavbarProps) {
                   >
                     <Link
                       href={link.href}
-                      onClick={handleLinkClick}
-                      className="
-    flex
-    w-full
-    items-center
-    justify-center
-    py-5
-    text-[18px]
-    font-normal
-    leading-none
-    tracking-normal
-    text-white
-    font-roboto
-    transition-colors
-    duration-300
-    hover:text-[#d8c18a]
-  "
+                      onClick={closeMenu}
+                      className={`flex w-full items-center justify-center py-5 ${linkClass}`}
                     >
                       {link.label}
                     </Link>
@@ -229,7 +178,6 @@ export default function Navbar({ links }: NavbarProps) {
                 ))}
               </nav>
 
-              {/* Mobile CTA */}
               <AnimatedButton
                 text="Enquire Now"
                 bgColor="#ffffff"

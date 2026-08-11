@@ -34,9 +34,11 @@ export default function AmenityCard({
       }}
       className="
         relative
-        h-[320px]
+        h-[360px]
         w-full
+        overflow-hidden
         sm:h-[420px]
+        sm:overflow-visible
         lg:h-[450px]
       "
     >
@@ -83,31 +85,37 @@ export default function AmenityCard({
           ease: [0.22, 1, 0.36, 1],
         }}
         className="
-          absolute
-          left-4
-          right-4
-          top-4
-          z-20
-          w-auto
-          bg-black/60
-          p-4
-          text-white
+  absolute
+  left-1/2
+  top-1/2
+  z-20
+  w-[70%]
+  -translate-x-1/2
+  -translate-y-1/2
+  bg-black/60
+  p-4
+  text-white
+  sm:left-8
+  sm:right-auto
+  sm:top-1/2
+  sm:w-[250px]
+  sm:translate-x-0
+  sm:-translate-y-1/2
+  sm:p-5
 
-          sm:left-8
-          sm:right-auto
-          sm:top-1/2
-          sm:w-[300px]
-          sm:-translate-y-1/2
-          sm:p-5
-
-          lg:left-12
-          lg:w-[330px]
-          lg:p-6
-        "
+  lg:left-12
+  lg:w-[300px]
+  lg:p-6
+"
       >
         {/* Title */}
+
         <h3
-          className="text-2xl sm:text-[24px] font-roboto"
+          className="
+            text-[22px]
+            sm:text-[24px]
+            font-roboto
+          "
           style={{
             fontFamily: "Cormorant Garamond, serif",
           }}
@@ -115,30 +123,36 @@ export default function AmenityCard({
           {amenity.title}
         </h3>
 
-        <div className="my-3 h-px bg-white/40 " />
+        <div className="my-3 h-px bg-white/40" />
 
         {/* Subtitle */}
-        <p className="text-sm sm:text-base font-roboto">
+
+        <p className="text-[13px] sm:text-base font-roboto">
           {amenity.subtitle}
         </p>
 
         <div className="my-3 h-px bg-white/40" />
 
         {/* Points */}
-        <ul className="mt-3 space-y-2">
+
+        <ul className="mt-3 space-y-1.5 sm:space-y-2">
           {amenity.points.map((point) => (
             <li
               key={point}
               className="
                 flex
                 gap-2
-                text-xs
-                leading-5
+                text-[11px]
+                leading-4
                 sm:text-sm
+                sm:leading-5
               "
             >
-              <span>•</span>
-              <span className="font-roboto text-gray-200">{point}</span>
+              <span className="shrink-0">•</span>
+
+              <span className="font-roboto text-gray-200">
+                {point}
+              </span>
             </li>
           ))}
         </ul>
@@ -160,12 +174,12 @@ export default function AmenityCard({
         }}
         className="
           absolute
-          left-3
+          left-2
           top-1/2
           z-50
           flex
-          h-12
-          w-12
+          h-10
+          w-10
           -translate-y-1/2
           items-center
           justify-center
@@ -185,8 +199,9 @@ export default function AmenityCard({
         aria-label="Previous amenity"
       >
         <ChevronLeft
-          size={28}
+          size={24}
           strokeWidth={1.5}
+          className="sm:h-7 sm:w-7"
         />
       </motion.button>
 
@@ -206,12 +221,12 @@ export default function AmenityCard({
         }}
         className="
           absolute
-          right-3
+          right-2
           top-1/2
           z-50
           flex
-          h-12
-          w-12
+          h-10
+          w-10
           -translate-y-1/2
           items-center
           justify-center
@@ -231,8 +246,9 @@ export default function AmenityCard({
         aria-label="Next amenity"
       >
         <ChevronRight
-          size={28}
+          size={24}
           strokeWidth={1.5}
+          className="sm:h-7 sm:w-7"
         />
       </motion.button>
     </motion.div>

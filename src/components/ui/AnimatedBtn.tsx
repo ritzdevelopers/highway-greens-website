@@ -50,16 +50,18 @@ export default function AnimatedButton({
         damping: 22,
       }}
       className={`
-        group
-        relative
-        inline-flex
-        h-[56px]
-        items-center
-        justify-center
-        overflow-hidden
-        px-8
-        ${className}
-      `}
+  group
+  relative
+  inline-flex
+  h-[56px]
+  items-center
+  justify-center
+  overflow-hidden
+  px-8
+  border-2
+  border-[#caa56b]
+  ${className}
+`}
     >
       {/* Premium border */}
       <span

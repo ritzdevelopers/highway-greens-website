@@ -43,7 +43,7 @@ export default function AboutSection({ content }: AboutSectionProps) {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-10">
+      <div className="relative z-10 mx-auto flex max-w-8xl sm:px-6 lg:px-20 px-5">
         <div className="grid items-center gap-20 lg:grid-cols-[1.05fr_0.95fr]">
           {/* Left Content */}
           <motion.div

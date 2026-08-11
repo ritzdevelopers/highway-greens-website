@@ -46,7 +46,7 @@ export default function HighlightsSection() {
 
     return (
         <section className="bg-white py-15">
-            <div className="mx-auto max-w-7xl px-2">
+            <div className="mx-auto flex max-w-8xl sm:px-6 lg:px-20 px-5">
 
                 <div className="grid gap-10 lg:grid-cols-[30%_70%]">
 
@@ -83,12 +83,12 @@ export default function HighlightsSection() {
                                 Highlights
                             </h2>
 
-                            <div className="mx-auto mt-4 h-[2px] w-40 bg-black lg:mx-0 lg:w-56" />
+                            <div className="mx-auto mt-4 h-[2px] w-40 bg-black lg:mx-0 lg:w-62" />
                         </div>
                     </motion.div>
 
                     {/* Right Column */}
-                    <div className="grid gap-8 pt-10 lg:grid-cols-[48%_52%] lg:pt-14">
+                    <div className="grid gap-8 pt-10 lg:grid-cols-[48%_52%] lg:pt-14 md:pr-12 pr-2">
                         {/* Large Image */}
                         <motion.div
                             initial={{ opacity: 0, y: 40 }}

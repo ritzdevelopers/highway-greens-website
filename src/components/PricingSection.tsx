@@ -99,10 +99,10 @@ export default function PricingSection({
                 group
                 relative
                 flex
-                min-h-[400px]
+                min-h-[350px]
                 flex-col
                 overflow-hidden
-                rounded-xl
+                md:rounded-xl
                 border
                 p-8
                 transition-shadow

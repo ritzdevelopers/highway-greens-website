@@ -37,114 +37,122 @@ export default function ContactFloatingCard() {
           ease: "easeInOut",
         }}
       >
-        <motion.a
-          href="tel:+919355455592"
-          whileHover={{
-            x: 6,
-          }}
-          whileTap={{
-            scale: 0.97,
-          }}
-          transition={{
-            duration: 0.25,
-          }}
-          className="
-            group
-            relative
-            flex
-            items-center
-            gap-4
-            overflow-hidden
-            border
-            border-[#caa56b]/60
-            bg-[#BD8B59]
-            px-5
-            py-4
-            shadow-[0_8px_30px_rgba(0,0,0,0.18)]
-          "
-        >
-          {/* Animated shine */}
-          <motion.span
-            animate={{
-              x: ["-120%", "220%"],
-            }}
-            transition={{
-              duration: 2.8,
-              repeat: Infinity,
-              repeatDelay: 3,
-              ease: "easeInOut",
-            }}
-            className="
-              absolute
-              inset-y-0
-              left-0
-              w-1/3
-              skew-x-[-20deg]
-              bg-white/30
-              blur-sm
-            "
-          />
+<motion.a
+  href="tel:+919355455592"
+  whileHover={{
+    x: 6,
+  }}
+  whileTap={{
+    scale: 0.97,
+  }}
+  transition={{
+    duration: 0.25,
+  }}
+  className="
+    group
+    relative
+    flex
+    items-center
+    gap-2
+    sm:gap-4
+    overflow-hidden
+    border
+    border-[#caa56b]/60
+    bg-[#BD8B59]
+    px-3
+    py-2.5
+    sm:px-5
+    sm:py-4
+    shadow-[0_8px_30px_rgba(0,0,0,0.18)]
+  "
+>
+  {/* Animated shine */}
+  <motion.span
+    animate={{
+      x: ["-120%", "220%"],
+    }}
+    transition={{
+      duration: 2.8,
+      repeat: Infinity,
+      repeatDelay: 3,
+      ease: "easeInOut",
+    }}
+    className="
+      absolute
+      inset-y-0
+      left-0
+      w-1/3
+      skew-x-[-20deg]
+      bg-white/30
+      blur-sm
+    "
+  />
 
-          {/* Phone icon */}
-          <motion.div
-            animate={{
-              rotate: [0, -8, 8, -8, 0],
-            }}
-            transition={{
-              duration: 1.2,
-              repeat: Infinity,
-              repeatDelay: 4,
-              ease: "easeInOut",
-            }}
-            className="
-              relative
-              z-10
-              flex
-              h-12
-              w-12
-              shrink-0
-              items-center
-              justify-center
-            "
-          >
-            <PhoneCall
-              size={30}
-              strokeWidth={1.2}
-              className="text-white"
-            />
-          </motion.div>
+  {/* Phone icon */}
+  <motion.div
+    animate={{
+      rotate: [0, -8, 8, -8, 0],
+    }}
+    transition={{
+      duration: 1.2,
+      repeat: Infinity,
+      repeatDelay: 4,
+      ease: "easeInOut",
+    }}
+    className="
+      relative
+      z-10
+      flex
+      h-9
+      w-9
+      shrink-0
+      items-center
+      justify-center
+      sm:h-12
+      sm:w-12
+    "
+  >
+    <PhoneCall
+      size={23}
+      strokeWidth={1.2}
+      className="text-white sm:h-[30px] sm:w-[30px]"
+    />
+  </motion.div>
 
-          {/* Content */}
-          <div className="relative z-10 pr-1">
-            <p
-              className="
-                text-[18px]
-                font-normal
-                leading-none
-                text-white
-              "
-              style={{
-                fontFamily: "Cormorant Garamond, serif",
-              }}
-            >
-              Speak With Our Team
-            </p>
+  {/* Content */}
+  <div className="relative z-10 pr-1">
+    <p
+      className="
+        text-[14px]
+        font-normal
+        leading-none
+        text-white
+        sm:text-[18px]
+      "
+      style={{
+        fontFamily: "Cormorant Garamond, serif",
+      }}
+    >
+      Speak With Our Team
+    </p>
 
-            <p
-              className="
-                mt-2
-                text-[18px]
-                leading-none
-                text-white
-              "
-              style={{
-                fontFamily: "Cormorant Garamond, serif",
-              }}
-            >
-              Call: +91 93554 55592
-            </p>
-          </div>
-        </motion.a>
+    <p
+      className="
+        mt-1.5
+        text-[14px]
+        leading-none
+        text-white
+        sm:mt-2
+        sm:text-[18px]
+      "
+      style={{
+        fontFamily: "Cormorant Garamond, serif",
+      }}
+    >
+      Call: +91 93554 55592
+    </p>
+  </div>
+</motion.a>
       </motion.div>
     </motion.div>
   );
