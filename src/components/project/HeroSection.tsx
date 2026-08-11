@@ -11,7 +11,7 @@ type HeroSectionProps = {
 
 export default function HeroSection({ content }: HeroSectionProps) {
   return (
-    <section className="relative overflow-visible bg-white pb-24 lg:pb-0">
+    <section className="relative overflow-visible bg-white">
       {/* ================= HERO CONTAINER ================= */}
       <div className="relative flex flex-col lg:h-[635px] lg:block">
 

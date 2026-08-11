@@ -5,16 +5,16 @@ import AnimatedButton from "../ui/ProjectAnumatedBtn";
 
 export default function PlotOptions() {
     return (
-        <section className="bg-[#22362B] py-18 overflow-hidden">
-            <div className="max-w-7xl mx-auto px-6">
+        <section className="bg-[#22362B] py-10 md:py-14 overflow-hidden">
+            <div className="mx-auto max-w-8xl sm:px-6 lg:px-20 px-5">
 
                 {/* Heading */}
-                <div className="text-center mb-16">
-                    <p className="text-[#f5f5f5] text-[25px] mb-4">
+                <div className="text-center mb-10 md:mb-16">
+                    <p className="text-[#f5f5f5] text-[18px] mb-2">
                         Plot Options
                     </p>
 
-                    <h2 className="text-white text-4xl lg:text-[48px] font-light leading-tight">
+                    <h2 className="text-white text-2xl md:text-3xl lg:text-[48px] font-light leading-tight">
                         Find the Right Space for Your Future
                     </h2>
                 </div>
@@ -47,7 +47,7 @@ export default function PlotOptions() {
 
                                 {/* Title */}
                                 <h3
-                                    className={`mt-4 text-[28px] font-semibold leading-tight font-light ${item.variant === "dark"
+                                    className={`mt-2 md:mt-4 text-[28px] font-semibold leading-tight font-light ${item.variant === "dark"
                                         ? "text-white"
                                         : "text-[#22382d]"
                                         }`}

@@ -21,7 +21,7 @@ export default function Navbar({ links }: NavbarProps) {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="absolute left-0 right-0 top-0 z-50 bg-transparent"
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-10">
+      <div className="mx-auto flex max-w-8xl sm:px-6 lg:px-20 px-5 items-center justify-between py-6">
         <Link href="/project" className="flex items-center gap-4">
           <Image
             src="/logo-white.png"

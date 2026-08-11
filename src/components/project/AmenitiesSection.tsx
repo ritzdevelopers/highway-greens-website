@@ -16,14 +16,14 @@ export default function AmenitiesSection() {
 
   return (
     <section className="relative overflow-hidden bg-white py-10 lg:py-14">
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="mx-auto max-w-8xl sm:px-6 lg:px-30 px-5">
         {/* Heading */}
-        <div className="mx-auto mb-16 max-w-[1100px] text-center">
+        <div className="mx-auto mb-6 md:mb-16 max-w-[1100px] text-center">
           <p className="mb-3 text-[18px] font-medium tracking-[0.22em] text-neutral-500 font-roboto">
             Project Amenities
           </p>
 
-          <h2 className="text-[38px] font-medium tracking-[-0.03em] text-black md:text-[44px] lg:text-[48px]">
+          <h2 className="text-2xl font-medium tracking-[-0.03em] text-black md:text-3xl lg:text-[48px]">
             3+ ACRES OF ELEVATED LIVING
           </h2>
 

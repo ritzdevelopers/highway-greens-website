@@ -43,7 +43,7 @@ export default function Location() {
         <div className="absolute inset-0 bg-[linear-gradient(35deg,transparent_48%,#eeeeee_49%,transparent_50%),linear-gradient(145deg,transparent_48%,#eeeeee_49%,transparent_50%)] bg-[length:280px_280px]" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-[1500px] px-6 lg:px-10">
+      <div className="relative z-10 mx-auto max-w-8xl sm:px-6 lg:px-20 px-5">
         {/* ================= HEADER ================= */}
         <div className="mx-auto max-w-[1200px] text-center">
           {/* Location */}
@@ -59,7 +59,7 @@ export default function Location() {
 
           {/* Heading */}
           <h2
-            className={`mt-3 text-[38px] font-normal tracking-[-1.5px] text-[#111] transition-all delay-100 duration-700 sm:text-[44px] lg:text-[48px] ${
+            className={`mt-3 text-2xl font-normal tracking-[-1.5px] text-[#111] transition-all delay-100 duration-700 md:text-3xl lg:text-[48px] ${
               visible
                 ? "translate-y-0 opacity-100"
                 : "translate-y-8 opacity-0"
@@ -70,7 +70,7 @@ export default function Location() {
 
           {/* Description */}
           <p
-            className={`mx-auto mt-5 max-w-[1000px] text-sm sm:text-base leading-7 text-[#666] transition-all delay-200 duration-700 lg:text-[16px] ${
+            className={`mx-auto mt-3 md:mt-5 max-w-[1000px] text-sm sm:text-base leading-7 text-[#666] transition-all delay-200 duration-700 lg:text-[16px] ${
               visible
                 ? "translate-y-0 opacity-100"
                 : "translate-y-6 opacity-0"
@@ -85,7 +85,7 @@ export default function Location() {
 
         {/* ================= MAP SECTION ================= */}
         <div
-          className={`mt-10 border border-[#cfcfcf] p-2 transition-all delay-300 duration-1000 ${
+          className={`mt-5 md:mt-10 border border-[#cfcfcf] p-2 transition-all delay-300 duration-1000 ${
             visible
               ? "translate-y-0 scale-100 opacity-100"
               : "translate-y-10 scale-[0.98] opacity-0"

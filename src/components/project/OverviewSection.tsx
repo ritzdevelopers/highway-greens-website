@@ -11,34 +11,31 @@ type OverviewSectionProps = {
 
 export default function OverviewSection({ content }: OverviewSectionProps) {
   return (
-    <section
-      id="overview"
-      className="relative bg-white"
-    >
-      <div className="mx-auto max-w-[1380px] px-6 pb-16 pt-16 lg:pb-24 lg:pt-24 lg:px-10">
-        <div className="relative grid grid-cols-1 lg:grid-cols-[340px_minmax(0,1fr)_300px] lg:gap-x-10 gap-y-12 lg:gap-y-0">
+    <section id="overview" className="relative bg-white">
+      <div className="mx-auto flex max-w-8xl px-5 pb-10 pt-10 sm:px-6 lg:px-20 lg:pb-14 lg:pt-14">
+        <div className="relative grid w-full grid-cols-1 gap-y-12 lg:grid-cols-[340px_minmax(0,1fr)_300px] lg:gap-x-10 lg:gap-y-0">
 
-          {/* ================= LEFT IMAGE ================= */}
+          {/* ================= LEFT IMAGE - DESKTOP ================= */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.8 }}
-            className="flex justify-center lg:justify-start"
+            className="hidden justify-center lg:flex lg:justify-start"
           >
             <div
               className="
                 relative
                 h-[400px]
-                sm:h-[560px]
                 w-full
                 max-w-[365px]
                 border
                 border-slate-300
                 bg-white
                 p-[15px]
-                sm:p-[20px]
                 shadow-sm
+                sm:h-[560px]
+                sm:p-[20px]
               "
             >
               <div className="relative h-full w-full overflow-hidden">
@@ -71,18 +68,18 @@ export default function OverviewSection({ content }: OverviewSectionProps) {
               pt-2
               text-center
               lg:px-0
-              lg:pt-[100px]
+              lg:pt-[120px]
             "
           >
-            {/* Heading */}
+            {/* ================= HEADING ================= */}
             <h2
               className="
-                text-[32px]
+                text-2xl
                 font-normal
                 leading-none
                 tracking-[-0.02em]
                 text-[#101827]
-                sm:text-[44px]
+                md:text-3xl
                 lg:whitespace-nowrap
                 lg:text-[48px]
               "
@@ -94,34 +91,111 @@ export default function OverviewSection({ content }: OverviewSectionProps) {
               GREENS
             </h2>
 
-            {/* Subtitle */}
+            {/* ================= MOBILE IMAGES ================= */}
+            <div className="mt-4 flex w-full flex-col items-center gap-5 lg:hidden">
+
+              {/* Left / Main Image */}
+              <motion.div
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.7 }}
+                className="w-full"
+              >
+                <div
+                  className="
+                    relative
+                    mx-auto
+                    h-[400px]
+                    w-full
+                    max-w-[365px]
+                    border
+                    border-slate-300
+                    bg-white
+                    p-[5px]
+                    shadow-sm
+                    sm:h-[500px]
+                    sm:p-[20px]
+                  "
+                >
+                  <div className="relative h-full w-full overflow-hidden">
+                    <PremiumImage
+                      src="/overview-main.jpg"
+                      alt="Highway Greens wellness"
+                      fill
+                      priority
+                      wrapperClassName="h-full w-full"
+                      className="object-cover"
+                      hoverScale={1.06}
+                      parallax={8}
+                      tilt={3}
+                    />
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Right / Highlight Image */}
+              <motion.div
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.7, delay: 0.1 }}
+                className="w-full"
+              >
+                <div
+                  className="
+                    relative
+                    mx-auto
+                    h-[220px]
+                    w-full
+                    overflow-hidden
+                    rounded-[3px]
+                    sm:h-[235px]
+                  "
+                >
+                  <PremiumImage
+                    src="/highlight.jpg"
+                    alt="Highway Greens community"
+                    fill
+                    wrapperClassName="h-full w-full"
+                    className="object-cover"
+                    hoverScale={1.08}
+                    parallax={6}
+                    tilt={2}
+                  />
+                </div>
+              </motion.div>
+            </div>
+
+            {/* ================= SUBTITLE ================= */}
             <p
               className="
-                mt-4
-                sm:mt-6
+                mt-6
                 text-[14px]
-                sm:text-[18px]
                 font-semibold
                 tracking-[0.08em]
                 text-[#111827]
+                sm:mt-8
+                sm:text-[18px]
+                lg:mt-6
               "
             >
               {content.subtitle}
             </p>
 
-            {/* Description */}
+            {/* ================= DESCRIPTION ================= */}
             <div
               className="
                 mt-5
-                lg:mt-8
                 max-w-[720px]
                 space-y-3
-                sm:space-y-5
+                font-roboto
                 text-[15px]
-                sm:text-[16px]
                 leading-[1.7]
                 text-[#666666]
-                font-roboto
+                sm:space-y-5
+                sm:text-[16px]
+                lg:mt-8
               "
             >
               {content.details.map((detail, idx) => (
@@ -131,7 +205,7 @@ export default function OverviewSection({ content }: OverviewSectionProps) {
               ))}
             </div>
 
-            {/* Download button */}
+            {/* ================= DOWNLOAD BUTTON ================= */}
             <MagneticButton
               text="Download Brochure"
               bgColor="#BD8B59"
@@ -143,15 +217,16 @@ export default function OverviewSection({ content }: OverviewSectionProps) {
             />
           </motion.div>
 
-          {/* ================= RIGHT IMAGE ================= */}
+          {/* ================= RIGHT IMAGE - DESKTOP ================= */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="
-              flex
+              hidden
               justify-center
+              lg:flex
               lg:justify-end
               lg:pt-[415px]
             "
@@ -160,11 +235,11 @@ export default function OverviewSection({ content }: OverviewSectionProps) {
               className="
                 relative
                 h-[200px]
-                sm:h-[235px]
                 w-full
                 max-w-[310px]
                 overflow-hidden
                 rounded-[3px]
+                sm:h-[235px]
               "
             >
               <PremiumImage
@@ -179,6 +254,7 @@ export default function OverviewSection({ content }: OverviewSectionProps) {
               />
             </div>
           </motion.div>
+
         </div>
       </div>
     </section>

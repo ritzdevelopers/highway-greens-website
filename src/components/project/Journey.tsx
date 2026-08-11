@@ -30,8 +30,8 @@ export default function Journey() {
     const rightCard = journeyData[getIndex(1)];
 
     return (
-        <section className="bg-white py-14 overflow-hidden">
-            <div className="max-w-7xl mx-auto px-6">
+        <section className="bg-white py-10 md:py-14 overflow-hidden">
+            <div className="mx-auto max-w-8xl sm:px-6 lg:px-20 px-5">
 
                 {/* Heading */}
                 <motion.h2
@@ -39,7 +39,7 @@ export default function Journey() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: .7 }}
                     viewport={{ once: true }}
-                    className="text-center text-4xl md:text-[48px] font-light mb-10 font-medium"
+                    className="text-center text-2xl md:text-3xl lg:text-[48px] font-light mb-5 md:mb-10 font-medium"
                 >
                     The Journey
                 </motion.h2>
@@ -132,7 +132,7 @@ export default function Journey() {
 
                 </div>
                 {/* Navigation */}
-                <div className="mt-10 flex items-center justify-center gap-6">
+                <div className="mt-5 md:mt-10 flex items-center justify-center gap-6">
                     <button
                         onClick={prev}
                         aria-label="Previous"
