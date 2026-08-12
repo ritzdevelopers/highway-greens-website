@@ -131,7 +131,7 @@ export default function AmenityTabs({
               key={amenity.id}
               type="button"
               onClick={() => onChange(amenity.id)}
-              className={`relative flex h-[50px] w-full items-center gap-4 rounded-full border px-8 text-left transition-colors duration-300 ${
+              className={`relative cursor-pointer flex h-[50px] w-full items-center gap-4 rounded-full border px-8 text-left transition-colors duration-300 ${
                 isActive
                   ? "border-[#b88954] bg-[#c3955d] text-black"
                   : "border-[#e8e8e8] bg-white text-black hover:border-[#c3955d]"

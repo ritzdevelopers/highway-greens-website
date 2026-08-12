@@ -87,28 +87,28 @@ export default function Highlights() {
             </motion.div>
 
             {/* ================= CARDS ================= */}
-<div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3">
-  {highlightsData.map((item, index) => (
-    <motion.div
-      key={item.id}
-      initial={{
-        opacity: 0,
-        y: 20,
-      }}
-      whileInView={{
-        opacity: 1,
-        y: 0,
-      }}
-      viewport={{
-        once: true,
-        amount: 0.2,
-      }}
-      transition={{
-        duration: 0.45,
-        delay: index * 0.08,
-        ease: "easeOut",
-      }}
-      className="
+            <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3">
+              {highlightsData.map((item, index) => (
+                <motion.div
+                  key={item.id}
+                  initial={{
+                    opacity: 0,
+                    y: 20,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    y: 0,
+                  }}
+                  viewport={{
+                    once: true,
+                    amount: 0.2,
+                  }}
+                  transition={{
+                    duration: 0.45,
+                    delay: index * 0.08,
+                    ease: "easeOut",
+                  }}
+                  className="
         flex
         h-[160px]
         sm:h-[173px]
@@ -122,25 +122,25 @@ export default function Highlights() {
         py-5
         text-center
       "
-    >
-      {/* Image Icon */}
-      <div className="mb-4 flex h-[48px] w-[48px] items-center justify-center sm:mb-5 sm:h-[58px] sm:w-[58px]">
-        <Image
-          src={item.image}
-          alt={item.title}
-          width={58}
-          height={58}
-          className="h-[45px] w-[45px] object-contain sm:h-[52px] sm:w-[52px]"
-        />
-      </div>
+                >
+                  {/* Image Icon */}
+                  <div className="mb-4 flex h-[48px] w-[48px] items-center justify-center sm:mb-5 sm:h-[58px] sm:w-[58px]">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      width={58}
+                      height={58}
+                      className="h-[45px] w-[45px] object-contain sm:h-[52px] sm:w-[52px]"
+                    />
+                  </div>
 
-      {/* Title */}
-      <h3 className="whitespace-pre-line font-sans text-[15px] font-normal leading-[1.3] tracking-[-0.2px] text-[#666666] sm:text-[18px] sm:leading-[1.35]">
-        {item.title}
-      </h3>
-    </motion.div>
-  ))}
-</div>
+                  {/* Title */}
+                  <h3 className="whitespace-pre-line font-sans text-[15px] font-normal leading-[1.3] tracking-[-0.2px] text-[#666666] sm:text-[18px] sm:leading-[1.35]">
+                    {item.title}
+                  </h3>
+                </motion.div>
+              ))}
+            </div>
 
             {/* Explore Button */}
             <motion.div

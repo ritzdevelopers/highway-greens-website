@@ -118,7 +118,6 @@ export default function HeroSection({ content }: HeroSectionProps) {
                 type="checkbox"
                 id="agreement"
                 required
-                defaultChecked
                 className="mt-1 h-[19px] w-[19px] shrink-0 accent-[#c29665]"
               />
 

@@ -42,6 +42,7 @@ export default function MagneticButton({
         overflow-hidden
         border
         px-10
+        cursor-pointer
         ${className}
       `}
     >

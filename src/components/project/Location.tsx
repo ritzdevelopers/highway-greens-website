@@ -99,12 +99,12 @@ export default function Location() {
             {/* Map Box */}
             <div className="relative h-[300px] sm:h-[400px] lg:absolute lg:inset-0 lg:h-full w-full">
               {/* Real OpenStreetMap */}
-              <iframe
-                title="Highway Greens Location"
-                src="https://www.openstreetmap.org/export/embed.html?bbox=77.42%2C28.65%2C77.48%2C28.70&layer=mapnik&marker=28.675%2C77.45"
-                className="absolute inset-0 h-full w-full border-0"
-                loading="lazy"
-              />
+  <iframe
+    title="Highway Greens Location"
+    src="https://maps.google.com/maps?q=28.675,77.45&t=k&z=15&output=embed"
+    className="absolute inset-0 h-full w-full border-0"
+    loading="lazy"
+  />
 
               {/* ================= CUSTOM LOCATION PIN ================= */}
               <div
@@ -175,7 +175,6 @@ export default function Location() {
     bg-black/55
     px-5 py-6
     text-white
-    backdrop-blur-[3px]
     backdrop-saturate-150
     shadow-[0_10px_40px_rgba(0,0,0,0.22)]
     transition-all
