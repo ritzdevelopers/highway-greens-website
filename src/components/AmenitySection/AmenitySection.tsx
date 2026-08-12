@@ -407,6 +407,7 @@ export default function AmenitySection() {
                 sm:w-auto
                 sm:px-10
                 sm:text-lg
+                cursor-pointer
                 ${
                   active === index
                     ? "border-[#B98957] bg-[#B98957] text-white"

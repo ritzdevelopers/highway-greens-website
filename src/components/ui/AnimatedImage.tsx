@@ -30,22 +30,21 @@ export default function AnimatedImage({
         once: true,
         amount: 0.2,
       }}
-      className={`
-        group
-        relative
-        overflow-hidden
-        ${wrapperClassName}
-      `}
+      className={`group relative overflow-hidden ${wrapperClassName}`}
     >
-      {/* Image Reveal + Subtle Zoom */}
+      {/* Fade + Lift + Subtle Zoom */}
       <motion.div
         variants={{
           hidden: {
-            clipPath: "inset(0 100% 0 0)",
+            opacity: 0,
+            y: 30,
+            scale: 0.97,
           },
 
           visible: {
-            clipPath: "inset(0 0% 0 0)",
+            opacity: 1,
+            y: 0,
+            scale: 1,
           },
 
           hover: {
@@ -53,12 +52,16 @@ export default function AnimatedImage({
           },
         }}
         transition={{
-          clipPath: {
-            duration: 1.2,
+          opacity: {
+            duration: 0.8,
             delay,
-            ease: [0.76, 0, 0.24, 1],
+            ease: "easeOut",
           },
-
+          y: {
+            duration: 1,
+            delay,
+            ease: [0.22, 1, 0.36, 1],
+          },
           scale: {
             duration: 0.8,
             ease: [0.22, 1, 0.36, 1],
@@ -66,13 +69,14 @@ export default function AnimatedImage({
         }}
         className="relative h-full w-full"
       >
+        {/* Continuous subtle zoom */}
         <motion.div
           animate={{
             scale: [1, zoomScale, 1],
           }}
           transition={{
             duration: zoomDuration,
-            delay: delay + 1.2,
+            delay: delay + 0.8,
             repeat: Infinity,
             ease: "easeInOut",
           }}
@@ -91,7 +95,7 @@ export default function AnimatedImage({
         </motion.div>
       </motion.div>
 
-      {/* Shine after reveal */}
+      {/* Premium Shine */}
       <motion.div
         initial={{
           x: "-150%",
@@ -99,15 +103,15 @@ export default function AnimatedImage({
         }}
         whileInView={{
           x: "150%",
-          opacity: [0, 0.3, 0],
+          opacity: [0, 0.25, 0],
         }}
         viewport={{
           once: true,
           amount: 0.2,
         }}
         transition={{
-          duration: 1,
-          delay: delay + 0.9,
+          duration: 1.2,
+          delay: delay + 0.7,
           ease: "easeInOut",
         }}
         className="

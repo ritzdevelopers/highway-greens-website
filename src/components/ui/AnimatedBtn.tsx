@@ -59,6 +59,7 @@ className={`
   overflow-hidden
   px-8
   border-2
+  cursor-pointer
   border-transparent
   ${className}
 `}

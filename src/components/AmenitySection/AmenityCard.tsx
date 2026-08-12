@@ -1,9 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-
-import AnimatedImage from "@/components/ui/AnimatedImage";
 
 export type Amenity = {
   title: string;
@@ -42,18 +41,50 @@ export default function AmenityCard({
         lg:h-[450px]
       "
     >
-      {/* ================= IMAGE ================= */}
+{/* ================= IMAGE ================= */}
 
-      <AnimatedImage
-        key={amenity.title}
-        src={amenity.image}
-        alt={amenity.title}
-        fill
-        priority
-        delay={0.05}
-        hoverScale={1.03}
-        wrapperClassName="absolute inset-0 h-full w-full"
-      />
+<div className="absolute inset-0 z-0 h-full w-full overflow-hidden">
+  <motion.div
+    key={`image-${amenity.title}`}
+    initial={{
+      opacity: 0,
+      scale: 1.08,
+      y: 8,
+    }}
+    animate={{
+      opacity: 1,
+      scale: 1,
+      y: 0,
+    }}
+    whileHover={{
+      scale: 1.04,
+    }}
+    transition={{
+      opacity: {
+        duration: 0.45,
+        ease: "easeOut",
+      },
+      scale: {
+        duration: 1,
+        ease: [0.22, 1, 0.36, 1],
+      },
+      y: {
+        duration: 0.8,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    }}
+    className="relative h-full w-full"
+  >
+    <Image
+      src={amenity.image}
+      alt={amenity.title}
+      fill
+      priority
+      className="object-cover"
+      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1200px"
+    />
+  </motion.div>
+</div>
 
       {/* ================= IMAGE OVERLAY ================= */}
 
@@ -85,28 +116,29 @@ export default function AmenityCard({
           ease: [0.22, 1, 0.36, 1],
         }}
         className="
-  absolute
-  left-1/2
-  top-1/2
-  z-20
-  w-[70%]
-  -translate-x-1/2
-  -translate-y-1/2
-  bg-black/60
-  p-4
-  text-white
-  sm:left-8
-  sm:right-auto
-  sm:top-1/2
-  sm:w-[250px]
-  sm:translate-x-0
-  sm:-translate-y-1/2
-  sm:p-5
+          absolute
+          left-1/2
+          top-1/2
+          z-20
+          w-[70%]
+          -translate-x-1/2
+          -translate-y-1/2
+          bg-black/60
+          p-4
+          text-white
 
-  lg:left-12
-  lg:w-[300px]
-  lg:p-6
-"
+          sm:left-8
+          sm:right-auto
+          sm:top-1/2
+          sm:w-[250px]
+          sm:translate-x-0
+          sm:-translate-y-1/2
+          sm:p-5
+
+          lg:left-12
+          lg:w-[300px]
+          lg:p-6
+        "
       >
         {/* Title */}
 
@@ -181,6 +213,7 @@ export default function AmenityCard({
           h-10
           w-10
           -translate-y-1/2
+          cursor-pointer
           items-center
           justify-center
           rounded-full
@@ -228,6 +261,7 @@ export default function AmenityCard({
           h-10
           w-10
           -translate-y-1/2
+          cursor-pointer
           items-center
           justify-center
           rounded-full
