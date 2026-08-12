@@ -143,7 +143,7 @@ export default function MagneticButton({
 
       {/* Hover Background */}
       <motion.span
-        className="absolute inset-0"
+        className="absolute inset-0 border-2 border-[#caa56b]"
         style={{
           backgroundColor: hoverColor,
         }}

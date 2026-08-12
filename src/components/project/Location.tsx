@@ -36,7 +36,7 @@ export default function Location() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-white py-10 lg:py-14"
+      className="relative overflow-hidden bg-white py-5 lg:py-14"
     >
       {/* Background Pattern */}
       <div className="pointer-events-none absolute inset-0 opacity-60">
@@ -115,7 +115,7 @@ export default function Location() {
                 <div className="absolute -inset-3 animate-ping rounded-full bg-red-500/30" />
 
                 {/* Pin */}
-                <svg
+                {/* <svg
                   width="48"
                   height="48"
                   viewBox="0 0 48 48"
@@ -132,7 +132,7 @@ export default function Location() {
                     r="6"
                     fill="white"
                   />
-                </svg>
+                </svg> */}
               </div>
             </div>
 
@@ -169,7 +169,7 @@ export default function Location() {
 
             {/* ================= STRATEGIC CARD ================= */}
             <div
-              className={`relative lg:absolute lg:bottom-5 lg:right-6 w-full lg:max-w-[485px] bg-black/65 bg-backup-blur px-5 py-6 text-white backdrop-blur-sm transition-all delay-700 duration-700 ${
+              className={`relative lg:absolute lg:bottom-5 lg:right-6 w-full lg:max-w-[485px] bg-black/65 bg-backup-blur px-5 py-6 text-white backdrop-blur-[2px] transition-all delay-700 duration-700 ${
                 visible
                   ? "translate-x-0 opacity-100"
                   : "translate-x-10 opacity-0"

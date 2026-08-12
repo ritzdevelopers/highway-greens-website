@@ -30,7 +30,7 @@ export default function Journey() {
     const rightCard = journeyData[getIndex(1)];
 
     return (
-        <section className="bg-white py-10 md:py-14 overflow-hidden">
+        <section className="bg-white py-8 md:py-14 overflow-hidden">
             <div className="mx-auto max-w-8xl sm:px-6 lg:px-20 px-5">
 
                 {/* Heading */}

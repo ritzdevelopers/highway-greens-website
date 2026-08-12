@@ -15,7 +15,7 @@ export default function AmenitiesSection() {
   const Icon = activeAmenity.icon;
 
   return (
-    <section className="relative overflow-hidden bg-white py-10 lg:py-14">
+    <section className="relative overflow-hidden bg-white py-5 lg:py-14">
       <div className="mx-auto max-w-8xl sm:px-6 lg:px-30 px-5">
         {/* Heading */}
         <div className="mx-auto mb-6 md:mb-16 max-w-[1100px] text-center">

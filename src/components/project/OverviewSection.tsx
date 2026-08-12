@@ -9,13 +9,42 @@ type OverviewSectionProps = {
   content: OverviewContent;
 };
 
-export default function OverviewSection({ content }: OverviewSectionProps) {
+export default function OverviewSection({
+  content,
+}: OverviewSectionProps) {
   return (
     <section id="overview" className="relative bg-white">
-      <div className="mx-auto flex max-w-8xl px-5 pb-10 pt-10 sm:px-6 lg:px-20 lg:pb-14 lg:pt-14">
-        <div className="relative grid w-full grid-cols-1 gap-y-12 lg:grid-cols-[340px_minmax(0,1fr)_300px] lg:gap-x-10 lg:gap-y-0">
-
-          {/* ================= LEFT IMAGE - DESKTOP ================= */}
+      <div
+        className="
+          mx-auto
+          max-w-8xl
+          px-5
+          pb-10
+          pt-10
+          sm:px-6
+          md:px-10
+          md:pb-12
+          md:pt-12
+          lg:px-20
+          lg:pb-14
+          lg:pt-14
+        "
+      >
+        <div
+          className="
+            relative
+            grid
+            w-full
+            grid-cols-1
+            gap-y-12
+            lg:grid-cols-[340px_minmax(0,1fr)_300px]
+            lg:gap-x-10
+            lg:gap-y-0
+          "
+        >
+          {/* =====================================================
+              DESKTOP LEFT IMAGE
+          ====================================================== */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -54,7 +83,9 @@ export default function OverviewSection({ content }: OverviewSectionProps) {
             </div>
           </motion.div>
 
-          {/* ================= CENTER CONTENT ================= */}
+          {/* =====================================================
+              CENTER CONTENT
+          ====================================================== */}
           <motion.div
             initial={{ opacity: 0, y: 35 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -67,11 +98,14 @@ export default function OverviewSection({ content }: OverviewSectionProps) {
               px-2
               pt-2
               text-center
+              md:px-0
               lg:px-0
               lg:pt-[120px]
             "
           >
-            {/* ================= HEADING ================= */}
+            {/* =================================================
+                HEADING
+            ================================================== */}
             <h2
               className="
                 text-2xl
@@ -79,7 +113,8 @@ export default function OverviewSection({ content }: OverviewSectionProps) {
                 leading-none
                 tracking-[-0.02em]
                 text-[#101827]
-                md:text-3xl
+                sm:text-3xl
+                md:text-[38px]
                 lg:whitespace-nowrap
                 lg:text-[48px]
               "
@@ -91,10 +126,23 @@ export default function OverviewSection({ content }: OverviewSectionProps) {
               GREENS
             </h2>
 
-            {/* ================= MOBILE IMAGES ================= */}
-            <div className="mt-4 flex w-full flex-col items-center gap-5 lg:hidden">
-
-              {/* Left / Main Image */}
+            {/* =================================================
+                MOBILE IMAGES
+                < 768px
+            ================================================== */}
+            <div
+              className="
+                mt-4
+                flex
+                w-full
+                flex-col
+                items-center
+                gap-5
+                md:hidden
+                lg:hidden
+              "
+            >
+              {/* Main Image */}
               <motion.div
                 initial={{ opacity: 0, y: 25 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -134,7 +182,7 @@ export default function OverviewSection({ content }: OverviewSectionProps) {
                 </div>
               </motion.div>
 
-              {/* Right / Highlight Image */}
+              {/* Highlight Image */}
               <motion.div
                 initial={{ opacity: 0, y: 25 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -167,7 +215,94 @@ export default function OverviewSection({ content }: OverviewSectionProps) {
               </motion.div>
             </div>
 
-            {/* ================= SUBTITLE ================= */}
+            {/* =================================================
+                TABLET IMAGES
+                768px - 1023px
+            ================================================== */}
+            <div
+              className="
+                mt-8
+                hidden
+                w-full
+                grid-cols-[minmax(0,1fr)_minmax(0,1fr)]
+                items-center
+                gap-5
+                md:grid
+                lg:hidden
+              "
+            >
+              {/* Tablet Main Image */}
+              <motion.div
+                initial={{ opacity: 0, x: -25 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.7 }}
+                className="w-full"
+              >
+                <div
+                  className="
+                    relative
+                    mx-auto
+                    h-[430px]
+                    w-full
+                    max-w-[330px]
+                    border
+                    border-slate-300
+                    bg-white
+                    p-[10px]
+                    shadow-sm
+                  "
+                >
+                  <div className="relative h-full w-full overflow-hidden">
+                    <PremiumImage
+                      src="/overview-main.jpg"
+                      alt="Highway Greens wellness"
+                      fill
+                      priority
+                      wrapperClassName="h-full w-full"
+                      className="object-cover"
+                      hoverScale={1.06}
+                      parallax={8}
+                      tilt={3}
+                    />
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Tablet Highlight Image */}
+              <motion.div
+                initial={{ opacity: 0, x: 25 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.7, delay: 0.1 }}
+                className="flex w-full items-center"
+              >
+                <div
+                  className="
+                    relative
+                    h-[230px]
+                    w-full
+                    overflow-hidden
+                    rounded-[3px]
+                  "
+                >
+                  <PremiumImage
+                    src="/highlight.jpg"
+                    alt="Highway Greens community"
+                    fill
+                    wrapperClassName="h-full w-full"
+                    className="object-cover"
+                    hoverScale={1.08}
+                    parallax={6}
+                    tilt={2}
+                  />
+                </div>
+              </motion.div>
+            </div>
+
+            {/* =================================================
+                SUBTITLE
+            ================================================== */}
             <p
               className="
                 mt-6
@@ -177,13 +312,17 @@ export default function OverviewSection({ content }: OverviewSectionProps) {
                 text-[#111827]
                 sm:mt-8
                 sm:text-[18px]
+                md:mt-8
+                md:max-w-[650px]
                 lg:mt-6
               "
             >
               {content.subtitle}
             </p>
 
-            {/* ================= DESCRIPTION ================= */}
+            {/* =================================================
+                DESCRIPTION
+            ================================================== */}
             <div
               className="
                 mt-5
@@ -195,17 +334,18 @@ export default function OverviewSection({ content }: OverviewSectionProps) {
                 text-[#666666]
                 sm:space-y-5
                 sm:text-[16px]
+                md:max-w-[680px]
                 lg:mt-8
               "
             >
               {content.details.map((detail, idx) => (
-                <p key={idx}>
-                  {detail}
-                </p>
+                <p key={idx}>{detail}</p>
               ))}
             </div>
 
-            {/* ================= DOWNLOAD BUTTON ================= */}
+            {/* =================================================
+                DOWNLOAD BUTTON
+            ================================================== */}
             <MagneticButton
               text="Download Brochure"
               bgColor="#BD8B59"
@@ -213,11 +353,13 @@ export default function OverviewSection({ content }: OverviewSectionProps) {
               hoverTextColor="#000"
               accentColor="#caa56b"
               hoverColor="#fff"
-              className="mt-6 md:mt-10"
+              className="mt-6 md:mt-8 lg:mt-10"
             />
           </motion.div>
 
-          {/* ================= RIGHT IMAGE - DESKTOP ================= */}
+          {/* =====================================================
+              DESKTOP RIGHT IMAGE
+          ====================================================== */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -254,7 +396,6 @@ export default function OverviewSection({ content }: OverviewSectionProps) {
               />
             </div>
           </motion.div>
-
         </div>
       </div>
     </section>
