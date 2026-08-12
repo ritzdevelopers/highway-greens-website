@@ -15,9 +15,6 @@ export default function ExperienceSection() {
         priority
         wrapperClassName="absolute inset-0 h-full w-full"
         className="object-cover"
-        hoverScale={1.03}
-        parallax={6}
-        tilt={1.5}
       />
 
       {/* Dark Overlay */}

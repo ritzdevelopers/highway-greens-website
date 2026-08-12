@@ -24,9 +24,6 @@ export default function HeroSection({ content }: HeroSectionProps) {
             priority
             wrapperClassName="h-full w-full"
             className="object-cover object-center"
-            hoverScale={1.04}
-            parallax={8}
-            tilt={2}
             delay={0.1}
           />
 

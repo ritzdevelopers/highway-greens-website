@@ -75,9 +75,6 @@ export default function OverviewSection({
                   priority
                   wrapperClassName="h-full w-full"
                   className="object-cover"
-                  hoverScale={1.06}
-                  parallax={8}
-                  tilt={3}
                 />
               </div>
             </div>
@@ -174,9 +171,6 @@ export default function OverviewSection({
                       priority
                       wrapperClassName="h-full w-full"
                       className="object-cover"
-                      hoverScale={1.06}
-                      parallax={8}
-                      tilt={3}
                     />
                   </div>
                 </div>
@@ -207,9 +201,6 @@ export default function OverviewSection({
                     fill
                     wrapperClassName="h-full w-full"
                     className="object-cover"
-                    hoverScale={1.08}
-                    parallax={6}
-                    tilt={2}
                   />
                 </div>
               </motion.div>
@@ -261,9 +252,6 @@ export default function OverviewSection({
                       priority
                       wrapperClassName="h-full w-full"
                       className="object-cover"
-                      hoverScale={1.06}
-                      parallax={8}
-                      tilt={3}
                     />
                   </div>
                 </div>
@@ -292,9 +280,6 @@ export default function OverviewSection({
                     fill
                     wrapperClassName="h-full w-full"
                     className="object-cover"
-                    hoverScale={1.08}
-                    parallax={6}
-                    tilt={2}
                   />
                 </div>
               </motion.div>
@@ -390,9 +375,6 @@ export default function OverviewSection({
                 fill
                 wrapperClassName="h-full w-full"
                 className="object-cover"
-                hoverScale={1.08}
-                parallax={6}
-                tilt={2}
               />
             </div>
           </motion.div>

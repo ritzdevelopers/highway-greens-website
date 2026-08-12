@@ -94,7 +94,7 @@ export default function Location() {
             : "translate-y-10 scale-[0.98] opacity-0"
             }`}
         >
-          <div className="group relative flex flex-col gap-4 lg:block lg:h-[420px] lg:overflow-hidden">
+          <div className="relative flex flex-col gap-4 lg:block lg:h-[420px] lg:overflow-hidden">
 
             {/* Map Box */}
             <div className="relative h-[300px] sm:h-[400px] lg:absolute lg:inset-0 lg:h-full w-full">
@@ -102,7 +102,7 @@ export default function Location() {
               <iframe
                 title="Highway Greens Location"
                 src="https://www.openstreetmap.org/export/embed.html?bbox=77.42%2C28.65%2C77.48%2C28.70&layer=mapnik&marker=28.675%2C77.45"
-                className="absolute inset-0 h-full w-full border-0 transition-transform duration-[2000ms] group-hover:scale-105"
+                className="absolute inset-0 h-full w-full border-0"
                 loading="lazy"
               />
 

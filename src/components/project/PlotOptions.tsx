@@ -27,7 +27,7 @@ export default function PlotOptions() {
                         return (
                             <div
                                 key={item.id}
-                                className={`relative overflow-hidden rounded-[30px] p-8 pt-8 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl ${item.variant === "dark"
+                                className={`relative overflow-hidden rounded-[30px] p-8 pt-8 ${item.variant === "dark"
                                         ? "bg-[#395242] text-white shadow-[0_30px_80px_rgba(0,0,0,.25)]"
                                         : "bg-white text-[#24372d]"
                                     }`}
