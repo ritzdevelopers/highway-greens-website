@@ -130,31 +130,68 @@ export default function Footer() {
             </div>
 
             {/* Bottom Bar */}
-            <div className="border-t border-[#3a4d42]">
-                <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="border-t border-[#3a4d42] bg-[#22382d]">
+                <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 sm:px-8">
 
-                    <p className="text-xs sm:text-sm text-[#d6d6d6] text-center md:text-left">
+                    {/* Copyright */}
+                    <p className="font-roboto text-[10px] leading-5 text-[#e1e1e1] sm:text-xs">
                         {footerData.copyright}
                     </p>
 
-                    <div className="flex items-center gap-4 sm:gap-6 text-xs sm:text-sm">
+                    {/* Right Actions */}
+                    <div className="flex shrink-0 items-center gap-4">
+
+                        {/* WhatsApp */}
                         <Link
-                            href="/privacy-policy"
-                            className="transition-colors duration-300 hover:text-[#d7b08d]"
+                            href="#"
+                            aria-label="WhatsApp"
+                            className="
+          flex
+          h-10
+          w-10
+          items-center
+          justify-center
+          rounded-full
+          bg-[#25D366]
+          text-white
+          transition-transform
+          duration-300
+          hover:scale-105
+        "
                         >
-                            Privacy Policy
+                            <svg
+                                viewBox="0 0 24 24"
+                                className="h-5 w-5 fill-current"
+                                aria-hidden="true"
+                            >
+                                <path d="M20.52 3.48A11.82 11.82 0 0 0 12.05 0C5.52 0 .2 5.32.2 11.85c0 2.09.55 4.13 1.6 5.92L.1 24l6.38-1.67a11.86 11.86 0 0 0 5.57 1.39h.01c6.53 0 11.85-5.32 11.85-11.85 0-3.17-1.24-6.15-3.39-8.39Zm-8.47 18.2h-.01a9.83 9.83 0 0 1-5.01-1.37l-.36-.21-3.79.99 1.01-3.7-.23-.38a9.82 9.82 0 0 1-1.51-5.16C2.15 6.42 6.57 2 12.05 2c2.65 0 5.14 1.03 7.01 2.91a9.84 9.84 0 0 1 2.9 7c0 5.48-4.43 9.77-9.91 9.77Zm5.39-7.34c-.3-.15-1.77-.87-2.05-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.89-.79-1.49-1.77-1.67-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.05 1.03-1.05 2.5s1.08 2.9 1.23 3.1c.15.2 2.13 3.25 5.16 4.56.72.31 1.28.49 1.72.63.72.23 1.38.2 1.9.12.58-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z" />
+                            </svg>
                         </Link>
 
-                        <span className="text-[#6c7d73]">|</span>
-
-                        <Link
-                            href="/terms-and-conditions"
-                            className="transition-colors duration-300 hover:text-[#d7b08d]"
+                        {/* Help */}
+                        <button
+                            type="button"
+                            aria-label="Help"
+                            className="
+          flex
+          h-6
+          w-6
+          items-center
+          justify-center
+          rounded-full
+          bg-white
+          text-[#22382d]
+          transition-transform
+          duration-300
+          hover:scale-105
+        "
                         >
-                            Terms & Conditions
-                        </Link>
+                            <span className="text-[13px] font-bold leading-none">
+                                ?
+                            </span>
+                        </button>
+
                     </div>
-
                 </div>
             </div>
         </footer>

@@ -23,7 +23,7 @@ export default function PricingSection({
         via-[#FDFDFD]
         to-white
         py-8
-        lg:py-10
+        lg:py-15
         px-2
       "
     >

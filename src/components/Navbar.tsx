@@ -155,7 +155,7 @@ export default function Navbar({ links }: NavbarProps) {
               transition={{ duration: 0.3, ease: "easeOut" }}
               className="flex min-h-full flex-col items-center justify-center px-6"
             >
-              <nav className="flex w-full max-w-sm flex-col items-center">
+              <nav className="flex w-full max-w-sm flex-col items-center mb-5">
                 {links.map((link, index) => (
                   <motion.div
                     key={link.href}

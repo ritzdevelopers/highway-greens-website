@@ -27,7 +27,7 @@ export default function PremiumImage({
   className = "",
   wrapperClassName = "",
   hoverScale = 1.08,
-  revealDuration = 1.1,
+  revealDuration = 0.8,
   delay = 0,
   parallax = 12,
   tilt = 4,
@@ -115,24 +115,31 @@ export default function PremiumImage({
         perspective: 1000,
       }}
     >
-      {/* Reveal Mask */}
-{/* Reveal Mask */}
-<motion.div
-  variants={{
-    hidden: {
-      clipPath: "inset(0 0 0% 0)",
-    },
-    visible: {
-      clipPath: "inset(0 0 100% 0)",
-    },
-  }}
-  transition={{
-    duration: revealDuration,
-    delay,
-    ease: [0.76, 0, 0.24, 1],
-  }}
-  className="absolute inset-0 z-10 bg-[#caa56b]"
-/>
+      {/* Soft Reveal Mask */}
+      <motion.div
+        variants={{
+          hidden: {
+            clipPath: "inset(0 0 0% 0)",
+            opacity: 1,
+          },
+          visible: {
+            clipPath: "inset(0 0 100% 0)",
+            opacity: 1,
+          },
+        }}
+        transition={{
+          duration: revealDuration,
+          delay,
+          ease: [0.76, 0, 0.24, 1],
+        }}
+        className="
+    pointer-events-none
+    absolute
+    inset-0
+    z-10
+    bg-[#caa56b]/15
+  "
+      />
 
       {/* Image */}
       <motion.div

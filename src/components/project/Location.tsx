@@ -38,43 +38,47 @@ export default function Location() {
       ref={sectionRef}
       className="relative overflow-hidden bg-white py-5 lg:py-14"
     >
-      {/* Background Pattern */}
-      <div className="pointer-events-none absolute inset-0 opacity-60">
-        <div className="absolute inset-0 bg-[linear-gradient(35deg,transparent_48%,#eeeeee_49%,transparent_50%),linear-gradient(145deg,transparent_48%,#eeeeee_49%,transparent_50%)] bg-[length:280px_280px]" />
-      </div>
+      <div
+        className="
+    pointer-events-none
+    absolute
+    inset-0
+    bg-[url('/location-pattern.png')]
+    bg-cover
+    bg-center
+    bg-no-repeat
+  "
+      />
 
       <div className="relative z-10 mx-auto max-w-8xl sm:px-6 lg:px-20 px-5">
         {/* ================= HEADER ================= */}
         <div className="mx-auto max-w-[1200px] text-center">
           {/* Location */}
           <p
-            className={`text-lg sm:text-xl tracking-[3px] text-[#222] transition-all duration-700 ${
-              visible
-                ? "translate-y-0 opacity-100"
-                : "translate-y-5 opacity-0"
-            }`}
+            className={`text-lg sm:text-xl tracking-[3px] text-[#222] transition-all duration-700 ${visible
+              ? "translate-y-0 opacity-100"
+              : "translate-y-5 opacity-0"
+              }`}
           >
             Location
           </p>
 
           {/* Heading */}
           <h2
-            className={`mt-3 text-2xl font-normal tracking-[-1.5px] text-[#111] transition-all delay-100 duration-700 md:text-3xl lg:text-[48px] ${
-              visible
-                ? "translate-y-0 opacity-100"
-                : "translate-y-8 opacity-0"
-            }`}
+            className={`mt-3 text-2xl font-normal tracking-[-1.5px] text-[#111] transition-all delay-100 duration-700 md:text-3xl lg:text-[48px] ${visible
+              ? "translate-y-0 opacity-100"
+              : "translate-y-8 opacity-0"
+              }`}
           >
             Connected To What Matters
           </h2>
 
           {/* Description */}
           <p
-            className={`mx-auto mt-3 md:mt-5 max-w-[1000px] text-sm sm:text-base leading-7 text-[#666] transition-all delay-200 duration-700 lg:text-[16px] ${
-              visible
-                ? "translate-y-0 opacity-100"
-                : "translate-y-6 opacity-0"
-            }`}
+            className={`mx-auto mt-3 md:mt-5 max-w-[1000px] text-sm sm:text-base leading-7 text-[#666] transition-all delay-200 duration-700 lg:text-[16px] ${visible
+              ? "translate-y-0 opacity-100"
+              : "translate-y-6 opacity-0"
+              }`}
           >
             Highway Greens Is Envisioned For People Who Want To Remain
             Connected To Work, Education, Healthcare, Family And Everyday
@@ -85,14 +89,13 @@ export default function Location() {
 
         {/* ================= MAP SECTION ================= */}
         <div
-          className={`mt-5 md:mt-10 border border-[#cfcfcf] p-2 transition-all delay-300 duration-1000 ${
-            visible
-              ? "translate-y-0 scale-100 opacity-100"
-              : "translate-y-10 scale-[0.98] opacity-0"
-          }`}
+          className={`mt-5 md:mt-10 border border-[#cfcfcf] p-2 transition-all delay-300 duration-1000 ${visible
+            ? "translate-y-0 scale-100 opacity-100"
+            : "translate-y-10 scale-[0.98] opacity-0"
+            }`}
         >
           <div className="group relative flex flex-col gap-4 lg:block lg:h-[420px] lg:overflow-hidden">
-            
+
             {/* Map Box */}
             <div className="relative h-[300px] sm:h-[400px] lg:absolute lg:inset-0 lg:h-full w-full">
               {/* Real OpenStreetMap */}
@@ -105,11 +108,10 @@ export default function Location() {
 
               {/* ================= CUSTOM LOCATION PIN ================= */}
               <div
-                className={`absolute left-[46%] top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all delay-700 duration-700 ${
-                  visible
-                    ? "scale-100 opacity-100"
-                    : "scale-0 opacity-0"
-                }`}
+                className={`absolute left-[46%] top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all delay-700 duration-700 ${visible
+                  ? "scale-100 opacity-100"
+                  : "scale-0 opacity-0"
+                  }`}
               >
                 {/* Pulse */}
                 <div className="absolute -inset-3 animate-ping rounded-full bg-red-500/30" />
@@ -138,11 +140,10 @@ export default function Location() {
 
             {/* ================= CONNECTIVITY CARD ================= */}
             <div
-              className={`relative lg:absolute lg:left-7 lg:top-10 w-full lg:w-[410px] bg-[#173223] p-5 text-white shadow-xl transition-all delay-500 duration-700 ${
-                visible
-                  ? "translate-x-0 opacity-100"
-                  : "-translate-x-10 opacity-0"
-              }`}
+              className={`relative lg:absolute lg:left-7 lg:top-10 w-full lg:w-[410px] bg-[#173223] p-5 text-white shadow-xl transition-all delay-500 duration-700 ${visible
+                ? "translate-x-0 opacity-100"
+                : "-translate-x-10 opacity-0"
+                }`}
             >
               <h3 className="text-xl sm:text-[22px] font-normal">
                 Connectivity
@@ -152,11 +153,10 @@ export default function Location() {
                 {connectivityData.map((item, index) => (
                   <p
                     key={item}
-                    className={`text-sm sm:text-base leading-6 transition-all duration-500 ${
-                      visible
-                        ? "translate-x-0 opacity-100"
-                        : "-translate-x-3 opacity-0"
-                    }`}
+                    className={`text-sm sm:text-base leading-6 transition-all duration-500 ${visible
+                      ? "translate-x-0 opacity-100"
+                      : "-translate-x-3 opacity-0"
+                      }`}
                     style={{
                       transitionDelay: `${700 + index * 120}ms`,
                     }}
@@ -169,21 +169,38 @@ export default function Location() {
 
             {/* ================= STRATEGIC CARD ================= */}
             <div
-              className={`relative lg:absolute lg:bottom-5 lg:right-6 w-full lg:max-w-[485px] bg-black/65 bg-backup-blur px-5 py-6 text-white backdrop-blur-[2px] transition-all delay-700 duration-700 ${
-                visible
+              className={`relative lg:absolute lg:bottom-5 lg:right-6 w-full lg:max-w-[485px]
+    overflow-hidden
+    border border-white/20
+    bg-black/55
+    px-5 py-6
+    text-white
+    backdrop-blur-[3px]
+    backdrop-saturate-150
+    shadow-[0_10px_40px_rgba(0,0,0,0.22)]
+    transition-all
+    delay-700
+    duration-700
+    ${visible
                   ? "translate-x-0 opacity-100"
                   : "translate-x-10 opacity-0"
-              }`}
+                }`}
             >
-              <div className="flex flex-wrap items-baseline gap-2">
-                <span className="text-3xl sm:text-4xl font-normal">
+              {/* Glass highlight */}
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/[0.08] via-transparent to-transparent" />
+
+              <div className="relative flex flex-wrap items-baseline gap-x-2 gap-y-0">
+                <span className="text-3xl font-normal sm:text-4xl">
                   Strategic
                 </span>
 
-                <span className="text-sm sm:text-base leading-6">
+                <span className="text-sm leading-6 sm:text-base">
                   Access. Peaceful
                 </span>
-                <p>Surroundings. A More Balanced Everyday Life.</p>
+
+                <p className="w-full text-sm leading-6 sm:text-base">
+                  Surroundings. A More Balanced Everyday Life.
+                </p>
               </div>
             </div>
 

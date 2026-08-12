@@ -321,14 +321,24 @@ export default function HighlightsSection() {
 
 
                         {/* Right Column */}
-                        <div className="grid gap-8 pt-10 lg:grid-cols-[48%_52%] lg:pt-14 md:pr-12 pr-2">
-
+                        <div
+                            className="
+    grid
+    gap-8
+    lg:grid-cols-[48%_52%]
+    pt-20
+    lg:pr-4
+    xl:pr-8
+    lg:h-[clamp(560px,calc(100vh-140px),760px)]
+  "
+                        >
                             {/* Large Image */}
                             <motion.div
                                 initial={{ opacity: 0, y: 40 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
+                                viewport={{ once: true, amount: 0.2 }}
                                 transition={{ duration: 0.6 }}
+                                className="h-full w-full"
                             >
                                 <AnimatedImage
                                     src="/highlight-main.jpg"
@@ -339,30 +349,27 @@ export default function HighlightsSection() {
                                     delay={0.2}
                                     hoverScale={1.03}
                                     wrapperClassName="
-                    mx-auto
-                    w-full
-                    max-w-[420px]
-                    lg:max-w-none
-                  "
+        h-full
+        w-full
+      "
                                 />
                             </motion.div>
-
 
                             {/* Highlight Items */}
                             <motion.div
                                 initial={{ opacity: 0, x: 40 }}
                                 whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
+                                viewport={{ once: true, amount: 0.2 }}
                                 transition={{ duration: 0.6 }}
                                 className="
-                  max-h-[480px]
-                  overflow-y-auto
-                  pr-2
-                  sm:max-h-[550px]
-                  lg:h-[670px]
-                  lg:max-h-none
-                  lg:pr-4
-                "
+      h-full
+      min-h-0
+      overflow-y-auto
+      pr-4
+      scrollbar-thin
+      scrollbar-thumb-[#c79157]
+      scrollbar-track-transparent
+    "
                             >
                                 {highlights.map((item, index) => (
                                     <HighlightItem
@@ -371,7 +378,6 @@ export default function HighlightsSection() {
                                     />
                                 ))}
                             </motion.div>
-
                         </div>
 
                     </div>
