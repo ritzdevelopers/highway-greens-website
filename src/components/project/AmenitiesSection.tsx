@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { amenities } from "@/data/amenities";
 import AmenityTabs from "./AmenityTabs";
-import PremiumImage from "../ui/ProjectAnimateImage";
 
 export default function AmenitiesSection() {
   const [activeId, setActiveId] = useState("leisure");
@@ -44,30 +44,37 @@ export default function AmenitiesSection() {
           />
 
           {/* Image */}
-          <div className="relative aspect-[1.35/1] overflow-hidden">
-<AnimatePresence mode="wait">
-  <PremiumImage
-    key={activeAmenity.id}
-    src={activeAmenity.image}
-    alt={activeAmenity.title}
-    fill
-    wrapperClassName="absolute inset-0 h-full w-full"
-    className="object-cover"
-    hoverScale={1.06}
-    parallax={8}
-    tilt={2}
-  />
-</AnimatePresence>
+          <div className="relative aspect-[1.35/1] overflow-hidden bg-neutral-100">
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.div
+                key={activeAmenity.id}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.25, ease: "easeOut" }}
+                className="absolute inset-0"
+              >
+                <Image
+                  src={activeAmenity.image}
+                  alt={activeAmenity.title}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  quality={90}
+                  className="object-cover"
+                  priority={activeAmenity.id === "leisure"}
+                />
+              </motion.div>
+            </AnimatePresence>
           </div>
 
           {/* Content */}
           <div className="lg:pl-3">
-            <AnimatePresence mode="wait">
+            <AnimatePresence mode="wait" initial={false}>
               <motion.div
                 key={activeAmenity.id}
                 initial={{
                   opacity: 0,
-                  x: 25,
+                  x: 16,
                 }}
                 animate={{
                   opacity: 1,
@@ -75,10 +82,10 @@ export default function AmenitiesSection() {
                 }}
                 exit={{
                   opacity: 0,
-                  x: -20,
+                  x: -12,
                 }}
                 transition={{
-                  duration: 0.4,
+                  duration: 0.3,
                   ease: "easeOut",
                 }}
               >
@@ -105,15 +112,15 @@ export default function AmenitiesSection() {
                       key={point}
                       initial={{
                         opacity: 0,
-                        y: 8,
+                        y: 6,
                       }}
                       animate={{
                         opacity: 1,
                         y: 0,
                       }}
                       transition={{
-                        delay: index * 0.06,
-                        duration: 0.3,
+                        delay: index * 0.04,
+                        duration: 0.25,
                       }}
                       className="flex gap-4 text-[15px] leading-6 text-neutral-700"
                     >

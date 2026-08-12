@@ -66,9 +66,6 @@ export default function Journey() {
                             fill
                             wrapperClassName="h-full w-full"
                             className="object-cover"
-                            hoverScale={1.08}
-                            parallax={6}
-                            tilt={2}
                         />
 
                         <div className="absolute inset-0 bg-black/10" />
@@ -124,9 +121,6 @@ export default function Journey() {
                                     priority
                                     wrapperClassName="h-full w-full"
                                     className="object-cover"
-                                    hoverScale={1.05}
-                                    parallax={8}
-                                    tilt={2}
                                 />
 
                                 {/* Overlay */}
@@ -161,9 +155,6 @@ export default function Journey() {
                             fill
                             wrapperClassName="h-full w-full"
                             className="object-cover"
-                            hoverScale={1.08}
-                            parallax={6}
-                            tilt={2}
                         />
 
                         <div className="absolute inset-0 bg-black/10" />

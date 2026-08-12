@@ -42,9 +42,6 @@ export default function Highlights() {
               wrapperClassName="h-full w-full"
               className="object-cover"
               sizes="40vw"
-              hoverScale={1.06}
-              parallax={8}
-              tilt={2}
             />
           </motion.div>
 
@@ -86,9 +83,6 @@ export default function Highlights() {
                 wrapperClassName="h-full w-full"
                 className="object-cover"
                 sizes="100vw"
-                hoverScale={1.06}
-                parallax={8}
-                tilt={2}
               />
             </motion.div>
 
@@ -127,10 +121,6 @@ export default function Highlights() {
         px-3
         py-5
         text-center
-        transition-all
-        duration-300
-        hover:-translate-y-1
-        hover:shadow-md
       "
     >
       {/* Image Icon */}

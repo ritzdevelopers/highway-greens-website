@@ -27,7 +27,7 @@ export const amenities = [
     title: "Wellness",
     subtitle: "Spaces Designed For A Healthier Life",
     icon: Dumbbell,
-    image: "/amenities/community.jpg",
+    image: "/amenities/wellness.jpg",
     points: [
       "Modern Fitness And Exercise Areas",
       "Yoga And Meditation Spaces",
@@ -41,7 +41,7 @@ export const amenities = [
     title: "Community",
     subtitle: "Spaces That Bring People Together",
     icon: Users,
-    image: "/amenities/clubhouse.jpg",
+    image: "/amenities/community.jpg",
     points: [
       "Interactive Community Spaces",
       "Landscaped Social Areas",
@@ -69,7 +69,7 @@ export const amenities = [
     title: "Clubhouse",
     subtitle: "A Place To Connect, Relax And Celebrate",
     icon: Building2,
-    image: "/amenities/security.jpg",
+    image: "/amenities/clubhouse.jpg",
     points: [
       "Premium Indoor Community Spaces",
       "Multipurpose Activity Areas",
@@ -83,7 +83,7 @@ export const amenities = [
     title: "24/7 Security",
     subtitle: "Safety And Peace Of Mind, Always",
     icon: ShieldCheck,
-    image: "/amenities/wellness.jpg",
+    image: "/amenities/security.jpg",
     points: [
       "24/7 Security Monitoring",
       "Controlled Access Points",

@@ -30,11 +30,10 @@ export default function AmenityTabs({
     <>
       {/* MOBILE + TABLET DROPDOWN */}
       <div className="relative lg:hidden">
-        <motion.button
+        <button
           type="button"
           onClick={() => setIsOpen((prev) => !prev)}
-          whileTap={{ scale: 0.99 }}
-          className={`flex h-[52px] w-full items-center justify-between rounded-full border px-6 transition-all duration-300 ${
+          className={`flex h-[52px] w-full items-center justify-between rounded-full border px-6 transition-colors duration-300 ${
             isOpen
               ? "border-[#b88954] bg-[#c3955d]"
               : "border-[#e8e8e8] bg-white"
@@ -65,7 +64,7 @@ export default function AmenityTabs({
               strokeWidth={1.5}
             />
           </motion.span>
-        </motion.button>
+        </button>
 
         <AnimatePresence>
           {isOpen && (
@@ -93,11 +92,10 @@ export default function AmenityTabs({
                   const isActive = activeId === amenity.id;
 
                   return (
-                    <motion.button
+                    <button
                       key={amenity.id}
                       type="button"
                       onClick={() => handleSelect(amenity.id)}
-                      whileTap={{ scale: 0.98 }}
                       className={`flex h-[48px] w-full items-center gap-4 rounded-full px-5 text-left transition-colors ${
                         isActive
                           ? "bg-[#c3955d]"
@@ -113,7 +111,7 @@ export default function AmenityTabs({
                       <span className="font-roboto text-[15px] font-medium">
                         {amenity.title}
                       </span>
-                    </motion.button>
+                    </button>
                   );
                 })}
               </div>
@@ -129,11 +127,10 @@ export default function AmenityTabs({
           const isActive = activeId === amenity.id;
 
           return (
-            <motion.button
+            <button
               key={amenity.id}
               type="button"
               onClick={() => onChange(amenity.id)}
-              whileTap={{ scale: 0.98 }}
               className={`relative flex h-[50px] w-full items-center gap-4 rounded-full border px-8 text-left transition-colors duration-300 ${
                 isActive
                   ? "border-[#b88954] bg-[#c3955d] text-black"
@@ -149,7 +146,7 @@ export default function AmenityTabs({
               <span className="font-roboto text-[16px] font-medium">
                 {amenity.title}
               </span>
-            </motion.button>
+            </button>
           );
         })}
       </div>

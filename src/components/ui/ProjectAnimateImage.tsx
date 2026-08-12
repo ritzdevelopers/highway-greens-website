@@ -26,12 +26,12 @@ type PremiumImageProps = Omit<ImageProps, "className"> & {
 export default function PremiumImage({
   className = "",
   wrapperClassName = "",
-  hoverScale = 1.08,
+  hoverScale = 1,
   revealDuration = 0.8,
   delay = 0,
-  parallax = 12,
-  tilt = 4,
-  enableTilt = true,
+  parallax = 0,
+  tilt = 0,
+  enableTilt = false,
   animateOnChange = false,
   ...imageProps
 }: PremiumImageProps) {
@@ -98,7 +98,7 @@ export default function PremiumImage({
     <motion.div
       initial="hidden"
       whileInView="visible"
-      whileHover="hover"
+      whileHover={hoverScale !== 1 ? "hover" : undefined}
       viewport={{
         once: true,
         amount: 0.2,
@@ -112,7 +112,7 @@ export default function PremiumImage({
         ${wrapperClassName}
       `}
       style={{
-        perspective: 1000,
+        perspective: enableTilt ? 1000 : undefined,
       }}
     >
       {/* Soft Reveal Mask */}
@@ -133,12 +133,12 @@ export default function PremiumImage({
           ease: [0.76, 0, 0.24, 1],
         }}
         className="
-    pointer-events-none
-    absolute
-    inset-0
-    z-10
-    bg-[#caa56b]/15
-  "
+          pointer-events-none
+          absolute
+          inset-0
+          z-10
+          bg-[#caa56b]/15
+        "
       />
 
       {/* Image */}
@@ -146,7 +146,7 @@ export default function PremiumImage({
         variants={{
           hidden: {
             clipPath: "inset(0 0 100% 0)",
-            scale: 1.12,
+            scale: 1.04,
           },
           visible: {
             clipPath: "inset(0 0 0% 0)",
@@ -163,7 +163,7 @@ export default function PremiumImage({
             ease: [0.76, 0, 0.24, 1],
           },
           scale: {
-            duration: 1,
+            duration: 0.6,
             ease: [0.22, 1, 0.36, 1],
           },
         }}
@@ -173,13 +173,16 @@ export default function PremiumImage({
         }}
         className="relative h-full w-full"
       >
-        {/* Parallax Image */}
         <motion.div
           style={{
             x: enableTilt ? imageX : 0,
             y: enableTilt ? imageY : 0,
           }}
-          className="relative h-[calc(100%+24px)] w-[calc(100%+24px)] -left-3 -top-3"
+          className={
+            enableTilt
+              ? "relative h-[calc(100%+24px)] w-[calc(100%+24px)] -left-3 -top-3"
+              : "relative h-full w-full"
+          }
         >
           <Image
             {...imageProps}
@@ -193,118 +196,6 @@ export default function PremiumImage({
           />
         </motion.div>
       </motion.div>
-
-      {/* Dark Hover Overlay */}
-      <motion.div
-        variants={{
-          hidden: {
-            opacity: 0,
-          },
-          visible: {
-            opacity: 0,
-          },
-          hover: {
-            opacity: 0.18,
-          },
-        }}
-        transition={{
-          duration: 0.4,
-        }}
-        className="
-          pointer-events-none
-          absolute
-          inset-0
-          z-20
-          bg-black
-        "
-      />
-
-      {/* Spotlight */}
-      <motion.div
-        variants={{
-          hidden: {
-            opacity: 0,
-          },
-          visible: {
-            opacity: 0,
-          },
-          hover: {
-            opacity: 1,
-          },
-        }}
-        transition={{
-          duration: 0.4,
-        }}
-        className="
-          pointer-events-none
-          absolute
-          inset-0
-          z-30
-          opacity-0
-        "
-        style={{
-          background:
-            "radial-gradient(circle at 50% 50%, rgba(255,255,255,0.18), transparent 38%)",
-        }}
-      />
-
-      {/* Premium Border */}
-      <motion.div
-        variants={{
-          hidden: {
-            opacity: 0,
-            scale: 1.03,
-          },
-          visible: {
-            opacity: 0,
-            scale: 1,
-          },
-          hover: {
-            opacity: 1,
-            scale: 1,
-          },
-        }}
-        transition={{
-          duration: 0.5,
-        }}
-        className="
-          pointer-events-none
-          absolute
-          inset-3
-          z-40
-          border
-          border-white/40
-        "
-      />
-
-      {/* Corner Accent */}
-      <motion.div
-        variants={{
-          hidden: {
-            scaleX: 0,
-          },
-          visible: {
-            scaleX: 0,
-          },
-          hover: {
-            scaleX: 1,
-          },
-        }}
-        transition={{
-          duration: 0.5,
-          ease: [0.22, 1, 0.36, 1],
-        }}
-        className="
-          absolute
-          bottom-0
-          left-0
-          z-40
-          h-[2px]
-          w-24
-          origin-left
-          bg-[#caa56b]
-        "
-      />
     </motion.div>
   );
 }
