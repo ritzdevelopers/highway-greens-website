@@ -24,80 +24,72 @@ export default function Journey() {
     );
   };
 
-  const getIndex = (offset: number) =>
-    (active + offset + journeyData.length) % journeyData.length;
+  const getPositionClassAndStyles = (index: number) => {
+    const total = journeyData.length;
+    const diff = (index - active + total) % total;
 
-  const leftCard = journeyData[getIndex(-1)];
-  const centerCard = journeyData[getIndex(0)];
-  const rightCard = journeyData[getIndex(1)];
+    // Determine normalized position relative to active card
+    let position = diff;
+    if (diff > total / 2) {
+      position = diff - total;
+    }
 
-  const CardImage = ({
-    card,
-    center = false,
-  }: {
-    card: (typeof journeyData)[number];
-    center?: boolean;
-  }) => (
-    <div className="group relative h-full w-full overflow-hidden rounded-2xl">
-      <PremiumImage
-        src={card.image}
-        alt={card.title}
-        fill
-        priority={center}
-        wrapperClassName="h-full w-full"
-        className="object-cover"
-        hoverScale={center ? 1.05 : 1.08}
-        parallax={center ? 8 : 6}
-        tilt={2}
-      />
-
-      {/* Default overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/5 to-transparent transition-all duration-500 group-hover:from-black/75 group-hover:via-black/25" />
-
-      {/* Hover Content */}
-      <div
-        className="
-          absolute inset-x-0 bottom-0
-          translate-y-5
-          p-6 text-white
-          opacity-0
-          transition-all duration-500
-          group-hover:translate-y-0
-          group-hover:opacity-100
-          sm:p-8
-        "
-      >
-        <h3 className="text-xl font-medium leading-tight sm:text-2xl">
-          {card.title}
-        </h3>
-
-        <p className="mt-3 max-w-[420px] text-sm leading-6 text-white/90 sm:text-base">
-          {card.subtitle}
-        </p>
-
-        {/* <div className="mt-5 h-[2px] w-10 bg-[#BE8A56] transition-all duration-500 group-hover:w-16" /> */}
-      </div>
-
-      {/* Small hover indicator */}
-      <div
-        className="
-          absolute right-5 top-5
-          h-9 w-9 rounded-full
-          border border-white/40
-          bg-black/10
-          opacity-0
-          backdrop-blur-sm
-          transition-all duration-500
-          group-hover:opacity-100
-        "
-      />
-    </div>
-  );
+    if (position === 0) {
+      return {
+        // Active Center Card
+        zIndex: 30,
+        x: "0%",
+        scale: 1,
+        opacity: 1,
+        pointerEvents: "auto" as const,
+        isCenter: true,
+      };
+    } else if (position === -1 || (active === 0 && index === total - 1)) {
+      return {
+        // Left Card
+        zIndex: 20,
+        x: "-65%",
+        scale: 0.85,
+        opacity: 0.7,
+        pointerEvents: "auto" as const,
+        isCenter: false,
+      };
+    } else if (position === 1 || (active === total - 1 && index === 0)) {
+      return {
+        // Right Card
+        zIndex: 20,
+        x: "65%",
+        scale: 0.85,
+        opacity: 0.7,
+        pointerEvents: "auto" as const,
+        isCenter: false,
+      };
+    } else if (position < -1) {
+      return {
+        // Far left background items
+        zIndex: 10,
+        x: "-110%",
+        scale: 0.7,
+        opacity: 0,
+        pointerEvents: "none" as const,
+        isCenter: false,
+      };
+    } else {
+      return {
+        // Far right background items
+        zIndex: 10,
+        x: "110%",
+        scale: 0.7,
+        opacity: 0,
+        pointerEvents: "none" as const,
+        isCenter: false,
+      };
+    }
+  };
 
   return (
     <section className="overflow-hidden bg-white py-10 md:py-16">
       <div className="mx-auto max-w-8xl px-5 sm:px-6 lg:px-20">
-
         {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -111,96 +103,109 @@ export default function Journey() {
           </h2>
         </motion.div>
 
-        {/* Cards */}
-        <div className="grid grid-cols-1 items-center gap-5 lg:grid-cols-3 lg:gap-6">
+        {/* Carousel Area */}
+        <div className="relative flex items-center justify-center min-h-[380px] sm:min-h-[460px] md:min-h-[520px] w-full">
+          {journeyData.map((card, index) => {
+            const pos = getPositionClassAndStyles(index);
 
-          {/* Left */}
-          <motion.div
-            key={`left-${leftCard.id}`}
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            onClick={prev}
-            className="
-              relative hidden h-[400px]
-              cursor-pointer overflow-hidden
-              rounded-2xl shadow-lg
-              transition-transform duration-500
-              hover:-translate-y-1
-              lg:block
-            "
-          >
-            <CardImage card={leftCard} />
-          </motion.div>
-
-          {/* Center */}
-          <div className="relative h-[360px] overflow-hidden rounded-2xl sm:h-[450px] md:h-[500px]">
-            <AnimatePresence
-              initial={false}
-              custom={direction}
-              mode="popLayout"
-            >
+            return (
               <motion.div
-                key={centerCard.id}
-                custom={direction}
-                variants={{
-                  enter: (dir: number) => ({
-                    x: dir > 0 ? "100%" : "-100%",
-                  }),
-                  center: {
-                    x: 0,
-                  },
-                  exit: (dir: number) => ({
-                    x: dir > 0 ? "-100%" : "100%",
-                  }),
+                key={card.id}
+                initial={false}
+                animate={{
+                  x: pos.x,
+                  scale: pos.scale,
+                  opacity: pos.opacity,
+                  zIndex: pos.zIndex,
                 }}
-                initial="enter"
-                animate="center"
-                exit="exit"
                 transition={{
-                  duration: 0.65,
-                  ease: [0.22, 1, 0.36, 1],
+                  duration: 0.6,
+                  ease: [0.25, 1, 0.5, 1],
                 }}
-                className="absolute inset-0"
+                onClick={() => {
+                  if (pos.x.startsWith("-")) prev();
+                  else if (pos.x.startsWith("65") || pos.x.startsWith("110")) next();
+                }}
+                className="absolute w-[88%] sm:w-[70%] lg:w-[48%] h-[360px] sm:h-[430px] md:h-[480px] cursor-pointer rounded-2xl shadow-xl overflow-hidden select-none"
+                style={{
+                  pointerEvents: pos.pointerEvents,
+                }}
               >
-                <CardImage card={centerCard} center />
-              </motion.div>
-            </AnimatePresence>
-          </div>
+                <div className="group relative h-full w-full overflow-hidden rounded-2xl">
+                  <PremiumImage
+                    src={card.image}
+                    alt={card.title}
+                    fill
+                    priority={pos.isCenter}
+                    wrapperClassName="h-full w-full"
+                    className="object-cover"
+                    hoverScale={pos.isCenter ? 1.05 : 1.08}
+                    parallax={pos.isCenter ? 8 : 6}
+                    tilt={2}
+                  />
 
-          {/* Right */}
-          <motion.div
-            key={`right-${rightCard.id}`}
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            onClick={next}
-            className="
-              relative hidden h-[400px]
-              cursor-pointer overflow-hidden
-              rounded-2xl shadow-lg
-              transition-transform duration-500
-              hover:-translate-y-1
-              lg:block
-            "
-          >
-            <CardImage card={rightCard} />
-          </motion.div>
+                  {/* Gradient overlay */}
+                  <div
+                    className={`absolute inset-0 transition-all duration-500 ${
+                      pos.isCenter
+                        ? "bg-gradient-to-t from-black/75 via-black/20 to-transparent group-hover:from-black/85"
+                        : "bg-gradient-to-t from-black/60 via-black/10 to-transparent hover:from-black/70"
+                    }`}
+                  />
+
+                  {/* Card Content (Always visible on Center card, hover/subtle on sides) */}
+{/* Card Content */}
+<div
+  className="
+    absolute inset-x-0 bottom-0 p-6 text-white sm:p-8
+    opacity-0 translate-y-4
+    group-hover:opacity-100
+    group-hover:translate-y-0
+    transition-all duration-500 ease-out
+    pointer-events-none
+  "
+>
+  <h3 className="text-lg font-medium leading-tight sm:text-2xl md:text-3xl drop-shadow-md">
+    {card.title}
+  </h3>
+
+  <p className="mt-2.5 max-w-[480px] text-xs sm:text-sm md:text-base leading-snug text-white/90">
+    {card.subtitle}
+  </p>
+</div>
+
+                  {/* Top indicator icon on active/hover */}
+                  <div
+                    className={`
+                      absolute right-5 top-5
+                      h-9 w-9 rounded-full
+                      border border-white/40
+                      bg-black/20 backdrop-blur-sm
+                      transition-all duration-500
+                      ${pos.isCenter ? "opacity-100" : "opacity-0 group-hover:opacity-100"}
+                    `}
+                  />
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
 
-        {/* Navigation */}
-        <div className="mt-7 flex items-center justify-center gap-4 md:mt-10">
+        {/* Navigation Buttons */}
+        <div className="mt-8 flex items-center justify-center gap-4 md:mt-12">
           <button
             onClick={prev}
             aria-label="Previous"
             className="
               group flex h-14 w-14 items-center justify-center
               rounded-full border border-[#d8d8d8]
-              bg-white text-[#22382d]
+              bg-white text-[#22382d] shadow-sm
               transition-all duration-300
               hover:border-[#22382d]
               hover:bg-[#22382d]
               hover:text-white
+              hover:shadow-md
+              active:scale-95
               md:h-16 md:w-16
             "
           >
@@ -216,11 +221,13 @@ export default function Journey() {
             className="
               group flex h-14 w-14 items-center justify-center
               rounded-full border border-[#d8d8d8]
-              bg-white text-[#22382d]
+              bg-white text-[#22382d] shadow-sm
               transition-all duration-300
               hover:border-[#22382d]
               hover:bg-[#22382d]
               hover:text-white
+              hover:shadow-md
+              active:scale-95
               md:h-16 md:w-16
             "
           >

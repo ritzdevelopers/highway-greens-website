@@ -5,7 +5,7 @@ import AnimatedButton from "../ui/ProjectAnumatedBtn";
 
 export default function PlotOptions() {
     return (
-        <section className="bg-[#22362B] py-10 md:py-14 overflow-hidden">
+        <section id="plots" className="bg-[#22362B] py-10 md:py-14 overflow-hidden">
             <div className="mx-auto max-w-8xl sm:px-6 lg:px-20 px-5">
 
                 {/* Heading */}

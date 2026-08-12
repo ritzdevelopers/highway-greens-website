@@ -36,6 +36,7 @@ export default function Location() {
   return (
     <section
       ref={sectionRef}
+      id="location"
       className="relative overflow-hidden bg-white py-5 lg:py-14"
     >
       <div

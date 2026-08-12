@@ -8,7 +8,7 @@ import AnimatedButton from "../ui/ProjectAnumatedBtn";
 
 export default function Highlights() {
   return (
-    <section className="relative overflow-hidden bg-white py-5 lg:py-14">
+    <section id="highlights" className="relative overflow-hidden bg-white py-5 lg:py-14">
 
       {/* Dotted Background */}
       <div
