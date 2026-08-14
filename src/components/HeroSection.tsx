@@ -12,9 +12,9 @@ type HeroSectionProps = {
 export default function HeroSection({ content }: HeroSectionProps) {
   return (
     <section className="relative h-screen overflow-hidden">
-      {/* Background */}
+      {/* Desktop Background */}
       <motion.div
-        className="absolute inset-0 z-0"
+        className="absolute inset-0 z-0 hidden md:block"
         animate={{
           scale: [1, 1.06, 1],
         }}
@@ -33,8 +33,29 @@ export default function HeroSection({ content }: HeroSectionProps) {
         />
       </motion.div>
 
+      {/* Mobile Background */}
+      <motion.div
+        className="absolute inset-0 z-0 block md:hidden"
+        animate={{
+          scale: [1, 1.06, 1],
+        }}
+        transition={{
+          duration: 14,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      >
+        <Image
+          src={content.heroMobileImage}
+          alt="Highway Greens"
+          fill
+          priority
+          className="object-cover"
+        />
+      </motion.div>
+
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/15" />
+      <div className="absolute inset-0 z-[1] bg-black/15" />
 
       {/* Content */}
       <div className="relative z-10 flex h-full items-center justify-center px-6">
@@ -46,25 +67,32 @@ export default function HeroSection({ content }: HeroSectionProps) {
         >
           <h1
             className="
-    text-white
-    font-normal
-    italic
-    text-[38px]
-    md:text-[56px]
-    leading-none
-    tracking-normal
-    [font-family:Georgia,serif]
-  "
+              text-white
+              font-normal
+              italic
+              text-[38px]
+              md:text-[56px]
+              leading-none
+              tracking-normal
+              [font-family:Georgia,serif]
+            "
           >
             {content.headline}
           </h1>
 
           <p
-            className="mt-6 text-xl italic tracking-[0.3em]
-            text-white/90 [font-family:Georgia,serif]"
+            className="
+              mt-6
+              text-xl
+              italic
+              tracking-[0.3em]
+              text-white/90
+              [font-family:Georgia,serif]
+            "
           >
             {content.subline}
           </p>
+
           <div className="pt-10">
             <AnimatedButton
               text={content.ctaPrimary}

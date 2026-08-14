@@ -90,7 +90,7 @@ export default function HighlightsSection() {
                             transition={{ duration: 0.6 }}
                         >
                             <AnimatedImage
-                                src="/highlight-small.jpg"
+                                src="/landingPageA/highlight-small-mobile.jpg"
                                 alt="Highlights"
                                 width={420}
                                 height={520}
@@ -113,7 +113,7 @@ export default function HighlightsSection() {
                             transition={{ duration: 0.6, delay: 0.1 }}
                         >
                             <AnimatedImage
-                                src="/highlight-main.jpg"
+                                src="/landingPageA/highlight-main-mobile.jpg"
                                 alt="Highlights"
                                 width={700}
                                 height={900}
@@ -200,7 +200,7 @@ export default function HighlightsSection() {
                             className="flex justify-center"
                         >
                             <AnimatedImage
-                                src="/highlight-small.jpg"
+                                src="/landingPageA/highlight-small.jpg"
                                 alt="Highlights"
                                 width={420}
                                 height={520}
@@ -224,7 +224,7 @@ export default function HighlightsSection() {
                             className="flex justify-center"
                         >
                             <AnimatedImage
-                                src="/highlight-main.jpg"
+                                src="/landingPageA/highlight-main.jpg"
                                 alt="Highlights"
                                 width={700}
                                 height={900}
@@ -285,7 +285,7 @@ export default function HighlightsSection() {
                             className="flex flex-col items-center lg:items-start"
                         >
                             <AnimatedImage
-                                src="/highlight-small.jpg"
+                                src="/landingPageA/highlight-small.jpg"
                                 alt="Highlights"
                                 width={420}
                                 height={520}
@@ -341,7 +341,7 @@ export default function HighlightsSection() {
                                 className="h-full w-full"
                             >
                                 <AnimatedImage
-                                    src="/highlight-main.jpg"
+                                    src="/landingPageA/highlight-main.jpg"
                                     alt="Highlights"
                                     width={700}
                                     height={900}

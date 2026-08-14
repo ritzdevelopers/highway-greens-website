@@ -7,9 +7,9 @@ import ContactForm from "./ContactForm";
 export default function ContactSection() {
   return (
     <section className="relative overflow-hidden py-12 md:py-24">
-      {/* Animated Background Image */}
+      {/* Desktop Animated Background */}
       <motion.div
-        className="absolute inset-0 z-0"
+        className="absolute inset-0 z-0 hidden md:block"
         animate={{
           scale: [1, 1.06, 1],
         }}
@@ -20,7 +20,28 @@ export default function ContactSection() {
         }}
       >
         <Image
-          src="/contact-bg.jpg"
+          src="/landingPageA/contact-bg.jpg"
+          alt=""
+          fill
+          priority
+          className="object-cover"
+        />
+      </motion.div>
+
+      {/* Mobile Animated Background */}
+      <motion.div
+        className="absolute inset-0 z-0 block md:hidden"
+        animate={{
+          scale: [1, 1.06, 1],
+        }}
+        transition={{
+          duration: 14,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      >
+        <Image
+          src="/landingPageA/contact-bg-mobile.jpg"
           alt=""
           fill
           priority

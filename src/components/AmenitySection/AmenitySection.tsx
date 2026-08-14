@@ -12,7 +12,8 @@ const amenities: Amenity[] = [
   {
     title: "Leisure",
     icon: "/icons/Vector.svg",
-    image: "/amenities/leisure.jpg",
+    image: "/landingPageA/amenities/leisure.jpg",
+    mobileImage: "/landingPageA/amenities/leisure-mobile.jpg",
     subtitle: "Time And Space To Slow Down",
     points: [
       "Swimming and water based relaxation spaces",
@@ -25,7 +26,8 @@ const amenities: Amenity[] = [
   {
     title: "Wellness",
     icon: "/icons/Vector.svg",
-    image: "/amenities/wellness.jpg",
+    image: "/landingPageA/amenities/wellness.jpg",
+    mobileImage: "/landingPageA/amenities/wellness-mobile.jpg",
     subtitle: "Designed For Healthy Living",
     points: [
       "Yoga Deck",
@@ -38,7 +40,8 @@ const amenities: Amenity[] = [
   {
     title: "Community",
     icon: "/icons/Vector.svg",
-    image: "/amenities/community.jpg",
+    image: "/landingPageA/amenities/community.jpg",
+    mobileImage: "/landingPageA/amenities/community-mobile.jpg",
     subtitle: "Bringing People Together",
     points: [
       "Club Plaza",
@@ -51,7 +54,8 @@ const amenities: Amenity[] = [
   {
     title: "Recreation",
     icon: "/icons/Vector.svg",
-    image: "/amenities/recreation.jpg",
+    image: "/landingPageA/amenities/recreation.jpg",
+    mobileImage: "/landingPageA/amenities/recreation-mobile.jpg",
     subtitle: "Fun For Every Generation",
     points: [
       "Indoor Games",
@@ -64,7 +68,8 @@ const amenities: Amenity[] = [
   {
     title: "Clubhouse",
     icon: "/icons/Vector.svg",
-    image: "/amenities/clubhouse.jpg",
+    image: "/landingPageA/amenities/clubhouse.jpg",
+    mobileImage: "/landingPageA/amenities/clubhouse-mobile.jpg",
     subtitle: "Premium Club Experience",
     points: [
       "Gymnasium",
@@ -77,7 +82,8 @@ const amenities: Amenity[] = [
   {
     title: "Security",
     icon: "/icons/Vector.svg",
-    image: "/amenities/security.jpg",
+    image: "/landingPageA/amenities/security.jpg",
+    mobileImage: "/landingPageA/amenities/security-mobile.jpg",
     subtitle: "Safe Living Everyday",
     points: [
       "24×7 Security",

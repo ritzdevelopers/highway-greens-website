@@ -26,13 +26,16 @@ export const heroData = {
     "Where Life Finds Its Natural Rhythm",
   ctaPrimary: "Explore Highway Greens",
   heroImage:
-    "/hero-bg.png",
+    "/landingPageA/hero-bg.png",
+  heroMobileImage:
+  "/landingPageA/highway-greens-mobile.jpg"
 };
 
 export const aboutData = {
   title: "A DIFFERENT IDEA OF HOME",
   subtitle: "Where Connectivity Meets Nature",
-  image: "/about.png",
+  image: "/landingPageA/about.png",
+  mobileImage: "/landingPageA/about-mobile.jpg",
   details: [
     "Before a home became an asset, it was a place of belonging, a place where mornings began slowly, children grew closer to nature, elders found comfort beneath open skies, and neighbours became part of everyday life.",
     "Highway Greens is a thoughtfully planned community created for people who seek urban connectivity without the congestion of conventional city living. Open green environments, landscaped pathways, wellness spaces and community-focused amenities come together to create a lifestyle with more space, greater calm and a stronger sense of belonging.",

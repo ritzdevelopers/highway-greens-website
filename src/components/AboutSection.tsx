@@ -13,37 +13,36 @@ type AboutSectionProps = {
 
 export default function AboutSection({ content }: AboutSectionProps) {
   return (
-    <SectionWrapper id="overview" className="relative overflow-hidden bg-white py-10 md:py-15">
+    <SectionWrapper
+      id="overview"
+      className="relative overflow-hidden bg-white py-10 md:py-15"
+    >
       {/* Dots Background */}
       <div
         aria-hidden="true"
         className="
-    pointer-events-none
-    absolute
-    right-0
-    top-0
-    z-0
-    w-[58%]
-    max-w-[869px]
-    overflow-hidden
-    opacity-40
-  "
+          pointer-events-none
+          absolute
+          right-0
+          top-0
+          z-0
+          w-[58%]
+          max-w-[869px]
+          overflow-hidden
+          opacity-40
+        "
       >
         <Image
           src="/dots-pattern.png"
           alt=""
           width={869}
           height={548}
-          className="
-      h-auto
-      w-full
-      brightness-75
-    "
+          className="h-auto w-full brightness-75"
         />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 mx-auto flex max-w-8xl sm:px-6 lg:px-20 px-5">
+      <div className="relative z-10 mx-auto flex max-w-8xl px-5 sm:px-6 lg:px-20">
         <div className="grid items-center gap-10 md:gap-20 lg:grid-cols-[1.05fr_0.95fr]">
           {/* Left Content */}
           <motion.div
@@ -76,11 +75,12 @@ export default function AboutSection({ content }: AboutSectionProps) {
               {content.subtitle}
             </h3>
 
-            <div className="mt-5 md:mt-10 space-y-5 text-[16px] leading-[1.8] text-[#666]">
+            <div className="mt-5 space-y-5 text-[16px] leading-[1.8] text-[#666] md:mt-10">
               {content.details.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
             </div>
+
             <AnimatedButton
               text="Download Brochure"
               bgColor="#caa56b"
@@ -100,16 +100,33 @@ export default function AboutSection({ content }: AboutSectionProps) {
             viewport={{ once: true }}
             className="relative"
           >
-            <AnimatedImage
-              src={content.image}
-              alt={content.title}
-              width={700}
-              height={550}
-              priority
-              delay={0.2}
-              hoverScale={1.04}
-              wrapperClassName="shadow-xl"
-            />
+            {/* Desktop Image */}
+            <div className="hidden md:block">
+              <AnimatedImage
+                src={content.image}
+                alt={content.title}
+                width={700}
+                height={550}
+                priority
+                delay={0.2}
+                hoverScale={1.04}
+                wrapperClassName="shadow-xl"
+              />
+            </div>
+
+            {/* Mobile Image */}
+            <div className="block md:hidden">
+              <AnimatedImage
+                src={content.mobileImage}
+                alt={content.title}
+                width={700}
+                height={550}
+                priority
+                delay={0.2}
+                hoverScale={1.04}
+                wrapperClassName="shadow-xl"
+              />
+            </div>
           </motion.div>
         </div>
       </div>

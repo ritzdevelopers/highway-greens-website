@@ -8,8 +8,9 @@ export default function LocationMapSection() {
     <section className="relative overflow-hidden bg-white">
       {/* Map Image */}
       <div className="relative h-[350px] w-full">
+        {/* Desktop Map */}
         <motion.div
-          className="absolute inset-0 z-0"
+          className="absolute inset-0 z-0 hidden md:block"
           animate={{
             scale: [1, 1.06, 1],
           }}
@@ -20,7 +21,28 @@ export default function LocationMapSection() {
           }}
         >
           <Image
-            src="/location-map.png"
+            src="/landingPageA/location-map.png"
+            alt="Location Map"
+            fill
+            priority
+            className="object-cover"
+          />
+        </motion.div>
+
+        {/* Mobile Map */}
+        <motion.div
+          className="absolute inset-0 z-0 block md:hidden"
+          animate={{
+            scale: [1, 1.06, 1],
+          }}
+          transition={{
+            duration: 14,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        >
+          <Image
+            src="/landingPageA/location-map-mobile.png"
             alt="Location Map"
             fill
             priority
@@ -29,7 +51,7 @@ export default function LocationMapSection() {
         </motion.div>
 
         {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-[#193320]/20" />
+        <div className="absolute inset-0 z-10 bg-[#193320]/20" />
 
         {/* Heading */}
         <motion.div

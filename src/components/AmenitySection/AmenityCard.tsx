@@ -7,6 +7,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 export type Amenity = {
   title: string;
   image: string;
+  mobileImage: string;
   icon: string;
   subtitle: string;
   points: string[];
@@ -43,9 +44,12 @@ export default function AmenityCard({
     >
 {/* ================= IMAGE ================= */}
 
-<div className="absolute inset-0 z-0 h-full w-full overflow-hidden">
+{/* ================= IMAGE ================= */}
+
+{/* Desktop Image */}
+<div className="absolute inset-0 z-0 hidden h-full w-full overflow-hidden md:block">
   <motion.div
-    key={`image-${amenity.title}`}
+    key={`image-desktop-${amenity.title}`}
     initial={{
       opacity: 0,
       scale: 1.08,
@@ -81,7 +85,51 @@ export default function AmenityCard({
       fill
       priority
       className="object-cover"
-      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1200px"
+      sizes="(max-width: 1024px) 90vw, 1200px"
+    />
+  </motion.div>
+</div>
+
+{/* Mobile Image */}
+<div className="absolute inset-0 z-0 block h-full w-full overflow-hidden md:hidden">
+  <motion.div
+    key={`image-mobile-${amenity.title}`}
+    initial={{
+      opacity: 0,
+      scale: 1.08,
+      y: 8,
+    }}
+    animate={{
+      opacity: 1,
+      scale: 1,
+      y: 0,
+    }}
+    whileHover={{
+      scale: 1.04,
+    }}
+    transition={{
+      opacity: {
+        duration: 0.45,
+        ease: "easeOut",
+      },
+      scale: {
+        duration: 1,
+        ease: [0.22, 1, 0.36, 1],
+      },
+      y: {
+        duration: 0.8,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    }}
+    className="relative h-full w-full"
+  >
+    <Image
+      src={amenity.mobileImage}
+      alt={amenity.title}
+      fill
+      priority
+      className="object-cover"
+      sizes="100vw"
     />
   </motion.div>
 </div>
