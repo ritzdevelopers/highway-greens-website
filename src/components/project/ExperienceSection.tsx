@@ -9,7 +9,7 @@ export default function ExperienceSection() {
     <section className="relative h-[50vh] min-h-[450px] w-full overflow-hidden">
       {/* Background */}
       <PremiumImage
-        src="/project/experience-bg.webp"
+        src="/project/experience-bg.png"
         alt="Highway Greens"
         fill
         priority

@@ -35,7 +35,7 @@ export default function Highlights() {
             className="relative hidden h-[550px] w-full overflow-hidden lg:block lg:h-[660px] lg:pr-10"
           >
             <PremiumImage
-              src="/highlights.jpg"
+              src="/project/highlights.png"
               alt="Highlights"
               fill
               priority
@@ -76,7 +76,7 @@ export default function Highlights() {
               className="relative mb-10 h-[400px] w-full overflow-hidden sm:h-[500px] lg:hidden"
             >
               <PremiumImage
-                src="/highlights.jpg"
+                src="/project/highlights.png"
                 alt="Highlights"
                 fill
                 priority

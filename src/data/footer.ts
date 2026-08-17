@@ -25,7 +25,7 @@ export interface SocialLink {
 
 export const footerData = {
   logo: "/logo.png",
-  qr: "/qr.png",
+  qr: "/project/qr.png",
 
   disclaimer:
     "The information, plans, specifications, amenities, dimensions, pricing and availability presented on this website are indicative and may be revised subject to applicable approvals and laws. Images and visualisations are artistic representations intended for illustrative purposes only.",

@@ -196,7 +196,7 @@ export default function OverviewSection({
                   "
                 >
                   <PremiumImage
-                    src="/highlight.jpg"
+                    src="/project/highlight.png"
                     alt="Highway Greens community"
                     fill
                     wrapperClassName="h-full w-full"
@@ -275,7 +275,7 @@ export default function OverviewSection({
                   "
                 >
                   <PremiumImage
-                    src="/highlight.jpg"
+                    src="/project/highlight.png"
                     alt="Highway Greens community"
                     fill
                     wrapperClassName="h-full w-full"
@@ -370,7 +370,7 @@ export default function OverviewSection({
               "
             >
               <PremiumImage
-                src="/highlight.jpg"
+                src="/project/highlight.png"
                 alt="Highway Greens community"
                 fill
                 wrapperClassName="h-full w-full"
