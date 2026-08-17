@@ -42,10 +42,7 @@ export default function LocationStats() {
         >
           {/* Number */}
           <h3
-            className="text-4xl font-bold text-[#F6D7C1] lg:text-5xl"
-            style={{
-              fontFamily: "Cormorant Garamond, serif",
-            }}
+            className="text-4xl font-bold text-[#F6D7C1] lg:text-5xl [font-family:Georgia,serif]"
           >
             <CountUp
               end={item.value}
@@ -56,7 +53,7 @@ export default function LocationStats() {
           </h3>
 
           {/* Minutes */}
-          <p className="mt-5 text-xl text-white/95">
+          <p className="mt-5 text-xl text-white/95 font-roboto">
             {item.title}
           </p>
 

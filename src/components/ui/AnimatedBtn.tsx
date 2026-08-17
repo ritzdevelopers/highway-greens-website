@@ -180,7 +180,7 @@ className={`
         }}
         className="relative z-10 flex items-center gap-4"
       >
-        <span className="text-[18px] font-semibold tracking-wide">
+        <span className="text-[18px] font-semibold tracking-wide font-roboto">
           {text}
         </span>
       </motion.span>

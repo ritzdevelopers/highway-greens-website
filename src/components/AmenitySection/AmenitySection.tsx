@@ -154,10 +154,8 @@ export default function AmenitySection() {
               leading-tight
               text-black
               lg:text-[38px]
+              [font-family:Georgia,serif]
             "
-            style={{
-              fontFamily: "Cormorant Garamond, serif",
-            }}
           >
             More Space for What Matters
           </h2>

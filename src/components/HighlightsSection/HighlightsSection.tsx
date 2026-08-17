@@ -68,10 +68,8 @@ export default function HighlightsSection() {
                 uppercase
                 text-black
                 sm:text-[38px]
+                [font-family:Georgia,serif]
               "
-                            style={{
-                                fontFamily: "Cormorant Garamond, serif",
-                            }}
                         >
                             Highlights
                         </h2>
@@ -176,10 +174,8 @@ export default function HighlightsSection() {
                 uppercase
                 tracking-wide
                 text-black
+                [font-family:Georgia,serif]
               "
-                            style={{
-                                fontFamily: "Cormorant Garamond, serif",
-                            }}
                         >
                             Highlights
                         </h2>
@@ -307,10 +303,8 @@ export default function HighlightsSection() {
                     uppercase
                     text-black
                     sm:text-[38px]
+                    [font-family:Georgia,serif]
                   "
-                                    style={{
-                                        fontFamily: "Cormorant Garamond, serif",
-                                    }}
                                 >
                                     Highlights
                                 </h2>

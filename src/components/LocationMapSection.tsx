@@ -62,10 +62,7 @@ export default function LocationMapSection() {
           className="absolute right-12 md:right-24 top-1/2 z-20 max-w-xl -translate-y-1/2"
         >
           <h2
-            className="text-right text-2xl font-bold uppercase leading-tight text-white lg:text-[34px]"
-            style={{
-              fontFamily: "Cormorant Garamond, serif",
-            }}
+            className="text-right text-2xl font-bold uppercase leading-tight text-white lg:text-[34px] [font-family:Georgia,serif]"
           >
             At The Right Distance
             <br />

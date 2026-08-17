@@ -69,10 +69,7 @@ export default function LocationSection() {
           </p>
 
           <h2
-            className="mt-2 text-2xl font-bold uppercase md:mt-5 lg:text-[38px]"
-            style={{
-              fontFamily: "Cormorant Garamond, serif",
-            }}
+            className="mt-2 text-2xl font-bold uppercase md:mt-5 lg:text-[38px] [font-family:Georgia,serif]"
           >
             CONNECTED TO WHAT MATTERS
           </h2>

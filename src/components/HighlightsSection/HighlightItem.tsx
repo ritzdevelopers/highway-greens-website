@@ -45,10 +45,6 @@ export default function HighlightItem({
           sm:text-[20px]
           font-roboto
         "
-        style={{
-          fontFamily:
-            "Cormorant Garamond, serif",
-        }}
       >
         {item.title}
       </h3>

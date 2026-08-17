@@ -196,9 +196,6 @@ export default function AmenityCard({
             sm:text-[24px]
             font-roboto
           "
-          style={{
-            fontFamily: "Cormorant Garamond, serif",
-          }}
         >
           {amenity.title}
         </h3>

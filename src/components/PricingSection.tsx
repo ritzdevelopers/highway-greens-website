@@ -60,10 +60,8 @@ export default function PricingSection({
             font-bold
             text-[#10261D]
             lg:text-[38px]
+            [font-family:Georgia,serif]
           "
-            style={{
-              fontFamily: "Cormorant Garamond, serif",
-            }}
           >
             Find the Right Space for Your Future
           </h2>
@@ -162,11 +160,8 @@ export default function PricingSection({
                     text-[28px]
                     leading-tight
                     lg:text-[28px]
+                    [font-family:Georgia,serif]
                   "
-                    style={{
-                      fontFamily:
-                        "Cormorant Garamond, serif",
-                    }}
                   >
                     {plan.title}
                   </h3>

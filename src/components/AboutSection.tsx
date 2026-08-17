@@ -63,19 +63,17 @@ export default function AboutSection({ content }: AboutSectionProps) {
                 leading-tight
                 text-black
                 lg:text-[38px]
+                [font-family:Georgia,serif]
               "
-              style={{
-                fontFamily: "Cormorant Garamond, serif",
-              }}
             >
               {content.title}
             </h2>
 
-            <h3 className="mt-3 text-[18px] font-medium text-black">
+            <h3 className="mt-3 text-[18px] font-medium text-black font-roboto">
               {content.subtitle}
             </h3>
 
-            <div className="mt-5 space-y-5 text-[16px] leading-[1.8] text-[#666] md:mt-10">
+            <div className="mt-5 space-y-5 text-[16px] leading-[1.8] text-[#666] md:mt-10 font-roboto">
               {content.details.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
