@@ -54,15 +54,31 @@ export default function AmenitiesSection() {
                 transition={{ duration: 0.25, ease: "easeOut" }}
                 className="absolute inset-0"
               >
-                <Image
-                  src={activeAmenity.image}
-                  alt={activeAmenity.title}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  quality={90}
-                  className="object-cover"
-                  priority={activeAmenity.id === "leisure"}
-                />
+                {/* Desktop Image */}
+                <div className="absolute inset-0 hidden md:block">
+                  <Image
+                    src={activeAmenity.image}
+                    alt={activeAmenity.title}
+                    fill
+                    sizes="50vw"
+                    quality={90}
+                    className="object-cover"
+                    priority={activeAmenity.id === "leisure"}
+                  />
+                </div>
+
+                {/* Mobile Image */}
+                <div className="absolute inset-0 block md:hidden">
+                  <Image
+                    src={activeAmenity.mobileImage}
+                    alt={activeAmenity.title}
+                    fill
+                    sizes="100vw"
+                    quality={90}
+                    className="object-cover"
+                    priority={activeAmenity.id === "leisure"}
+                  />
+                </div>
               </motion.div>
             </AnimatePresence>
           </div>

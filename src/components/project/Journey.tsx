@@ -132,31 +132,48 @@ export default function Journey() {
                 }}
               >
                 <div className="group relative h-full w-full overflow-hidden rounded-2xl">
-                  <PremiumImage
-                    src={card.image}
-                    alt={card.title}
-                    fill
-                    priority={pos.isCenter}
-                    wrapperClassName="h-full w-full"
-                    className="object-cover"
-                    hoverScale={pos.isCenter ? 1.05 : 1.08}
-                    parallax={pos.isCenter ? 8 : 6}
-                    tilt={2}
-                  />
+{/* Desktop Image */}
+<div className="absolute inset-0 hidden md:block">
+  <PremiumImage
+    src={card.image}
+    alt={card.title}
+    fill
+    priority={pos.isCenter}
+    wrapperClassName="h-full w-full"
+    className="object-cover"
+    hoverScale={pos.isCenter ? 1.05 : 1.08}
+    parallax={pos.isCenter ? 8 : 6}
+    tilt={2}
+  />
+</div>
+
+{/* Mobile Image */}
+<div className="absolute inset-0 block md:hidden">
+  <PremiumImage
+    src={card.mobileImage || card.image}
+    alt={card.title}
+    fill
+    priority={pos.isCenter}
+    wrapperClassName="h-full w-full"
+    className="object-cover"
+    hoverScale={pos.isCenter ? 1.05 : 1.08}
+    parallax={pos.isCenter ? 8 : 6}
+    tilt={2}
+  />
+</div>
 
                   {/* Gradient overlay */}
                   <div
-                    className={`absolute inset-0 transition-all duration-500 ${
-                      pos.isCenter
+                    className={`absolute inset-0 transition-all duration-500 ${pos.isCenter
                         ? "bg-gradient-to-t from-black/75 via-black/20 to-transparent group-hover:from-black/85"
                         : "bg-gradient-to-t from-black/60 via-black/10 to-transparent hover:from-black/70"
-                    }`}
+                      }`}
                   />
 
                   {/* Card Content (Always visible on Center card, hover/subtle on sides) */}
-{/* Card Content */}
-<div
-  className="
+                  {/* Card Content */}
+                  <div
+                    className="
     absolute inset-x-0 bottom-0 p-6 text-white sm:p-8
     opacity-0 translate-y-4
     group-hover:opacity-100
@@ -164,15 +181,15 @@ export default function Journey() {
     transition-all duration-500 ease-out
     pointer-events-none
   "
->
-  <h3 className="text-lg font-medium leading-tight sm:text-2xl md:text-3xl drop-shadow-md">
-    {card.title}
-  </h3>
+                  >
+                    <h3 className="text-lg font-medium leading-tight sm:text-2xl md:text-3xl drop-shadow-md">
+                      {card.title}
+                    </h3>
 
-  <p className="mt-2.5 max-w-[480px] text-xs sm:text-sm md:text-base leading-snug text-white/90">
-    {card.subtitle}
-  </p>
-</div>
+                    <p className="mt-2.5 max-w-[480px] text-xs sm:text-sm md:text-base leading-snug text-white/90">
+                      {card.subtitle}
+                    </p>
+                  </div>
 
                   {/* Top indicator icon on active/hover */}
                   <div

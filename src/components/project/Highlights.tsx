@@ -76,7 +76,7 @@ export default function Highlights() {
               className="relative mb-10 h-[400px] w-full overflow-hidden sm:h-[500px] lg:hidden"
             >
               <PremiumImage
-                src="/project/highlights.png"
+                src="/project/highlights-mobile.png"
                 alt="Highlights"
                 fill
                 priority

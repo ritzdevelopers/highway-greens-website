@@ -14,6 +14,7 @@ export const amenities = [
     subtitle: "Time And Space To Slow Down",
     icon: Waves,
     image: "/project/amenities/leisure.png",
+    mobileImage: "/project/amenities/leisure-mobile.png",
     points: [
       "Swimming And Water Based Relaxation Spaces",
       "Landscaped Sit Out Areas",
@@ -28,6 +29,7 @@ export const amenities = [
     subtitle: "Spaces Designed For A Healthier Life",
     icon: Dumbbell,
     image: "/project/amenities/wellness.png",
+    mobileImage: "/project/amenities/wellness-mobile.png",
     points: [
       "Modern Fitness And Exercise Areas",
       "Yoga And Meditation Spaces",
@@ -42,6 +44,7 @@ export const amenities = [
     subtitle: "Spaces That Bring People Together",
     icon: Users,
     image: "/project/amenities/community.png",
+    mobileImage: "/project/amenities/community-mobile.png",
     points: [
       "Interactive Community Spaces",
       "Landscaped Social Areas",
@@ -56,6 +59,7 @@ export const amenities = [
     subtitle: "Everyday Moments Of Joy And Play",
     icon: TreePine,
     image: "/project/amenities/recreation.png",
+    mobileImage: "/project/amenities/recreation-mobile.png",
     points: [
       "Outdoor Recreational Areas",
       "Children's Play Spaces",
@@ -70,6 +74,7 @@ export const amenities = [
     subtitle: "A Place To Connect, Relax And Celebrate",
     icon: Building2,
     image: "/project/amenities/clubhouse.png",
+    mobileImage: "/project/amenities/clubhouse-mobile.png",
     points: [
       "Premium Indoor Community Spaces",
       "Multipurpose Activity Areas",
@@ -84,6 +89,7 @@ export const amenities = [
     subtitle: "Safety And Peace Of Mind, Always",
     icon: ShieldCheck,
     image: "/project/amenities/security.png",
+    mobileImage: "/project/amenities/security-mobile.png",
     points: [
       "24/7 Security Monitoring",
       "Controlled Access Points",

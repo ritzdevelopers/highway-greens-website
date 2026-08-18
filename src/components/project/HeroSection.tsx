@@ -16,16 +16,33 @@ export default function HeroSection({ content }: HeroSectionProps) {
       <div className="relative flex flex-col lg:h-[635px] lg:block">
 
         {/* ================= HERO IMAGE ================= */}
-        <div className="relative h-[400px] sm:h-[500px] lg:h-full w-full lg:absolute lg:inset-y-0 lg:left-0 lg:right-[350px] lg:w-auto">
-          <PremiumImage
-            src="/hero-main.jpg"
-            alt="Highway Greens"
-            fill
-            priority
-            wrapperClassName="h-full w-full"
-            className="object-cover object-center"
-            delay={0.1}
-          />
+        {/* ================= HERO IMAGE ================= */}
+        <div className="relative h-[400px] w-full sm:h-[500px] lg:absolute lg:inset-y-0 lg:left-0 lg:right-[350px] lg:h-full lg:w-auto">
+          {/* Desktop Image */}
+          <div className="absolute inset-0 hidden lg:block">
+            <PremiumImage
+              src="/project/home_hero_image.png"
+              alt="Highway Greens"
+              fill
+              priority
+              wrapperClassName="h-full w-full"
+              className="object-cover object-center"
+              delay={0.1}
+            />
+          </div>
+
+          {/* Mobile / Tablet Image */}
+          <div className="absolute inset-0 block lg:hidden">
+            <PremiumImage
+              src="/project/hero-main-mobile.png"
+              alt="Highway Greens"
+              fill
+              priority
+              wrapperClassName="h-full w-full"
+              className="object-cover object-center"
+              delay={0.1}
+            />
+          </div>
 
           {/* Dark overlay */}
           <div className="absolute inset-0 z-20 bg-black/40" />
@@ -35,9 +52,9 @@ export default function HeroSection({ content }: HeroSectionProps) {
             initial={{ opacity: 0, y: 35 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="absolute bottom-18 left-6 right-6 md:bottom-[105px] md:left-[9%] z-20 text-white"
+            className="absolute bottom-18 left-6 right-6 z-20 text-white md:bottom-[105px] md:left-[9%]"
           >
-            <h1 className="text-[28px] sm:text-[32px] lg:text-[38px] font-normal leading-[1.15]">
+            <h1 className="text-[28px] font-normal leading-[1.15] sm:text-[32px] lg:text-[38px]">
               {content.headline}
             </h1>
 

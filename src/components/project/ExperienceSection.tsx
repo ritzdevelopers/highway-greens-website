@@ -1,19 +1,28 @@
 "use client";
 
-import Image from "next/image";
 import PremiumImage from "../ui/ProjectAnimateImage";
 import AnimatedButton from "../ui/ProjectAnumatedBtn";
 
 export default function ExperienceSection() {
   return (
     <section className="relative h-[50vh] min-h-[450px] w-full overflow-hidden">
-      {/* Background */}
+      {/* Desktop Background */}
       <PremiumImage
         src="/project/experience-bg.png"
         alt="Highway Greens"
         fill
         priority
-        wrapperClassName="absolute inset-0 h-full w-full"
+        wrapperClassName="absolute inset-0 hidden h-full w-full md:block"
+        className="object-cover"
+      />
+
+      {/* Mobile Background */}
+      <PremiumImage
+        src="/project/experience-bg-mobile.png"
+        alt="Highway Greens"
+        fill
+        priority
+        wrapperClassName="absolute inset-0 block h-full w-full md:hidden"
         className="object-cover"
       />
 
@@ -22,7 +31,7 @@ export default function ExperienceSection() {
 
       {/* Content */}
       <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
-        <h2 className="max-w-[4xl] text-2xl md:text-3xl font-semibold tracking-tight text-white lg:text-[38px]">
+        <h2 className="max-w-[4xl] text-2xl font-semibold tracking-tight text-white md:text-3xl lg:text-[38px]">
           Experience Highway Greens First Hand
         </h2>
 
@@ -33,7 +42,7 @@ export default function ExperienceSection() {
           hoverTextColor="#ffffff"
           accentColor="#caa56b"
           hoverColor="#caa56b"
-          className="mt-5 md:mt-10 px-12 md:px-14"
+          className="mt-5 px-12 md:mt-10 md:px-14"
         />
       </div>
     </section>

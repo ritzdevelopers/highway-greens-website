@@ -165,7 +165,7 @@ export default function OverviewSection({
                 >
                   <div className="relative h-full w-full overflow-hidden">
                     <PremiumImage
-                      src="/overview-main.jpg"
+                      src="/project/overview-main-mobile.png"
                       alt="Highway Greens wellness"
                       fill
                       priority
@@ -196,7 +196,7 @@ export default function OverviewSection({
                   "
                 >
                   <PremiumImage
-                    src="/project/highlight.png"
+                    src="/project/highlight-mobile.png"
                     alt="Highway Greens community"
                     fill
                     wrapperClassName="h-full w-full"
