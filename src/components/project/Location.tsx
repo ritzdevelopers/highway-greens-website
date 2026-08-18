@@ -44,7 +44,7 @@ export default function Location() {
     pointer-events-none
     absolute
     inset-0
-    bg-[url('/location-pattern.png')]
+    bg-[url('/project/location-pattern.png')]
     bg-cover
     bg-center
     bg-no-repeat
@@ -100,12 +100,12 @@ export default function Location() {
             {/* Map Box */}
             <div className="relative h-[300px] sm:h-[400px] lg:absolute lg:inset-0 lg:h-full w-full">
               {/* Real OpenStreetMap */}
-  <iframe
-    title="Highway Greens Location"
-    src="https://maps.google.com/maps?q=28.675,77.45&t=k&z=15&output=embed"
-    className="absolute inset-0 h-full w-full border-0"
-    loading="lazy"
-  />
+              <iframe
+                title="Highway Greens Location"
+                src="https://maps.google.com/maps?q=28.675,77.45&t=k&z=15&output=embed"
+                className="absolute inset-0 h-full w-full border-0"
+                loading="lazy"
+              />
 
               {/* ================= CUSTOM LOCATION PIN ================= */}
               <div

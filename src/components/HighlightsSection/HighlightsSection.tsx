@@ -295,22 +295,24 @@ export default function HighlightsSection() {
                 "
                             />
 
-                            <div className="mt-10 text-center lg:mt-22 lg:text-left">
-                                <h2
-                                    className="
-                    text-3xl
-                    font-bold
-                    uppercase
-                    text-black
-                    sm:text-[38px]
-                    [font-family:Georgia,serif]
-                  "
-                                >
-                                    Highlights
-                                </h2>
+<div className="mt-10 text-center lg:mt-22 lg:text-left">
+  <div className="inline-block">
+    <h2
+      className="
+        text-3xl
+        font-bold
+        uppercase
+        text-black
+        sm:text-[38px]
+        [font-family:Georgia,serif]
+      "
+    >
+      Highlights
+    </h2>
 
-                                <div className="mx-auto mt-4 h-[2px] w-40 bg-black lg:mx-0 lg:w-62" />
-                            </div>
+    <div className="mt-4 h-[2px] w-full bg-black" />
+  </div>
+</div>
                         </motion.div>
 
 
