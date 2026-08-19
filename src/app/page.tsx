@@ -5,7 +5,6 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import Footer from "@/components/Footer";
 import ContactFloatingCard from "@/components/ContactFloatingCard";
-import { ClientReviews } from "@/components/ClientReviews";
 
 const LocationMapSection = dynamic(() => import("@/components/LocationMapSection"));
 const PricingSection = dynamic(() => import("@/components/PricingSection"));
@@ -22,7 +21,6 @@ export default function Home() {
       <HeroSection content={heroData} />
       <ContactFloatingCard />
       <AboutSection content={aboutData} />
-      <ClientReviews />
       <AmenitySection />
       <LocationSection />
       <LocationMapSection />
