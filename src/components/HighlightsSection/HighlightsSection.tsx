@@ -29,16 +29,6 @@ const highlights: Highlight[] = [
         description:
             "Meditation gardens, walking paths, reflexology trails, yoga spaces and open air environments make wellbeing part of everyday life.",
     },
-    {
-        title: "Spaces For Every Generation",
-        description:
-            "Children, families, working professionals and elders are considered through dedicated activity, gathering and relaxation spaces.",
-    },
-    {
-        title: "Wellness In Everyday Life",
-        description:
-            "Meditation gardens, walking paths, reflexology trails, yoga spaces and open air environments make wellbeing part of everyday life.",
-    },
 ];
 
 export default function HighlightsSection() {
