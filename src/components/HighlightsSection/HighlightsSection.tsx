@@ -53,7 +53,7 @@ export default function HighlightsSection() {
                     >
                         <h2
                             className="
-                text-3xl
+                text-2xl
                 font-bold
                 uppercase
                 text-black
@@ -64,7 +64,7 @@ export default function HighlightsSection() {
                             Highlights
                         </h2>
 
-                        <div className="mx-auto mt-2 h-[2px] w-50 bg-black" />
+                        <div className="mx-auto mt-2 h-[2px] w-45 bg-black" />
                     </motion.div>
 
                     {/* Images */}
@@ -290,17 +290,18 @@ export default function HighlightsSection() {
                                     <h2
                                         className="
         text-3xl
-        font-bold
-        uppercase
+        font-black
         text-black
-        sm:text-[38px]
+        uppercase
+        leading-tight
+        lg:text-[38px]
         [font-family:Georgia,serif]
       "
                                     >
                                         Highlights
                                     </h2>
 
-                                    <div className="mt-4 h-[2px] w-full bg-black" />
+                                    <div className="mt-2 h-[2px] w-full bg-black" />
                                 </div>
                             </div>
                         </motion.div>

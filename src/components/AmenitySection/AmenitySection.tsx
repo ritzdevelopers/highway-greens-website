@@ -148,7 +148,7 @@ export default function AmenitySection() {
           <h2
             className="
               mt-3
-              text-3xl
+              text-2xl
               font-black
               uppercase
               leading-tight

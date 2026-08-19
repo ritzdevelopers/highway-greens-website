@@ -51,24 +51,52 @@ export default function LocationMapSection() {
         </motion.div>
 
         {/* Dark Overlay */}
-        <div className="absolute inset-0 z-10 bg-[#193320]/20" />
+        <div className="absolute inset-0 z-10 bg-[#193320]/2z0" />
 
-        {/* Heading */}
-        <motion.div
-          initial={{ opacity: 0, x: 80 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="absolute right-12 md:right-24 top-1/2 z-20 max-w-xl -translate-y-1/2"
-        >
-          <h2
-            className="text-right text-2xl font-bold uppercase leading-tight text-white lg:text-[34px] [font-family:Georgia,serif]"
-          >
-            At The Right Distance
-            <br />
-            From Everything
-          </h2>
-        </motion.div>
+{/* Heading */}
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.8 }}
+  className="
+    absolute
+    left-1/2
+    top-[20%]
+    z-20
+    -translate-x-1/2
+    -translate-y-1/2
+    md:left-auto
+    md:right-12
+    md:top-1/2
+    md:translate-x-0
+  "
+>
+  <h2
+    className="
+      w-[320px]
+      text-end
+      text-[22px]
+      font-bold
+      uppercase
+      leading-[1.05]
+      tracking-wide
+      text-white
+      [text-shadow:2px_2px_0_#193320,-2px_-2px_0_#193320,2px_-2px_0_#193320,-2px_2px_0_#193320,0_4px_8px_rgba(0,0,0,0.7)]
+      md:w-auto
+      md:text-right
+      md:text-2xl
+      md:leading-tight
+      md:[text-shadow:0_3px_6px_rgba(0,0,0,0.7)]
+      lg:text-[34px]
+      [font-family:Georgia,serif]
+    "
+  >
+    At The Right Distance
+    <br />
+    From Everything
+  </h2>
+</motion.div>
       </div>
     </section>
   );

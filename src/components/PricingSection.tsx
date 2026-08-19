@@ -160,7 +160,7 @@ export default function PricingSection({
                     text-[28px]
                     leading-tight
                     lg:text-[28px]
-                    [font-family:Georgia,serif]
+                    font-roboto
                   "
                   >
                     {plan.title}
@@ -168,25 +168,23 @@ export default function PricingSection({
 
                   {/* Features */}
                   <div className="mt-8 space-y-3 font-roboto text-[16px]">
-                    {plan.features.map((feature) => {
-                      const [label, ...valueParts] = feature.split(":");
-                      const value = valueParts.join(":").trim();
+                    {plan.features.map((feature, index) => {
+                      const hasColon = feature.includes(":");
+
+                      if (!hasColon) {
+                        return (
+                          <p key={index} className="...">
+                            {feature}
+                          </p>
+                        );
+                      }
+
+                      const [label, ...rest] = feature.split(":");
 
                       return (
-                        <p
-                          key={feature}
-                          className={
-                            featured
-                              ? "text-white/75"
-                              : "text-[#666]"
-                          }
-                        >
-                          <span className="font-semibold">
-                            {label}:
-                          </span>{" "}
-                          <span className="font-normal">
-                            {value}
-                          </span>
+                        <p key={index} className="...">
+                          <strong>{label}:</strong>
+                          {rest.join(":")}
                         </p>
                       );
                     })}

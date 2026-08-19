@@ -291,7 +291,7 @@ export default function OverviewSection({
             <p
               className="
                 mt-6
-                text-[14px]
+                text-[16px]
                 font-semibold
                 tracking-[0.08em]
                 text-[#111827]
