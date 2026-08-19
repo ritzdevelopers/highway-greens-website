@@ -11,11 +11,10 @@ type HeroSectionProps = {
 
 export default function HeroSection({ content }: HeroSectionProps) {
   return (
-    <section className="relative overflow-visible bg-white">
+    <section id="hero" className="relative overflow-visible bg-white">
       {/* ================= HERO CONTAINER ================= */}
       <div className="relative flex flex-col lg:h-[635px] lg:block">
 
-        {/* ================= HERO IMAGE ================= */}
         {/* ================= HERO IMAGE ================= */}
         <div className="relative h-[400px] w-full sm:h-[500px] lg:absolute lg:inset-y-0 lg:left-0 lg:right-[350px] lg:h-full lg:w-auto">
           {/* Desktop Image */}

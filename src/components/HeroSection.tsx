@@ -11,7 +11,7 @@ type HeroSectionProps = {
 
 export default function HeroSection({ content }: HeroSectionProps) {
   return (
-    <section className="relative h-screen overflow-hidden">
+    <section id="hero" className="relative h-screen overflow-hidden">
       {/* Desktop Background */}
       <motion.div
         className="absolute inset-0 z-0 hidden md:block"

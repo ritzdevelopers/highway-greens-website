@@ -6,6 +6,7 @@ import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import type { NavLink } from "@/data/siteData";
 import AnimatedButton from "./ui/AnimatedBtn";
+import { scrollToSection } from "@/lib/scrollToSection";
 
 type NavbarProps = {
   links: NavLink[];
@@ -74,14 +75,20 @@ export default function Navbar({ links }: NavbarProps) {
         className="fixed inset-x-0 top-0 z-50"
       >
         <div className="mx-auto flex max-w-8xl sm:px-6 lg:px-20 px-5 items-center justify-between py-2">
-          <Link href="/" onClick={closeMenu} className="relative z-50 shrink-0">
+          <Link
+            href="/"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("hero");
+            }}
+            className="relative z-50"
+          >
             <Image
               src="/logo.png"
               alt="Highway Greens"
               width={180}
               height={70}
               priority
-              className="h-auto w-[130px] sm:w-[150px] lg:w-[170px]"
             />
           </Link>
 

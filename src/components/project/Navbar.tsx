@@ -6,6 +6,7 @@ import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import type { NavLink } from "@/data/projectData";
 import MagneticButton from "../ui/ProjectAnumatedBtn";
+import { scrollToSection } from "@/lib/scrollToSection";
 
 type NavbarProps = {
   links: NavLink[];
@@ -60,16 +61,18 @@ export default function Navbar({ links }: NavbarProps) {
           duration: 0.35,
           ease: [0.22, 1, 0.36, 1],
         }}
-        className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
-          hasScrolled && showNavbar
+        className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${hasScrolled && showNavbar
             ? "bg-[#213A2D] shadow-lg"
             : "bg-transparent"
-        }`}
+          }`}
       >
         <div className="mx-auto flex max-w-8xl items-center justify-between px-5 py-5 sm:px-6 lg:px-20 lg:py-6">
           <Link
             href="/project"
-            onClick={() => setIsOpen(false)}
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("hero");
+            }}
             className="relative z-[70]"
           >
             <Image
