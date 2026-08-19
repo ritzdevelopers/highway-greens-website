@@ -283,10 +283,9 @@ export default function AmenitySection() {
                       font-medium
                       transition-all
                       duration-200
-                      ${
-                        active === index
-                          ? "bg-[#B98957] text-white"
-                          : "text-[#4b5563] hover:bg-[#f8f4ef] hover:text-[#B98957]"
+                      ${active === index
+                        ? "bg-[#B98957] text-white"
+                        : "text-[#4b5563] hover:bg-[#f8f4ef] hover:text-[#B98957]"
                       }
                     `}
                   >
@@ -300,10 +299,9 @@ export default function AmenitySection() {
                         items-center
                         justify-center
                         rounded-full
-                        ${
-                          active === index
-                            ? "bg-white/20"
-                            : "bg-[#f5f1eb]"
+                        ${active === index
+                          ? "bg-white/20"
+                          : "bg-[#f5f1eb]"
                         }
                       `}
                     >
@@ -412,10 +410,9 @@ export default function AmenitySection() {
                 sm:px-10
                 sm:text-lg
                 cursor-pointer
-                ${
-                  active === index
-                    ? "border-[#B98957] bg-[#B98957] text-white"
-                    : "border-gray-200 bg-white text-gray-700 hover:border-[#B98957]/50"
+                ${active === index
+                  ? "border-[#B98957] bg-[#B98957] text-white"
+                  : "border-gray-200 bg-white text-gray-700 hover:border-[#B98957]/50"
                 }
               `}
             >

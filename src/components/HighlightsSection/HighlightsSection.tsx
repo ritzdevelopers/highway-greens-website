@@ -43,7 +43,7 @@ const highlights: Highlight[] = [
 
 export default function HighlightsSection() {
     return (
-        <section className="bg-white py-5 md:py-8 lg:pt-15">
+        <section id="highlights" className="bg-white py-5 md:py-8 lg:pt-15">
             <div className="mx-auto max-w-8xl px-5 sm:px-6 md:px-8 lg:px-20">
 
                 {/* =====================================================
@@ -295,10 +295,10 @@ export default function HighlightsSection() {
                 "
                             />
 
-<div className="mt-10 text-center lg:mt-22 lg:text-left">
-  <div className="inline-block">
-    <h2
-      className="
+                            <div className="mt-10 text-center lg:mt-22 lg:text-left">
+                                <div className="inline-block">
+                                    <h2
+                                        className="
         text-3xl
         font-bold
         uppercase
@@ -306,13 +306,13 @@ export default function HighlightsSection() {
         sm:text-[38px]
         [font-family:Georgia,serif]
       "
-    >
-      Highlights
-    </h2>
+                                    >
+                                        Highlights
+                                    </h2>
 
-    <div className="mt-4 h-[2px] w-full bg-black" />
-  </div>
-</div>
+                                    <div className="mt-4 h-[2px] w-full bg-black" />
+                                </div>
+                            </div>
                         </motion.div>
 
 
