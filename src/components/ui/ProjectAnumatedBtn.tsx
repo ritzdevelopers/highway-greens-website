@@ -25,7 +25,7 @@ export default function MagneticButton({
 }: MagneticButtonProps) {
   return (
     <motion.button
-      type="submit"
+      type="button"
       onClick={onClick}
       style={{
         backgroundColor: bgColor,
@@ -37,7 +37,6 @@ export default function MagneticButton({
         relative
         inline-flex
         h-[56px]
-        w-full
         items-center
         justify-center
         overflow-hidden
@@ -65,7 +64,6 @@ export default function MagneticButton({
         }}
       />
 
-      {/* Button Text */}
       <motion.span
         className="relative z-10 text-[18px] font-semibold tracking-wide font-roboto"
         variants={{
