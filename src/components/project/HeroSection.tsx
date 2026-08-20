@@ -139,7 +139,7 @@ export default function HeroSection({ content }: HeroSectionProps) {
 
               <label
                 htmlFor="agreement"
-                className="text-[11px] sm:text-[12px] leading-[1.45] text-slate-700"
+                className="text-[11px] sm:text-[12px] leading-[1.45] text-slate-700 font-roboto"
               >
                 By submitting this form, I consent to being contacted by
                 Kinza Estate and its authorised representatives through call,

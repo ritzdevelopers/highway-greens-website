@@ -10,7 +10,7 @@ export default function PlotOptions() {
 
                 {/* Heading */}
                 <div className="text-center mb-10 md:mb-16">
-                    <p className="text-[#f5f5f5] text-[18px] mb-2">
+                    <p className="text-[#f5f5f5] text-[18px] mb-2 font-roboto">
                         Plot Options
                     </p>
 
@@ -50,6 +50,7 @@ export default function PlotOptions() {
               text-sm
               font-semibold
               text-white
+              font-roboto
             "
                                     >
                                         {item.tag}
@@ -64,6 +65,7 @@ export default function PlotOptions() {
             uppercase
             tracking-wide
             text-[#BD8B59]
+            font-roboto
           "
                                 >
                                     {item.category}
@@ -106,14 +108,14 @@ export default function PlotOptions() {
                                                 />
 
                                                 <p
-                                                    className={`text-[16px] leading-6 ${item.variant === "dark"
+                                                    className={`text-[16px] leading-6 font-roboto ${item.variant === "dark"
                                                             ? "text-white/90"
                                                             : "text-[#2d2d2d]"
                                                         }`}
                                                 >
                                                     <span>{feature.label}: </span>
 
-                                                    <span className="font-semibold">
+                                                    <span className="font-semibold font-roboto">
                                                         {feature.value}
                                                     </span>
                                                 </p>
@@ -122,7 +124,7 @@ export default function PlotOptions() {
                                     </div>
                                 ) : (
                                     <p
-                                        className={`text-[16px] leading-7 ${item.variant === "dark"
+                                        className={`text-[16px] leading-7 font-roboto ${item.variant === "dark"
                                                 ? "text-white/90"
                                                 : "text-[#555]"
                                             }`}

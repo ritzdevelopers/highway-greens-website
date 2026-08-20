@@ -111,13 +111,13 @@ export default function AmenitiesSection() {
                     strokeWidth={1.3}
                   />
 
-                  <h3 className="text-2xl font-semibold">
+                  <h3 className="text-2xl font-semibold font-roboto">
                     {activeAmenity.title}
                   </h3>
                 </div>
 
                 <div className="my-5 border-y border-neutral-400 py-3">
-                  <p className="text-[16px] font-medium">
+                  <p className="text-[16px] font-medium font-roboto">
                     {activeAmenity.subtitle}
                   </p>
                 </div>
@@ -138,7 +138,7 @@ export default function AmenitiesSection() {
                         delay: index * 0.04,
                         duration: 0.25,
                       }}
-                      className="flex gap-4 text-[15px] leading-6 text-neutral-700"
+                      className="flex gap-4 text-[15px] leading-6 text-neutral-700 font-roboto"
                     >
                       <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-black" />
                       <span>{point}</span>

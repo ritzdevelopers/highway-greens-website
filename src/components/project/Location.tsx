@@ -56,7 +56,7 @@ export default function Location() {
         <div className="mx-auto max-w-[1200px] text-center">
           {/* Location */}
           <p
-            className={`text-lg sm:text-xl tracking-[3px] text-[#222] transition-all duration-700 ${visible
+            className={`text-lg sm:text-xl tracking-[3px] text-[#222] transition-all duration-700 font-roboto ${visible
               ? "translate-y-0 opacity-100"
               : "translate-y-5 opacity-0"
               }`}
@@ -76,7 +76,7 @@ export default function Location() {
 
           {/* Description */}
           <p
-            className={`mx-auto mt-3 md:mt-5 max-w-[1000px] text-sm sm:text-base leading-7 text-[#666] transition-all delay-200 duration-700 lg:text-[16px] ${visible
+            className={`mx-auto mt-3 md:mt-5 font-roboto max-w-[1000px] text-sm sm:text-base leading-7 text-[#666] transition-all delay-200 duration-700 lg:text-[16px] ${visible
               ? "translate-y-0 opacity-100"
               : "translate-y-6 opacity-0"
               }`}
@@ -146,7 +146,7 @@ export default function Location() {
                 : "-translate-x-10 opacity-0"
                 }`}
             >
-              <h3 className="text-xl sm:text-[22px] font-normal">
+              <h3 className="text-xl sm:text-[22px] font-normal font-roboto">
                 Connectivity
               </h3>
 
@@ -154,7 +154,7 @@ export default function Location() {
                 {connectivityData.map((item, index) => (
                   <p
                     key={item}
-                    className={`text-sm sm:text-base leading-6 transition-all duration-500 ${visible
+                    className={`text-sm sm:text-base leading-6 transition-all duration-500 font-roboto ${visible
                       ? "translate-x-0 opacity-100"
                       : "-translate-x-3 opacity-0"
                       }`}
@@ -194,11 +194,11 @@ export default function Location() {
                   Strategic
                 </span>
 
-                <span className="text-sm leading-6 sm:text-base">
+                <span className="text-sm leading-6 sm:text-base font-roboto">
                   Access. Peaceful
                 </span>
 
-                <p className="w-full text-sm leading-6 sm:text-base">
+                <p className="w-full text-sm leading-6 sm:text-base font-roboto">
                   Surroundings. A More Balanced Everyday Life.
                 </p>
               </div>
