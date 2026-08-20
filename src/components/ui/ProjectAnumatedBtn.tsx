@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useEnquiryPopup } from "@/components/EnquiryPopup";
 
 type MagneticButtonProps = {
   text: string;
@@ -11,6 +12,8 @@ type MagneticButtonProps = {
   hoverColor?: string;
   onClick?: () => void;
   className?: string;
+  type?: "button" | "submit";
+  opensEnquiry?: boolean;
 };
 
 export default function MagneticButton({
@@ -22,11 +25,20 @@ export default function MagneticButton({
   hoverColor = "#caa56b",
   onClick,
   className = "",
+  type = "button",
+  opensEnquiry = type !== "submit",
 }: MagneticButtonProps) {
+  const { openEnquiry } = useEnquiryPopup();
+
   return (
     <motion.button
-      type="submit"
-      onClick={onClick}
+      type={type}
+      onClick={() => {
+        onClick?.();
+        if (opensEnquiry) {
+          openEnquiry();
+        }
+      }}
       style={{
         backgroundColor: bgColor,
         borderColor: accentColor,

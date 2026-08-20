@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Outfit, Roboto } from "next/font/google";
+import EnquiryPopupProvider from "@/components/EnquiryPopup";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -30,7 +31,7 @@ export default function RootLayout({
       className={`${outfit.variable} ${roboto.variable} h-full antialiased`}
     >
       <body className="min-h-full font-outfit">
-        {children}
+        <EnquiryPopupProvider>{children}</EnquiryPopupProvider>
       </body>
     </html>
   );

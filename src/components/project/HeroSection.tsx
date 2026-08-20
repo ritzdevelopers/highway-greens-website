@@ -5,13 +5,11 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import type { HeroContent } from "@/data/projectData";
 import MagneticButton from "../ui/ProjectAnumatedBtn";
+import { submitEnquiry } from "@/lib/submitEnquiry";
 
 type HeroSectionProps = {
   content: HeroContent;
 };
-
-const SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbxJ8IxPoNnzlewmbzjwOHVZA1KNDxq6Jx-G1n19NUzuocfz9vCq7Jv12_RcPdVYIHsq/exec";
 
 export default function HeroSection({ content }: HeroSectionProps) {
   const [formData, setFormData] = useState({
@@ -47,22 +45,13 @@ export default function HeroSection({ content }: HeroSectionProps) {
     setStatus("");
 
     try {
-      const formBody = new URLSearchParams();
-
-      formBody.append("formType", "hero");
-      formBody.append("fullName", formData.fullName);
-      formBody.append("email", formData.email);
-      formBody.append("mobile", formData.mobile);
-      formBody.append(
-        "interestedIn",
-        formData.interestedIn
-      );
-      formBody.append("message", formData.message);
-
-      await fetch(SCRIPT_URL, {
-        method: "POST",
-        mode: "no-cors",
-        body: formBody,
+      await submitEnquiry({
+        formType: "hero",
+        fullName: formData.fullName,
+        email: formData.email,
+        mobile: formData.mobile,
+        interestedIn: formData.interestedIn,
+        message: formData.message,
       });
 
       setFormData({
@@ -268,6 +257,7 @@ export default function HeroSection({ content }: HeroSectionProps) {
 
             {/* Submit */}
             <MagneticButton
+              type="submit"
               text={
                 isSubmitting
                   ? "Submitting..."

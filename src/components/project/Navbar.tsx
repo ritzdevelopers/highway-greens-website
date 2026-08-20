@@ -205,6 +205,7 @@ export default function Navbar({ links }: NavbarProps) {
                   accentColor="#c79157"
                   hoverColor="#c79157"
                   className="min-w-[150px] rounded-none border border-[#c79157]"
+                  onClick={() => setIsOpen(false)}
                 />
               </motion.div>
             </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useEnquiryPopup } from "@/components/EnquiryPopup";
 
 type AnimatedButtonProps = {
   text: string;
@@ -11,6 +12,8 @@ type AnimatedButtonProps = {
   hoverColor?: string;
   onClick?: () => void;
   className?: string;
+  type?: "button" | "submit";
+  opensEnquiry?: boolean;
 };
 
 export default function AnimatedButton({
@@ -22,11 +25,20 @@ export default function AnimatedButton({
   hoverColor = "#caa56b",
   onClick,
   className = "",
+  type = "button",
+  opensEnquiry = type !== "submit",
 }: AnimatedButtonProps) {
+  const { openEnquiry } = useEnquiryPopup();
+
   return (
     <motion.button
-      type="submit"
-      onClick={onClick}
+      type={type}
+      onClick={() => {
+        onClick?.();
+        if (opensEnquiry) {
+          openEnquiry();
+        }
+      }}
       initial="rest"
       whileHover="hover"
       whileTap="tap"

@@ -191,6 +191,7 @@ export default function Navbar({ links }: NavbarProps) {
                 textColor="#000"
                 accentColor="#b9965a"
                 hoverColor="#caa56b"
+                onClick={closeMenu}
               />
             </motion.div>
           </motion.div>
