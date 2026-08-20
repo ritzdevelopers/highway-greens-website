@@ -1,3 +1,6 @@
+"use client";
+
+import { scrollToSection } from "@/lib/scrollToSection";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -8,7 +11,11 @@ export default function Footer() {
         {/* Logo */}
         <div className="flex justify-center">
           <Link
-            href="/#hero"
+            href="/"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("hero");
+            }}
           >
             <Image
               src="/logo-white.png"

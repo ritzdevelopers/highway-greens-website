@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { footerData } from "@/data/footer";
+import { scrollToSection } from "@/lib/scrollToSection";
 
 export default function Footer() {
     return (
@@ -15,7 +16,11 @@ export default function Footer() {
                     {/* Logo */}
                     <div className="relative w-[180px] h-[75px] sm:w-[220px] sm:h-[90px]">
                         <Link
-                            href="/#hero"
+                            href="/project"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                scrollToSection("hero");
+                            }}
                         >
                             <Image
                                 src={footerData.logo}
