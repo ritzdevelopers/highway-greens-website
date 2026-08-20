@@ -25,7 +25,7 @@ export default function AnimatedButton({
 }: AnimatedButtonProps) {
   return (
     <motion.button
-      type="button"
+      type="submit"
       onClick={onClick}
       initial="rest"
       whileHover="hover"

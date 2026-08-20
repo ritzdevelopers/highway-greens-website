@@ -25,7 +25,7 @@ export default function MagneticButton({
 }: MagneticButtonProps) {
   return (
     <motion.button
-      type="button"
+      type="submit"
       onClick={onClick}
       style={{
         backgroundColor: bgColor,
