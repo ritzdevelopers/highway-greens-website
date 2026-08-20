@@ -66,7 +66,7 @@ export default function Location() {
 
           {/* Heading */}
           <h2
-            className={`mt-3 text-2xl font-normal tracking-[-1.5px] text-[#111] transition-all delay-100 duration-700 md:text-3xl lg:text-[48px] ${visible
+            className={`mt-3 text-2xl font-normal uppercase tracking-[-1.5px] text-[#111] transition-all delay-100 duration-700 md:text-3xl lg:text-[48px] ${visible
               ? "translate-y-0 opacity-100"
               : "translate-y-8 opacity-0"
               }`}

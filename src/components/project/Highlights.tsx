@@ -59,7 +59,7 @@ export default function Highlights() {
               }}
               className="mb-5 lg:mb-24"
             >
-              <h2 className="inline-block border-b-2 border-black pb-2 text-2xl font-normal tracking-[-0.03em] text-black md:text-3xl lg:text-[48px]">
+              <h2 className="inline-block uppercase border-b-2 border-black pb-2 text-2xl font-normal tracking-[-0.03em] text-black md:text-3xl lg:text-[48px]">
                 Highlights
               </h2>
             </motion.div>
@@ -143,26 +143,27 @@ export default function Highlights() {
             </div>
 
             {/* Explore Button */}
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{
-                duration: 0.5,
-                delay: 0.25,
-                ease: "easeOut",
-              }}
-            >
-              <AnimatedButton
-                text="Explore More"
-                bgColor="#BD8B59"
-                textColor="#1f1f1f"
-                hoverTextColor="#000"
-                accentColor="#caa56b"
-                hoverColor="#fff"
-                className="mt-5 md:mt-10 px-12 md:px-14"
-              />
-            </motion.div>
+<motion.div
+  initial={{ opacity: 0, y: 15 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{
+    duration: 0.5,
+    delay: 0.25,
+    ease: "easeOut",
+  }}
+  className="flex justify-center lg:justify-start"
+>
+  <AnimatedButton
+    text="Explore More"
+    bgColor="#BD8B59"
+    textColor="#1f1f1f"
+    hoverTextColor="#000"
+    accentColor="#caa56b"
+    hoverColor="#fff"
+    className="mt-5 px-12 md:mt-10 md:px-14"
+  />
+</motion.div>
 
           </div>
         </div>

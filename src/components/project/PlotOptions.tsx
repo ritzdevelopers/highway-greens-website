@@ -14,13 +14,13 @@ export default function PlotOptions() {
                         Plot Options
                     </p>
 
-                    <h2 className="text-white text-2xl md:text-3xl lg:text-[48px] font-light leading-tight">
+                    <h2 className="text-white uppercase text-2xl md:text-3xl lg:text-[48px] font-light leading-tight">
                         Find the Right Space for Your Future
                     </h2>
                 </div>
 
                 {/* Cards */}
-                <div className="grid gap-8 lg:grid-cols-3">
+                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                     {plotOptions.map((item) => {
                         const Icon = item.icon;
 

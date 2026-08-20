@@ -31,7 +31,7 @@ export default function ExperienceSection() {
 
       {/* Content */}
       <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
-        <h2 className="max-w-[4xl] text-2xl font-semibold tracking-tight text-white md:text-3xl lg:text-[38px]">
+        <h2 className="max-w-[4xl] text-2xl font-semibold tracking-tight text-white uppercase md:text-3xl lg:text-[38px]">
           Experience Highway Greens First Hand
         </h2>
 

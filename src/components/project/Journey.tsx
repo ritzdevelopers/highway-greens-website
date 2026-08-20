@@ -98,7 +98,7 @@ export default function Journey() {
           viewport={{ once: true }}
           className="mb-7 text-center md:mb-12"
         >
-          <h2 className="text-3xl font-medium tracking-tight text-[#172b22] md:text-4xl lg:text-[48px]">
+          <h2 className="text-3xl font-medium uppercase tracking-tight text-[#172b22] md:text-4xl lg:text-[48px]">
             The Journey
           </h2>
         </motion.div>
@@ -132,41 +132,41 @@ export default function Journey() {
                 }}
               >
                 <div className="group relative h-full w-full overflow-hidden rounded-2xl">
-{/* Desktop Image */}
-<div className="absolute inset-0 hidden md:block">
-  <PremiumImage
-    src={card.image}
-    alt={card.title}
-    fill
-    priority={pos.isCenter}
-    wrapperClassName="h-full w-full"
-    className="object-cover"
-    hoverScale={pos.isCenter ? 1.05 : 1.08}
-    parallax={pos.isCenter ? 8 : 6}
-    tilt={2}
-  />
-</div>
+                  {/* Desktop Image */}
+                  <div className="absolute inset-0 hidden md:block">
+                    <PremiumImage
+                      src={card.image}
+                      alt={card.title}
+                      fill
+                      priority={pos.isCenter}
+                      wrapperClassName="h-full w-full"
+                      className="object-cover"
+                      hoverScale={pos.isCenter ? 1.05 : 1.08}
+                      parallax={pos.isCenter ? 8 : 6}
+                      tilt={2}
+                    />
+                  </div>
 
-{/* Mobile Image */}
-<div className="absolute inset-0 block md:hidden">
-  <PremiumImage
-    src={card.mobileImage || card.image}
-    alt={card.title}
-    fill
-    priority={pos.isCenter}
-    wrapperClassName="h-full w-full"
-    className="object-cover"
-    hoverScale={pos.isCenter ? 1.05 : 1.08}
-    parallax={pos.isCenter ? 8 : 6}
-    tilt={2}
-  />
-</div>
+                  {/* Mobile Image */}
+                  <div className="absolute inset-0 block md:hidden">
+                    <PremiumImage
+                      src={card.mobileImage || card.image}
+                      alt={card.title}
+                      fill
+                      priority={pos.isCenter}
+                      wrapperClassName="h-full w-full"
+                      className="object-cover"
+                      hoverScale={pos.isCenter ? 1.05 : 1.08}
+                      parallax={pos.isCenter ? 8 : 6}
+                      tilt={2}
+                    />
+                  </div>
 
                   {/* Gradient overlay */}
                   <div
                     className={`absolute inset-0 transition-all duration-500 ${pos.isCenter
-                        ? "bg-gradient-to-t from-black/75 via-black/20 to-transparent group-hover:from-black/85"
-                        : "bg-gradient-to-t from-black/60 via-black/10 to-transparent hover:from-black/70"
+                      ? "bg-gradient-to-t from-black/75 via-black/20 to-transparent group-hover:from-black/85"
+                      : "bg-gradient-to-t from-black/60 via-black/10 to-transparent hover:from-black/70"
                       }`}
                   />
 
@@ -190,18 +190,6 @@ export default function Journey() {
                       {card.subtitle}
                     </p>
                   </div>
-
-                  {/* Top indicator icon on active/hover */}
-                  <div
-                    className={`
-                      absolute right-5 top-5
-                      h-9 w-9 rounded-full
-                      border border-white/40
-                      bg-black/20 backdrop-blur-sm
-                      transition-all duration-500
-                      ${pos.isCenter ? "opacity-100" : "opacity-0 group-hover:opacity-100"}
-                    `}
-                  />
                 </div>
               </motion.div>
             );

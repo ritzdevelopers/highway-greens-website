@@ -122,7 +122,7 @@ export default function AmenitySection() {
         via-[#FDFDFD]
         to-white
         px-0
-        py-2
+        py-5
         sm:px-4
         md:py-15
         lg:px-6

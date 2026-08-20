@@ -67,7 +67,7 @@ export default function Footer() {
 
       {/* Copyright */}
       <div className="py-6">
-        <p className="text-center text-[16px] italic text-white/50 font-roboto">
+        <p className="text-center text-[13px] italic text-white/50 font-roboto">
           © 2026 Highway Greens. All rights reserved. A Project by Kinza Estate.
           Digital Media Planned By Ritz Media World
         </p>

@@ -23,7 +23,8 @@ export default function PricingSection({
         via-[#FDFDFD]
         to-white
         py-8
-        lg:py-15
+        lg:pt-10
+        lg:pb-15
         px-2
       "
     >
@@ -69,7 +70,7 @@ export default function PricingSection({
         </motion.div>
 
         {/* Cards */}
-        <div className="grid gap-10 lg:grid-cols-3">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
           {plans.map((plan, index) => {
             const featured = index === 1;
 
@@ -92,9 +93,6 @@ export default function PricingSection({
                   duration: 0.6,
                   delay: index * 0.15,
                   ease: [0.22, 1, 0.36, 1],
-                }}
-                whileHover={{
-                  y: -8,
                 }}
                 className={`
                 group

@@ -33,7 +33,7 @@ const highlights: Highlight[] = [
 
 export default function HighlightsSection() {
     return (
-        <section id="highlights" className="bg-white py-5 md:py-8 lg:pt-15">
+        <section id="highlights" className="bg-white py-5 md:py-8 lg:pt-15 lg:mb-20">
             <div className="mx-auto max-w-8xl px-5 sm:px-6 md:px-8 lg:px-20">
 
                 {/* =====================================================

@@ -45,12 +45,13 @@ export default function AboutSection({ content }: AboutSectionProps) {
       <div className="relative z-10 mx-auto flex max-w-8xl px-5 sm:px-6 lg:px-20">
         <div className="grid items-center gap-10 md:gap-20 lg:grid-cols-[1.05fr_0.95fr]">
           {/* Left Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true }}
-          >
+<motion.div
+  initial={{ opacity: 0, x: -40 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.7 }}
+  viewport={{ once: true }}
+  className="text-center md:text-left"
+>
             <p className="mb-4 text-lg font-semibold tracking-[0.15em] text-[#666] font-roboto">
               Overview
             </p>
@@ -79,15 +80,17 @@ export default function AboutSection({ content }: AboutSectionProps) {
               ))}
             </div>
 
-            <AnimatedButton
-              text="Download Brochure"
-              bgColor="#caa56b"
-              textColor="#fff"
-              accentColor="#b9965a"
-              hoverTextColor="#000"
-              hoverColor="#ffffff"
-              className="mt-8"
-            />
+<div className="flex justify-center md:justify-start">
+  <AnimatedButton
+    text="Download Brochure"
+    bgColor="#caa56b"
+    textColor="#fff"
+    accentColor="#b9965a"
+    hoverTextColor="#000"
+    hoverColor="#ffffff"
+    className="mt-8"
+  />
+</div>
           </motion.div>
 
           {/* Right Image */}
