@@ -7,13 +7,17 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-12">
         {/* Logo */}
         <div className="flex justify-center">
-          <Image
-            src="/logo-white.png"
-            alt="Highway Greens"
-            width={222}
-            height={70}
-            className="h-auto w-65 object-contain"
-          />
+          <Link
+            href="/#hero"
+          >
+            <Image
+              src="/logo-white.png"
+              alt="Highway Greens"
+              width={222}
+              height={70}
+              className="h-auto w-65 object-contain"
+            />
+          </Link>
         </div>
 
         {/* Disclaimer */}

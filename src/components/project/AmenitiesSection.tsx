@@ -23,7 +23,7 @@ export default function AmenitiesSection() {
             Project Amenities
           </p>
 
-          <h2 className="text-2xl font-medium tracking-[-0.03em] text-black md:text-3xl lg:text-[48px]">
+          <h2 className="text-2xl font-normal tracking-[-0.03em] text-black md:text-3xl lg:text-[48px]">
             3+ ACRES OF ELEVATED LIVING
           </h2>
 

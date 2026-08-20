@@ -14,12 +14,16 @@ export default function Footer() {
 
                     {/* Logo */}
                     <div className="relative w-[180px] h-[75px] sm:w-[220px] sm:h-[90px]">
-                        <Image
-                            src={footerData.logo}
-                            alt="Logo"
-                            fill
-                            className="object-contain"
-                        />
+                        <Link
+                            href="/#hero"
+                        >
+                            <Image
+                                src={footerData.logo}
+                                alt="Logo"
+                                fill
+                                className="object-contain"
+                            />
+                        </Link>
                     </div>
 
                     {/* Disclaimer */}

@@ -59,7 +59,7 @@ export default function Highlights() {
               }}
               className="mb-5 lg:mb-24"
             >
-              <h2 className="inline-block border-b border-black pb-3 font-sans text-2xl font-light uppercase leading-none tracking-[-1px] text-black md:text-3xl lg:text-[36px]">
+              <h2 className="inline-block border-b-2 border-black pb-2 text-2xl font-normal tracking-[-0.03em] text-black md:text-3xl lg:text-[48px]">
                 Highlights
               </h2>
             </motion.div>

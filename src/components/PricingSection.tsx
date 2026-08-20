@@ -60,6 +60,7 @@ export default function PricingSection({
             font-bold
             text-[#10261D]
             lg:text-[38px]
+            uppercase
             [font-family:Georgia,serif]
           "
           >
